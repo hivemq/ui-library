@@ -1,5 +1,8 @@
+import { Slot } from '@radix-ui/react-slot'
 import classnames from 'classnames'
 import * as React from 'react'
+
+import { NavigationContext, NavigationItem } from '../../context/NavigationContext'
 
 export type HeaderNavigationProps = {
   children?: React.ReactNode
@@ -15,10 +18,16 @@ export function HeaderNavigation({ children }: HeaderNavigationProps) {
 
 type HeaderNavigationItemProps = {
   children: React.ReactNode
-  isActive?: boolean
+  item: NavigationItem
 }
 
-export function HeaderNavigationItem({ children, isActive = false }: HeaderNavigationItemProps) {
+export function HeaderNavigationItem({ children, item }: HeaderNavigationItemProps) {
+  const context = React.useContext(NavigationContext)
+
+  const isActive = React.useMemo(() => {
+    return context.isHeaderNavigationItemActive(item)
+  }, [context.navigation, context.isHeaderNavigationItemActive])
+
   return (
     <li
       className={classnames(
@@ -29,7 +38,14 @@ export function HeaderNavigationItem({ children, isActive = false }: HeaderNavig
         }
       )}
     >
-      {children}
+      <Slot
+        className={classnames('group-hover/item:text-white py-4 transition-[color]', {
+          'text-white/75': !isActive,
+          'text-white': isActive
+        })}
+      >
+        {children}
+      </Slot>
     </li>
   )
 }

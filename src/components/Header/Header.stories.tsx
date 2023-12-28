@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import Logo from '@/assets/hivemq-neg.svg?component'
 
+import { Navigation, NavigationItemBase, NavigationProvider } from '../../context/NavigationContext'
+
 import { Header } from './Header'
 import { HeaderDropdown } from './HeaderDropdown'
 import { HeaderLogo } from './HeaderLogo'
@@ -15,7 +17,7 @@ import { HeaderStatus } from './HeaderStatus'
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: 'Header',
-  component: Header,
+  component: NavigationProvider,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -24,7 +26,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof Header>
+} satisfies Meta<typeof NavigationProvider>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -34,37 +36,37 @@ export const Primary: Story = {
     (Story, context) => {
       Object.assign(context.args, { control: undefined })
 
-      const [navigation, setNavigation] = React.useState([
+      const navigation: Navigation = [
         {
-          name: 'Link 1',
-          root: '/monitor',
           href: '/monitor/dashboards',
-          active: true
+          rootHref: '/monitor',
+          title: 'Dashboard'
         },
         {
-          name: 'Link 2',
-          root: '/monitor',
-          href: '/monitor/dashboards',
-          active: false
+          href: '/monitor/clients',
+          rootHref: '/monitor',
+          title: 'Clients'
+        },
+        {
+          href: '/monitor/trace-recordings',
+          rootHref: '/monitor',
+          title: 'Trace Recordings'
         }
-      ])
+      ] as const
 
-      function handleClick(itemName: string) {
-        setNavigation((navigation) => {
-          return navigation.map((item) => {
-            return {
-              ...item,
-              active: item.name === itemName
-            }
-          })
-        })
+      const [currentHref, setCurrentHref] = React.useState<(typeof navigation)[number]['href']>(navigation[0].href)
+
+      function isNavigationItemActive(navigationItem: NavigationItemBase) {
+        return navigationItem.href === currentHref
       }
 
       return (
         <Story
           args={{
+            navigation,
+            isNavigationItemActive,
             children: (
-              <React.Fragment>
+              <Header>
                 <HeaderSidebarNavigationToggle />
 
                 <HeaderLogo logo={Logo}>Control Center</HeaderLogo>
@@ -72,20 +74,24 @@ export const Primary: Story = {
                 <HeaderNavigation>
                   {navigation.map((item, index) => {
                     return (
-                      <HeaderNavigationItem key={`main_${index}`} isActive={item.active}>
-                        <a
-                          href="#"
-                          className={classnames('group-hover/item:text-white py-4 transition-[color]', {
-                            'text-white/75': !item.active,
-                            'text-white': item.active
-                          })}
-                          onClick={(event) => {
-                            event.preventDefault()
-                            handleClick(item.name)
-                          }}
-                        >
-                          {item.name}
-                        </a>
+                      <HeaderNavigationItem key={`main_${index}`} item={item}>
+                        {({ isActive }) => {
+                          return (
+                            <a
+                              href="#"
+                              className={classnames('group-hover/item:text-white py-4 transition-[color]', {
+                                'text-white/75': !isActive,
+                                'text-white': isActive
+                              })}
+                              onClick={(event) => {
+                                event.preventDefault()
+                                setCurrentHref(item.href)
+                              }}
+                            >
+                              {item.title}
+                            </a>
+                          )
+                        }}
                       </HeaderNavigationItem>
                     )
                   })}
@@ -106,7 +112,7 @@ export const Primary: Story = {
                   </HeaderStatus>
                   <HeaderSearch placeholder="Search" />
                 </div>
-              </React.Fragment>
+              </Header>
             )
           }}
         />
