@@ -1,24 +1,24 @@
 import { LucideIcon, XIcon } from 'lucide-react'
 import { useState } from 'react'
 
-import { ToolbarButtonIcon } from './ToolbarButtonIcon'
+import { HeaderButtonIcon } from './HeaderButtonIcon'
 
-export type ToolbarPanelProps = {
+export type HeaderPanelProps = {
   children: React.ReactNode
   contextName?: string
   overlayId: string
   Icon: LucideIcon
 }
 
-export function ToolbarPanel({ contextName, children, overlayId, Icon }: ToolbarPanelProps) {
+export function HeaderPanel({ contextName, children, overlayId, Icon }: HeaderPanelProps) {
   const [isOpen, setOpen] = useState<boolean>(false)
 
   return (
     <>
-      <ToolbarButtonIcon isOpen={isOpen} setOpen={setOpen} overlayId={overlayId}>
+      <HeaderButtonIcon isOpen={isOpen} setOpen={setOpen} overlayId={overlayId}>
         {contextName}
         {isOpen ? <XIcon /> : <Icon />}
-      </ToolbarButtonIcon>
+      </HeaderButtonIcon>
       {isOpen && children}
     </>
   )

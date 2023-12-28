@@ -6,6 +6,7 @@ export type Theme = 'light' | 'dark'
 
 export function useTheme(defaultTheme: Theme = 'light'): [Theme, React.Dispatch<React.SetStateAction<Theme>>] {
   const [theme, setTheme] = useLocalStorage<Theme>('theme', defaultTheme)
+
   return [
     theme,
     useCallback(

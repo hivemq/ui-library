@@ -3,7 +3,7 @@ import * as React from 'react'
 
 type KeyValuePair = [key: string, value: string]
 
-export type ToolbarDropdownProps = {
+export type HeaderDropdownProps = {
   id: string
   values: KeyValuePair[]
   selected?: KeyValuePair
@@ -12,7 +12,7 @@ export type ToolbarDropdownProps = {
   ExtraIcon?: LucideIcon
 }
 
-export function ToolbarDropdown({ selected, values, className, ExtraIcon, id }: ToolbarDropdownProps) {
+export function HeaderDropdown({ selected, values, className, ExtraIcon, id }: HeaderDropdownProps) {
   return (
     <div className="relative flex items-center mr-8">
       {ExtraIcon && <ExtraIcon className="text-white" />}

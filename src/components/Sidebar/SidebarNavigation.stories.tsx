@@ -3,12 +3,12 @@ import * as React from 'react'
 
 import { SideNavItemBase } from '../../@types/Navigation.types'
 
-import { SidebarNavigation, SidebarNavigationRoot } from './SidebarNavigation'
+import { SidebarNavigation, Sidebar } from './SidebarNavigation'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: 'SidebarNavigation',
-  component: SidebarNavigationRoot,
+  component: Sidebar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -17,7 +17,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof SidebarNavigationRoot>
+} satisfies Meta<typeof Sidebar>
 
 export default meta
 type Story = StoryObj<typeof meta>

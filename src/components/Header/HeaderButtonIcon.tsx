@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 import { useOverlayState } from '@/hooks/useOverlay'
 
-export type ToolbarButtonIconProps = {
+export type HeaderButtonIconProps = {
   href?: string
   children?: React.ReactNode
   overlayId?: string
@@ -13,7 +13,7 @@ export type ToolbarButtonIconProps = {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 }
 
-export function ToolbarButtonIcon({ children, href, overlayId: id, setOpen, isOpen, onClick }: ToolbarButtonIconProps) {
+export function HeaderButtonIcon({ children, href, overlayId: id, setOpen, isOpen, onClick }: HeaderButtonIconProps) {
   const { setCurrentOverlayId, currentOverlayId } = useOverlayState()
 
   useEffect(() => {

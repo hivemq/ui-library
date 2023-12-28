@@ -5,7 +5,7 @@ export type HmqOverlayTamerProviderValue = {
   setOverlayId: (overlayId?: string) => void
 }
 
-export const HmqOverlayTamerContext = createContext<HmqOverlayTamerProviderValue>({
+export const OverlayContext = createContext<HmqOverlayTamerProviderValue>({
   overlayId: undefined,
   setOverlayId: () => {}
 })
@@ -14,10 +14,11 @@ type HmqOverlayTamerProviderProps = {
   children?: React.ReactNode
 }
 
-export const HmqOverlayTamerProvider: React.FC<HmqOverlayTamerProviderProps> = ({ children }) => {
+export const OverlayProvider: React.FC<HmqOverlayTamerProviderProps> = ({ children }) => {
   const [overlayId, setOverlayId] = useState<string>()
+
   return (
-    <HmqOverlayTamerContext.Provider
+    <OverlayContext.Provider
       value={{
         overlayId,
         setOverlayId: (newOverlayId?: string) => {
@@ -30,6 +31,6 @@ export const HmqOverlayTamerProvider: React.FC<HmqOverlayTamerProviderProps> = (
       }}
     >
       {children}
-    </HmqOverlayTamerContext.Provider>
+    </OverlayContext.Provider>
   )
 }

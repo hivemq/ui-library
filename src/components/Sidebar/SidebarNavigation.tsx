@@ -7,13 +7,13 @@ import { activeItem, defaultPadding, hoverLink, activeLink } from '../../utils/c
 
 import { SidebarNavigationItemCollapsed } from './SidebarNavigationItemCollapsed'
 
-export type SidebarNavigationRootProps = {
+export type SidebarProps = {
   isOpenMenu: boolean
   pageNeedsFullscreen?: boolean
   children?: React.ReactNode
 }
 
-export function SidebarNavigationRoot({ children, isOpenMenu, pageNeedsFullscreen }: SidebarNavigationRootProps) {
+export function Sidebar({ children, isOpenMenu, pageNeedsFullscreen }: SidebarProps) {
   return (
     <nav
       className={classnames(

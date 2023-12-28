@@ -1,11 +1,11 @@
 import * as React from 'react'
 
-export type AppIconProps = {
+export type HeaderAppIconProps = {
   icon: string
   title: string
 }
 
-export function AppIcon({ title, icon }: AppIconProps) {
+export function HeaderAppIcon({ title, icon }: HeaderAppIconProps) {
   return (
     <a
       href="#"

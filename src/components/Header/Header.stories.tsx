@@ -1,19 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import classnames from 'classnames'
 import * as React from 'react'
-import { useState } from 'react'
 
 import Logo from '@/assets/hivemq-neg.svg?component'
 
-import { ToolbarLogo } from './ToolbarLogo'
-import { ToolbarNavigation, ToolbarNavigationItem } from './ToolbarNavigation'
-import { ToolbarSidebarNavigationToggle } from './ToolbarSidebarNavigationToggle'
-import { TopLevelNavigation } from './TopLevelNavigation'
+import { Header } from './Header'
+import { HeaderDropdown } from './HeaderDropdown'
+import { HeaderLogo } from './HeaderLogo'
+import { HeaderNavigation, HeaderNavigationItem } from './HeaderNavigation'
+import { HeaderSearch } from './HeaderSearch'
+import { HeaderSidebarNavigationToggle } from './HeaderSidebarNavigationToggle'
+import { HeaderStatus } from './HeaderStatus'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'TopLevelNavigation',
-  component: TopLevelNavigation,
+  title: 'Header',
+  component: Header,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -22,7 +24,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof TopLevelNavigation>
+} satisfies Meta<typeof Header>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -32,7 +34,7 @@ export const Primary: Story = {
     (Story, context) => {
       Object.assign(context.args, { control: undefined })
 
-      const [navigation, setNavigation] = useState([
+      const [navigation, setNavigation] = React.useState([
         {
           name: 'Link 1',
           root: '/monitor',
@@ -63,14 +65,14 @@ export const Primary: Story = {
           args={{
             children: (
               <React.Fragment>
-                <ToolbarSidebarNavigationToggle />
+                <HeaderSidebarNavigationToggle />
 
-                <ToolbarLogo logo={Logo}>Control Center</ToolbarLogo>
+                <HeaderLogo logo={Logo}>Control Center</HeaderLogo>
 
-                <ToolbarNavigation>
+                <HeaderNavigation>
                   {navigation.map((item, index) => {
                     return (
-                      <ToolbarNavigationItem key={`main_${index}`} isActive={item.active}>
+                      <HeaderNavigationItem key={`main_${index}`} isActive={item.active}>
                         <a
                           href="#"
                           className={classnames('group-hover/item:text-white py-4 transition-[color]', {
@@ -84,10 +86,26 @@ export const Primary: Story = {
                         >
                           {item.name}
                         </a>
-                      </ToolbarNavigationItem>
+                      </HeaderNavigationItem>
                     )
                   })}
-                </ToolbarNavigation>
+                </HeaderNavigation>
+
+                <div className="flex items-center">
+                  <HeaderDropdown
+                    className="font-monospace"
+                    values={[
+                      ['a', 'v1.2'],
+                      ['b', 'v1.3']
+                    ]}
+                    id="version_select_dropdown"
+                  />
+                  <HeaderStatus title="RPM">42.8k</HeaderStatus>
+                  <HeaderStatus title="Status" indicatorVariant="success">
+                    Running
+                  </HeaderStatus>
+                  <HeaderSearch placeholder="Search" />
+                </div>
               </React.Fragment>
             )
           }}

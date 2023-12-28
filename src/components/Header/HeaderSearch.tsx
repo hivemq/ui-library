@@ -2,11 +2,11 @@ import { SearchIcon } from 'lucide-react'
 import * as React from 'react'
 import { useEffect, useMemo, useRef } from 'react'
 
-export type ToolbarSearchProps = {
+export type HeaderSearchProps = {
   placeholder: string
 }
 
-export function ToolbarSearch({ placeholder }: ToolbarSearchProps) {
+export function HeaderSearch({ placeholder }: HeaderSearchProps) {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const shortcut = useMemo(() => {

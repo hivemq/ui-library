@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as React from 'react'
 
-export type ToolbarLogoProps = {
+export type HeaderLogoProps = {
   logo: string
   href?: string
   hasLogoHr?: boolean
@@ -9,7 +9,7 @@ export type ToolbarLogoProps = {
   onClick?: () => void
 }
 
-export function ToolbarLogo({ logo, href = '#', hasLogoHr = true, onClick, children }: ToolbarLogoProps) {
+export function HeaderLogo({ logo, href = '#', hasLogoHr = true, onClick, children }: HeaderLogoProps) {
   return (
     <a
       href={href}

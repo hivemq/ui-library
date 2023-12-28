@@ -1,17 +1,17 @@
 import classnames from 'classnames'
 import * as React from 'react'
 
-type ToolbarIndicatorVariant = 'success' | 'warning' | 'error' | 'info' | undefined
+type HeaderIndicatorVariant = 'success' | 'warning' | 'error' | 'info' | undefined
 
-export type ToolbarStatusProps = {
+export type HeaderStatusProps = {
   children: React.ReactNode
   title: string
-  indicatorVariant?: ToolbarIndicatorVariant
+  indicatorVariant?: HeaderIndicatorVariant
   href?: string
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 }
 
-export function ToolbarStatus({ children, title, indicatorVariant, href, onClick }: ToolbarStatusProps) {
+export function HeaderStatus({ children, title, indicatorVariant, href, onClick }: HeaderStatusProps) {
   return (
     <a
       href={href || '#'}
@@ -37,7 +37,7 @@ export function ToolbarStatus({ children, title, indicatorVariant, href, onClick
   )
 }
 
-function getIndicatorVariantClassName(indicatorVariant: ToolbarIndicatorVariant) {
+function getIndicatorVariantClassName(indicatorVariant: HeaderIndicatorVariant) {
   switch (indicatorVariant) {
     case 'success':
       return 'bg-emerald-600'

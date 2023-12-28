@@ -1,11 +1,11 @@
 import classnames from 'classnames'
 import * as React from 'react'
 
-export type ToolbarNavigationProps = {
+export type HeaderNavigationProps = {
   children?: React.ReactNode
 }
 
-export function ToolbarNavigation({ children }: ToolbarNavigationProps) {
+export function HeaderNavigation({ children }: HeaderNavigationProps) {
   return (
     <div className="hidden md:block">
       <ul className="flex flex-row items-center gap-7 xl:gap-10">{children}</ul>
@@ -13,12 +13,12 @@ export function ToolbarNavigation({ children }: ToolbarNavigationProps) {
   )
 }
 
-type ToolbarNavigationItemProps = {
+type HeaderNavigationItemProps = {
   children: React.ReactNode
   isActive?: boolean
 }
 
-export function ToolbarNavigationItem({ children, isActive = false }: ToolbarNavigationItemProps) {
+export function HeaderNavigationItem({ children, isActive = false }: HeaderNavigationItemProps) {
   return (
     <li
       className={classnames(
