@@ -5,12 +5,15 @@ import { useState } from 'react'
 
 import Logo from '@/assets/hivemq-neg.svg?component'
 
-import { HmqUIShell } from '@/components'
+import { ToolbarLogo } from './ToolbarLogo'
+import { ToolbarNavigation, ToolbarNavigationItem } from './ToolbarNavigation'
+import { ToolbarSidebarNavigationToggle } from './ToolbarSidebarNavigationToggle'
+import { TopLevelNavigation } from './TopLevelNavigation'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'HmqUIShell.TopLevelNavigation',
-  component: HmqUIShell.TopLevelNavigation,
+  title: 'TopLevelNavigation',
+  component: TopLevelNavigation,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -19,7 +22,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof HmqUIShell.TopLevelNavigation>
+} satisfies Meta<typeof TopLevelNavigation>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -60,14 +63,14 @@ export const Primary: Story = {
           args={{
             children: (
               <React.Fragment>
-                <HmqUIShell.SideNavMenuToolbarButton />
+                <ToolbarSidebarNavigationToggle />
 
-                <HmqUIShell.Logo logo={Logo}>Control Center</HmqUIShell.Logo>
+                <ToolbarLogo logo={Logo}>Control Center</ToolbarLogo>
 
-                <HmqUIShell.MainNavigation>
+                <ToolbarNavigation>
                   {navigation.map((item, index) => {
                     return (
-                      <HmqUIShell.MainNavItem key={`main_${index}`} isActive={item.active}>
+                      <ToolbarNavigationItem key={`main_${index}`} isActive={item.active}>
                         <a
                           href="#"
                           className={classnames('group-hover/item:text-white py-4 transition-[color]', {
@@ -81,10 +84,10 @@ export const Primary: Story = {
                         >
                           {item.name}
                         </a>
-                      </HmqUIShell.MainNavItem>
+                      </ToolbarNavigationItem>
                     )
                   })}
-                </HmqUIShell.MainNavigation>
+                </ToolbarNavigation>
               </React.Fragment>
             )
           }}

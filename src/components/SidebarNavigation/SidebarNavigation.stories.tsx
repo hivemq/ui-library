@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import * as React from 'react'
 
-import { SideNavItemBase } from './HmqUIShell'
+import { SideNavItemBase } from '../../@types/Navigation.types'
 
-import { HmqUIShell } from '@/components'
+import { SidebarNavigation, SidebarNavigationRoot } from './SidebarNavigation'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'HmqUIShell.PageLevelNavigation',
-  component: HmqUIShell.PageLevelNavigation,
+  title: 'SidebarNavigation',
+  component: SidebarNavigationRoot,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -17,7 +17,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof HmqUIShell.PageLevelNavigation>
+} satisfies Meta<typeof SidebarNavigationRoot>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -105,7 +105,7 @@ export const Primary: Story = {
           args={{
             ...context.args,
             children: (
-              <HmqUIShell.SidebarNavigation
+              <SidebarNavigation
                 navigation={navigation}
                 renderNavLink={renderNavLink}
                 isHrefActive={(href) => href === '/monitor/dashboards'}

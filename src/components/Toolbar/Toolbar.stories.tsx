@@ -3,12 +3,17 @@ import * as React from 'react'
 
 import Logo from '@/assets/hivemq-neg.svg?component'
 
-import { HmqUIShell } from '@/components'
+import { ToolbarDropdown } from './ToolbarDropdown'
+import { ToolbarLogo } from './ToolbarLogo'
+import { ToolbarSearch } from './ToolbarSearch'
+import { ToolbarSidebarNavigationToggle } from './ToolbarSidebarNavigationToggle'
+import { ToolbarStatus } from './ToolbarStatus'
+import { TopLevelNavigation } from './TopLevelNavigation'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'HmqUIShell.HeaderItems',
-  component: HmqUIShell.TopLevelNavigation,
+  title: 'Toolbar',
+  component: TopLevelNavigation,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -17,7 +22,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof HmqUIShell.TopLevelNavigation>
+} satisfies Meta<typeof TopLevelNavigation>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -32,12 +37,12 @@ export const Primary: Story = {
           args={{
             children: (
               <React.Fragment>
-                <HmqUIShell.SideNavMenuToolbarButton />
+                <ToolbarSidebarNavigationToggle />
 
-                <HmqUIShell.Logo logo={Logo}>Control Center</HmqUIShell.Logo>
+                <ToolbarLogo logo={Logo}>Control Center</ToolbarLogo>
 
                 <div className="flex items-center">
-                  <HmqUIShell.HeaderDropdown
+                  <ToolbarDropdown
                     className="font-monospace"
                     values={[
                       ['a', 'v1.2'],
@@ -45,11 +50,11 @@ export const Primary: Story = {
                     ]}
                     id="version_select_dropdown"
                   />
-                  <HmqUIShell.HeaderStatus title="RPM">42.8k</HmqUIShell.HeaderStatus>
-                  <HmqUIShell.HeaderStatus title="Status" indicator="success">
+                  <ToolbarStatus title="RPM">42.8k</ToolbarStatus>
+                  <ToolbarStatus title="Status" indicatorVariant="success">
                     Running
-                  </HmqUIShell.HeaderStatus>
-                  <HmqUIShell.HeaderSearch placeholder="Search" />
+                  </ToolbarStatus>
+                  <ToolbarSearch placeholder="Search" />
                 </div>
               </React.Fragment>
             )
