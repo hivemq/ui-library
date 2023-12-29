@@ -96,7 +96,13 @@ export const Primary: Story = {
                 </Sidebar>
 
                 <Content>
-                  <div>Hello</div>
+                  <div className="p-16">
+                    <div className="bg-white p-4 rounded border">
+                      Hello 👋
+                      <br />
+                      virtual route <span className="bg-slate-100 font-monospace py-1 px-2 text-xs">{storyContext.currentHref}</span>
+                    </div>
+                  </div>
                 </Content>
               </>
             )

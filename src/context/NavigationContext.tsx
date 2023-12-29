@@ -31,26 +31,27 @@ export type isNavigationItemActive = (navigationItem: NavigationItemBase) => boo
 
 export type RenderNavLinkCallback = (sideNavItem: NavigationItemBase, className: string) => React.ReactNode
 
-export type NavigationProviderValues = {
-  navigation: Navigation | undefined
-  isHeaderNavigationItemActive: isNavigationItemActive
-  isSidebarNavigationItemActive: isNavigationItemActive
-  getActiveNavigationItem: () => NavigationItem | undefined
-}
-
-export const NavigationContext = React.createContext<NavigationProviderValues>({
-  navigation: undefined,
-  isHeaderNavigationItemActive: undefined as unknown as isNavigationItemActive,
-  isSidebarNavigationItemActive: undefined as unknown as isNavigationItemActive,
-  getActiveNavigationItem: () => undefined as unknown as NavigationItem
-})
-
 export type NavigationProviderProps = {
   children?: React.ReactNode
   navigation: Navigation
   isHeaderNavigationItemActive: isNavigationItemActive
   isSidebarNavigationItemActive: isNavigationItemActive
 }
+
+export type NavigationProviderValues = Omit<NavigationProviderProps, 'children'> & {
+  getActiveNavigationItem: () => NavigationItem | undefined
+  isSidebarOpen: boolean
+  setSidebarOpen: (value: boolean) => void
+}
+
+export const NavigationContext = React.createContext<NavigationProviderValues>({
+  navigation: undefined as unknown as Navigation,
+  isHeaderNavigationItemActive: undefined as unknown as isNavigationItemActive,
+  isSidebarNavigationItemActive: undefined as unknown as isNavigationItemActive,
+  getActiveNavigationItem: () => undefined as unknown as NavigationItem,
+  isSidebarOpen: false,
+  setSidebarOpen: () => void 0
+})
 
 export function NavigationProvider({
   children,
@@ -62,13 +63,17 @@ export function NavigationProvider({
     return () => navigation.find(isHeaderNavigationItemActive)
   }, [navigation, isHeaderNavigationItemActive])
 
+  const [isSidebarOpen, setSidebarOpen] = React.useState<boolean>(false)
+
   return (
     <NavigationContext.Provider
       value={{
         navigation,
         isHeaderNavigationItemActive,
         isSidebarNavigationItemActive,
-        getActiveNavigationItem
+        getActiveNavigationItem,
+        isSidebarOpen,
+        setSidebarOpen
       }}
     >
       {children}

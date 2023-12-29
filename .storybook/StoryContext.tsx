@@ -1,10 +1,12 @@
 import * as React from 'react'
 
 export type StoryContextValues = {
+  currentHref: string
   setCurrentHref: (href: string) => void
 }
 
 export const StoryContext = React.createContext<StoryContextValues>({
+  currentHref: '',
   setCurrentHref: () => void 0
 })
 
@@ -14,13 +16,11 @@ export type StoryContextProviderProps = StoryContextValues & {
 
 export function StoryProvider({
   children,
-  setCurrentHref
+  ...restProps
 }: StoryContextProviderProps) {
   return (
     <StoryContext.Provider
-      value={{
-        setCurrentHref
-      }}
+      value={restProps}
     >
       {children}
     </StoryContext.Provider>

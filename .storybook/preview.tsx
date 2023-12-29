@@ -86,8 +86,8 @@ function StoryWrapper({ children }: { children: React.ReactNode }) {
       ]
     },
     {
-      href: '/data-hub',
-      title: 'Data Hub'
+      href: '/data-management',
+      title: 'Data Management'
     }
   ] as const
 
@@ -103,7 +103,7 @@ function StoryWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <NavigationProvider navigation={navigation} isHeaderNavigationItemActive={isHeaderNavigationItemActive} isSidebarNavigationItemActive={isSidebarNavigationItemActive}>
-      <StoryProvider setCurrentHref={setCurrentHref}>
+      <StoryProvider setCurrentHref={setCurrentHref} currentHref={currentHref}>
         {children}
       </StoryProvider>
     </NavigationProvider>

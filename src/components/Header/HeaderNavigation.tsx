@@ -11,11 +11,9 @@ export type HeaderNavigationProps = {
 export function HeaderNavigation({ children }: HeaderNavigationProps) {
   const context = React.useContext(NavigationContext)
 
-  console.log('context.navigation', context.navigation)
-
   return (
     <div className="hidden md:block">
-      <ul className="flex flex-row items-center gap-7 xl:gap-10">
+      <ul className="flex flex-row items-center gap-7 xl:gap-10 mr-12">
         {context.navigation?.map((item, index) => <HeaderNavigationItem key={`main_${index}`} item={item} children={children} />)}
       </ul>
     </div>
