@@ -68,7 +68,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
+      '@': resolve(__dirname, './src'),
+      '@hivemq/ui-shell': resolve(__dirname, './src/lib.ts')
     }
   }
 })

@@ -15,24 +15,29 @@ import { HeaderSidebarNavigationToggle } from '../components/Header/HeaderSideba
 import { HeaderStatus } from '../components/Header/HeaderStatus'
 import { Sidebar, SidebarNavigation } from '../components/Sidebar/SidebarNavigation'
 
+import { SimpleImplementation } from './cookbook/SimpleImpementation'
+
+function Empty({ children }: { children: React.ReactNode }) {
+  return <>{children}</>
+}
+
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Full Demo',
-  component: Grid,
+  title: 'Demo',
+  component: Empty,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof Grid>
+} satisfies Meta<typeof Empty>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
+  name: 'Full Interactive',
   decorators: [
     (Story, context) => {
       Object.assign(context.args, { control: undefined })
@@ -43,7 +48,7 @@ export const Primary: Story = {
         <Story
           args={{
             children: (
-              <>
+              <Grid>
                 <Header>
                   <HeaderSidebarNavigationToggle />
 
@@ -104,11 +109,16 @@ export const Primary: Story = {
                     </div>
                   </div>
                 </Content>
-              </>
+              </Grid>
             )
           }}
         />
       )
     }
   ]
+}
+
+export const Cookbook01: Story = {
+  name: 'Cookbook/01',
+  render: SimpleImplementation
 }

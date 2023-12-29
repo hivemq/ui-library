@@ -1,0 +1,54 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as DemoStories from './Demo.stories';
+
+import SimpleImplementation from './cookbook/SimpleImpementation?raw';
+
+<Meta title='Introduction' />
+
+# HiveMQ UI Shell 🐚
+
+The HiveMQ UI Shell is a template that frames the content of a page.
+It provides the most basic elements required to build a HiveMQ Application,
+such as the header, sidebar navigation, and overlays.
+
+## Installation
+
+The HiveMQ UI Shell is available as an npm package in the GitHub Package Registry.
+For that you need to generate a personal access token with the `read:packages` scope.
+See [Authenticating to GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages) for more information.
+
+Set the token and scope in your local or project `.npmrc` file:
+
+```bash
+//npm.pkg.github.com/:_authToken=ghp_EXAMPLETOKENABC123
+@hivemq:registry=https://npm.pkg.github.com
+```
+
+Then you can install the package with the following command:
+
+```bash
+npm install @hivemq/ui-shell
+```
+
+## Cookbooks
+
+Let's get started with maximum speed you can ether use the [interactive demo](/?path=/story/demo-interactive--primary)
+or follow the steps below to add the UI Shell to your project.
+
+## Demo
+
+Checkout the [interactive demo](/?path=/story/demo-interactive--primary) below to see the UI Shell in action.
+
+<Canvas of={DemoStories.Primary} layout='fullscreen' />
+
+Or use the SimpleImplementation example to kickstart your journey.
+
+
+<pre>
+    <code class="language-tsx">
+        {SimpleImplementation}
+    </code>
+</pre>
+
+
