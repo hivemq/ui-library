@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import classnames from 'classnames'
 import * as React from 'react'
 
 import Logo from '@/assets/hivemq-neg.svg?component'
 
-import { Navigation, NavigationItemBase, NavigationProvider } from '../../context/NavigationContext'
+import { StoryContext } from '../../../.storybook/StoryContext'
 
 import { Header } from './Header'
 import { HeaderDropdown } from './HeaderDropdown'
 import { HeaderLogo } from './HeaderLogo'
-import { HeaderNavigation, HeaderNavigationItem } from './HeaderNavigation'
+import { HeaderNavigation } from './HeaderNavigation'
 import { HeaderSearch } from './HeaderSearch'
 import { HeaderSidebarNavigationToggle } from './HeaderSidebarNavigationToggle'
 import { HeaderStatus } from './HeaderStatus'
@@ -17,7 +16,7 @@ import { HeaderStatus } from './HeaderStatus'
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: 'Header',
-  component: NavigationProvider,
+  component: Header,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -26,7 +25,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof NavigationProvider>
+} satisfies Meta<typeof Header>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -36,65 +35,29 @@ export const Primary: Story = {
     (Story, context) => {
       Object.assign(context.args, { control: undefined })
 
-      const navigation: Navigation = [
-        {
-          href: '/monitor/dashboards',
-          rootHref: '/monitor',
-          title: 'Dashboard'
-        },
-        {
-          href: '/monitor/clients',
-          rootHref: '/monitor',
-          title: 'Clients'
-        },
-        {
-          href: '/monitor/trace-recordings',
-          rootHref: '/monitor',
-          title: 'Trace Recordings'
-        }
-      ] as const
-
-      const [currentHref, setCurrentHref] = React.useState<(typeof navigation)[number]['href']>(navigation[0].href)
-
-      function isNavigationItemActive(navigationItem: NavigationItemBase) {
-        return navigationItem.href === currentHref
-      }
+      const storyContext = React.useContext(StoryContext)
 
       return (
         <Story
           args={{
-            navigation,
-            isNavigationItemActive,
             children: (
-              <Header>
+              <>
                 <HeaderSidebarNavigationToggle />
 
                 <HeaderLogo logo={Logo}>Control Center</HeaderLogo>
 
                 <HeaderNavigation>
-                  {navigation.map((item, index) => {
-                    return (
-                      <HeaderNavigationItem key={`main_${index}`} item={item}>
-                        {({ isActive }) => {
-                          return (
-                            <a
-                              href="#"
-                              className={classnames('group-hover/item:text-white py-4 transition-[color]', {
-                                'text-white/75': !isActive,
-                                'text-white': isActive
-                              })}
-                              onClick={(event) => {
-                                event.preventDefault()
-                                setCurrentHref(item.href)
-                              }}
-                            >
-                              {item.title}
-                            </a>
-                          )
-                        }}
-                      </HeaderNavigationItem>
-                    )
-                  })}
+                  {({ item }) => (
+                    <a
+                      href="#"
+                      onClick={(event) => {
+                        event.preventDefault()
+                        storyContext.setCurrentHref(item.href)
+                      }}
+                    >
+                      {item.title}
+                    </a>
+                  )}
                 </HeaderNavigation>
 
                 <div className="flex items-center">
@@ -112,7 +75,7 @@ export const Primary: Story = {
                   </HeaderStatus>
                   <HeaderSearch placeholder="Search" />
                 </div>
-              </Header>
+              </>
             )
           }}
         />

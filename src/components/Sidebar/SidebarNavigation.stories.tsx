@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import * as React from 'react'
 
-import { SideNavItemBase } from '../../@types/Navigation.types'
+import { StoryContext } from '../../../.storybook/StoryContext'
 
 import { SidebarNavigation, Sidebar } from './SidebarNavigation'
 
@@ -22,95 +22,34 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const renderNavLink = (sideNavItem: SideNavItemBase, className: string) => {
-  return (
-    <a href={sideNavItem.href} className={className}>
-      {sideNavItem.name}
-    </a>
-  )
-}
-
 export const Primary: Story = {
+  args: {
+    isOpenMenu: true
+  },
   decorators: [
     (Story, context) => {
       Object.assign(context.args)
 
-      const [navigation, setNavigation] = React.useState([
-        {
-          name: 'Monitor',
-          root: '/monitor',
-          href: '/monitor/dashboards',
-          sideNav: [
-            {
-              sectionName: 'Monitor',
-              items: [
-                {
-                  name: 'Dashboards',
-                  href: '/monitor/dashboards'
-                },
-                {
-                  name: 'Clients',
-                  href: '/monitor/clients'
-                },
-                {
-                  name: 'Trace Recordings',
-                  href: '/monitor/trace-recordings'
-                }
-              ]
-            },
-            {
-              sectionName: 'Messages',
-              items: [
-                {
-                  name: 'Retained Messages',
-                  href: '/monitor/retained-messages'
-                },
-                {
-                  name: 'Dropped Messages',
-                  href: '/monitor/dropped-messages'
-                }
-              ]
-            },
-            {
-              sectionName: 'Subscriptions',
-              items: [
-                {
-                  name: 'Shared Subscriptions',
-                  href: '/monitor/shared-subscriptions'
-                },
-                {
-                  name: 'Extension Consumers',
-                  href: '/monitor/extension-consumers'
-                },
-                {
-                  name: 'Installed',
-                  href: '',
-                  root: '/extensions/installed',
-                  forceOpen: false,
-                  subItems: [
-                    {
-                      name: 'Kafka',
-                      href: '/extensions/installed/kafka'
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ])
+      const storyContext = React.useContext(StoryContext)
 
       return (
         <Story
           args={{
             ...context.args,
             children: (
-              <SidebarNavigation
-                navigation={navigation}
-                renderNavLink={renderNavLink}
-                isHrefActive={(href) => href === '/monitor/dashboards'}
-                isRootActive={(root) => root === '/monitor'}
-              />
+              <SidebarNavigation>
+                {({ item }) => (
+                  <a
+                    href={item.href}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      storyContext.setCurrentHref(item.href)
+                    }}
+                  >
+                    {item.title}
+                  </a>
+                )}
+              </SidebarNavigation>
             )
           }}
         />

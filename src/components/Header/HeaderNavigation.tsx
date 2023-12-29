@@ -5,23 +5,28 @@ import * as React from 'react'
 import { NavigationContext, NavigationItem } from '../../context/NavigationContext'
 
 export type HeaderNavigationProps = {
-  children?: React.ReactNode
+  children: (options: { item: NavigationItem; isActive: boolean }) => React.ReactNode
 }
 
 export function HeaderNavigation({ children }: HeaderNavigationProps) {
+  const context = React.useContext(NavigationContext)
+
+  console.log('context.navigation', context.navigation)
+
   return (
     <div className="hidden md:block">
-      <ul className="flex flex-row items-center gap-7 xl:gap-10">{children}</ul>
+      <ul className="flex flex-row items-center gap-7 xl:gap-10">
+        {context.navigation?.map((item, index) => <HeaderNavigationItem key={`main_${index}`} item={item} children={children} />)}
+      </ul>
     </div>
   )
 }
 
-type HeaderNavigationItemProps = {
-  children: React.ReactNode
+type HeaderNavigationItemProps = HeaderNavigationProps & {
   item: NavigationItem
 }
 
-export function HeaderNavigationItem({ children, item }: HeaderNavigationItemProps) {
+function HeaderNavigationItem({ children, item }: HeaderNavigationItemProps) {
   const context = React.useContext(NavigationContext)
 
   const isActive = React.useMemo(() => {
@@ -44,7 +49,7 @@ export function HeaderNavigationItem({ children, item }: HeaderNavigationItemPro
           'text-white': isActive
         })}
       >
-        {children}
+        {children({ isActive, item })}
       </Slot>
     </li>
   )

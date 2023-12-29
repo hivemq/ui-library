@@ -1,25 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import classnames from 'classnames'
 import * as React from 'react'
 
 import Logo from '@/assets/hivemq-neg.svg?component'
 
+import { StoryContext } from '../../.storybook/StoryContext'
 import { Content } from '../components/Content/Content'
 import { Grid } from '../components/Grid/Grid'
 import { Header } from '../components/Header/Header'
 import { HeaderDropdown } from '../components/Header/HeaderDropdown'
 import { HeaderLogo } from '../components/Header/HeaderLogo'
-import { HeaderNavigation, HeaderNavigationItem } from '../components/Header/HeaderNavigation'
+import { HeaderNavigation } from '../components/Header/HeaderNavigation'
 import { HeaderSearch } from '../components/Header/HeaderSearch'
 import { HeaderSidebarNavigationToggle } from '../components/Header/HeaderSidebarNavigationToggle'
 import { HeaderStatus } from '../components/Header/HeaderStatus'
 import { Sidebar, SidebarNavigation } from '../components/Sidebar/SidebarNavigation'
-import { Navigation, NavigationItemBase, NavigationProvider } from '../context/NavigationContext'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: 'Full Demo',
-  component: NavigationProvider,
+  component: Grid,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered'
@@ -28,7 +27,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} satisfies Meta<typeof NavigationProvider>
+} satisfies Meta<typeof Grid>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -38,119 +37,30 @@ export const Primary: Story = {
     (Story, context) => {
       Object.assign(context.args, { control: undefined })
 
-      const navigation: Navigation = [
-        {
-          href: '/dashboards',
-          title: 'Dashboard',
-          sidebarNavigation: [
-            {
-              sectionName: 'Monitor',
-              items: [
-                {
-                  href: '/dashboards',
-                  title: 'Overview'
-                },
-                {
-                  href: '/dashboards/clustering',
-                  title: 'Clustering'
-                },
-                {
-                  href: '/dashboards/policies',
-                  title: 'Policies'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          href: '/clients',
-          title: 'Clients',
-          sidebarNavigation: [
-            {
-              sectionName: 'Management',
-              items: [
-                {
-                  href: '/clients',
-                  title: 'Overview'
-                },
-                {
-                  href: '/clients/sessions',
-                  title: 'Sessions'
-                },
-                {
-                  href: '/clients/retained-messages',
-                  title: 'Retained Messages'
-                },
-                {
-                  href: '/clients/subscriptions',
-                  title: 'Subscriptions'
-                }
-              ]
-            },
-            {
-              sectionName: 'Tracing',
-              items: [
-                {
-                  href: '/clients/trace-recordings',
-                  title: 'Trace Recordings'
-                },
-                {
-                  href: '/clients/trace-messages',
-                  title: 'Trace Messages'
-                },
-                {
-                  href: '/clients/trace-connections',
-                  title: 'Trace Connections'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          href: '/data-hub',
-          title: 'Data Hub'
-        }
-      ] as const
-
-      const [currentHref, setCurrentHref] = React.useState<(typeof navigation)[number]['href']>(navigation[0].href)
-
-      function isHeaderNavigationItemActive(navigationItem: NavigationItemBase) {
-        return navigationItem.href === '/' + currentHref.split('/')[1]
-      }
-
-      function isSidebarNavigationItemActive(navigationItem: NavigationItemBase) {
-        return navigationItem.href === currentHref
-      }
+      const storyContext = React.useContext(StoryContext)
 
       return (
         <Story
           args={{
-            navigation,
-            isHeaderNavigationItemActive,
-            isSidebarNavigationItemActive,
             children: (
-              <Grid>
+              <>
                 <Header>
                   <HeaderSidebarNavigationToggle />
 
                   <HeaderLogo logo={Logo}>Control Center</HeaderLogo>
 
                   <HeaderNavigation>
-                    {navigation.map((item, index) => {
-                      return (
-                        <HeaderNavigationItem key={`main_${index}`} item={item}>
-                          <a
-                            href="#"
-                            onClick={(event) => {
-                              event.preventDefault()
-                              setCurrentHref(item.href)
-                            }}
-                          >
-                            {item.title}
-                          </a>
-                        </HeaderNavigationItem>
-                      )
-                    })}
+                    {({ item }) => (
+                      <a
+                        href="#"
+                        onClick={(event) => {
+                          event.preventDefault()
+                          storyContext.setCurrentHref(item.href)
+                        }}
+                      >
+                        {item.title}
+                      </a>
+                    )}
                   </HeaderNavigation>
 
                   <div className="flex items-center">
@@ -176,7 +86,7 @@ export const Primary: Story = {
                         href={item.href}
                         onClick={(event) => {
                           event.preventDefault()
-                          setCurrentHref(item.href)
+                          storyContext.setCurrentHref(item.href)
                         }}
                       >
                         {item.title}
@@ -188,7 +98,7 @@ export const Primary: Story = {
                 <Content>
                   <div>Hello</div>
                 </Content>
-              </Grid>
+              </>
             )
           }}
         />
