@@ -14,6 +14,7 @@ export type NavigationItemBase = {
 }
 
 export type NavigationItem = NavigationItemBase & {
+  isFullscreenPage?: boolean
   sidebarNavigation?: {
     sectionName?: string
     items: SidebarNavigationItem[]

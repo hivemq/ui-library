@@ -44,6 +44,7 @@ function StoryWrapper({ children }: { children: React.ReactNode }) {
     {
       href: '/clients',
       title: 'Clients',
+      isFullscreenPage: true,
       sidebarNavigation: [
         {
           sectionName: 'Management',

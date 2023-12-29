@@ -6,17 +6,19 @@ import { NavigationContext, SidebarNavigationItem } from '../../context/Navigati
 import { activeItem, defaultPadding, hoverLink, activeLink } from '../../utils/classNames'
 
 export type SidebarProps = {
-  isOpenMenu: boolean
-  pageNeedsFullscreen?: boolean
   children?: React.ReactNode
 }
 
-export function Sidebar({ children, pageNeedsFullscreen }: SidebarProps) {
+export function Sidebar({ children }: SidebarProps) {
   const context = React.useContext(NavigationContext)
 
   const sidebarNavigation = React.useMemo(() => {
     return context.getActiveNavigationItem()?.sidebarNavigation
   }, [context.navigation, context.isHeaderNavigationItemActive])
+
+  const pageNeedsFullscreen = React.useMemo(() => {
+    return context.getActiveNavigationItem()?.isFullscreenPage
+  }, [context.navigation, context.getActiveNavigationItem])
 
   return (
     <nav
@@ -24,6 +26,7 @@ export function Sidebar({ children, pageNeedsFullscreen }: SidebarProps) {
         'md:text-base md:static fixed md:pb-4 pb-12 top-[74px] w-10/12 md:w-auto text-lg bg-white dark:bg-stone-900 border-r border-b md:border-b-0 border-stone-200 dark:border-stone-800 z-20 font-medium text-typo-muted dark:text-stone-300',
         {
           'md:block md:pb-0': !pageNeedsFullscreen,
+          'md:fixed min-w-[15rem]': pageNeedsFullscreen,
           hidden: !context.isSidebarOpen,
           block: context.isSidebarOpen,
           'md:hidden': !sidebarNavigation

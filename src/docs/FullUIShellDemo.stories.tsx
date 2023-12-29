@@ -79,7 +79,7 @@ export const Primary: Story = {
                     <HeaderSearch placeholder="Search" />
                   </div>
                 </Header>
-                <Sidebar isOpenMenu={true}>
+                <Sidebar>
                   <SidebarNavigation>
                     {({ item }) => (
                       <a
