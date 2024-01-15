@@ -3,7 +3,7 @@ const buildEnvironment = process.env.BUILD_ENV || 'library'
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
-  content: ['src/**/*.{ts,tsx,vue}', './node_modules/@hivemq/ui-component-library/dist/*.js'],
+  content: ['src/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,

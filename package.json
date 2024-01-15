@@ -35,9 +35,9 @@
     "storybook": "BUILD_ENV='storybook' storybook dev -p 6006",
     "storybook:build": "BUILD_ENV='storybook' storybook build"
   },
-  "dependencies": {},
   "devDependencies": {
     "@fontsource/roboto": "^5.0.8",
+    "@radix-ui/react-slot": "^1.0.2",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",

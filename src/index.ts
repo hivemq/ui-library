@@ -18,7 +18,7 @@ export * from '@/components/modules/HmqUIShell'
 
 export * from '@/components/util/HmqLightDarkThemeSetter'
 
-export * from '@/context/HmqOverlaysTameContext.tsx'
+export * from '@/context/OverlayContext'
 
 export * from '@/hooks/useLocalStorage.tsx'
 export * from '@/hooks/useOverlay.ts'

@@ -4,10 +4,11 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, React.Dispatch<Re
   const initial = useMemo<T>(() => {
     const storedValue = localStorage.getItem(key)
     let tmp = initialValue
+
     try {
       tmp = storedValue ? JSON.parse(storedValue) : initialValue
-    } catch (e) {
-      console.warn(e)
+    } catch (error) {
+      console.warn(error)
     }
     return tmp
   }, [key, initialValue])

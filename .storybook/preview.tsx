@@ -13,10 +13,103 @@ import '@fontsource/roboto/900.css'
 import '@fontsource/roboto/900-italic.css'
 import '@/static/styles.css'
 
-export function HmqProvider({ children }: { children: React.ReactNode }) {
-  return <React.Fragment>{children}</React.Fragment>
+import { Navigation, NavigationItemBase, NavigationProvider } from '../src/context/NavigationContext'
+import { StoryProvider } from './StoryContext';
+
+function StoryWrapper({ children }: { children: React.ReactNode }) {
+  const navigation: Navigation = [
+    {
+      href: '/dashboards',
+      title: 'Dashboard',
+      sidebarNavigation: [
+        {
+          sectionName: 'Monitor',
+          items: [
+            {
+              href: '/dashboards',
+              title: 'Overview'
+            },
+            {
+              href: '/dashboards/clustering',
+              title: 'Clustering'
+            },
+            {
+              href: '/dashboards/policies',
+              title: 'Policies'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      href: '/clients',
+      title: 'Clients',
+      isFullscreenPage: true,
+      sidebarNavigation: [
+        {
+          sectionName: 'Management',
+          items: [
+            {
+              href: '/clients',
+              title: 'Overview'
+            },
+            {
+              href: '/clients/sessions',
+              title: 'Sessions'
+            },
+            {
+              href: '/clients/retained-messages',
+              title: 'Retained Messages'
+            },
+            {
+              href: '/clients/subscriptions',
+              title: 'Subscriptions'
+            }
+          ]
+        },
+        {
+          sectionName: 'Tracing',
+          items: [
+            {
+              href: '/clients/trace-recordings',
+              title: 'Trace Recordings'
+            },
+            {
+              href: '/clients/trace-messages',
+              title: 'Trace Messages'
+            },
+            {
+              href: '/clients/trace-connections',
+              title: 'Trace Connections'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      href: '/data-management',
+      title: 'Data Management'
+    }
+  ] as const
+
+  const [currentHref, setCurrentHref] = React.useState<(typeof navigation)[number]['href']>(navigation[0].href)
+
+  function isHeaderNavigationItemActive(navigationItem: NavigationItemBase) {
+    return navigationItem.href === '/' + currentHref.split('/')[1]
+  }
+
+  function isSidebarNavigationItemActive(navigationItem: NavigationItemBase) {
+    return navigationItem.href === currentHref
+  }
+
+  return (
+    <NavigationProvider navigation={navigation} isHeaderNavigationItemActive={isHeaderNavigationItemActive} isSidebarNavigationItemActive={isSidebarNavigationItemActive}>
+      <StoryProvider setCurrentHref={setCurrentHref} currentHref={currentHref}>
+        {children}
+      </StoryProvider>
+    </NavigationProvider>
+  )
 }
-HmqProvider.displayName = 'HmqProvider'
 
 const preview: Preview = {
   parameters: {
@@ -30,10 +123,10 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <HmqProvider>
+      <StoryWrapper>
         {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
         <Story />
-      </HmqProvider>
+      </StoryWrapper>
     ),
   ]
 };

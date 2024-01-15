@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-import { peerDependencies, dependencies } from './package.json'
+import packageData from './package.json'
 
 type BuildEnvironment = 'storybook' | 'library'
 
@@ -52,7 +52,10 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
-      external: buildEnvironment === 'storybook' ? [] : [...Object.keys(peerDependencies), ...Object.keys(dependencies)],
+      external:
+        buildEnvironment === 'storybook'
+          ? []
+          : [...Object.keys(packageData.peerDependencies), ...Object.keys(packageData?.dependencies || [])],
       output: {
         // Since we publish our ./src folder, there's no point
         // in bloating sourcemaps with another copy of it.
@@ -65,7 +68,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
+      '@': resolve(__dirname, './src'),
+      '@hivemq/ui-shell': resolve(__dirname, './src/lib.ts')
     }
   }
 })
