@@ -36,6 +36,7 @@
     "storybook:build": "BUILD_ENV='storybook' storybook build"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.0",
     "@fontsource/roboto": "^5.0.8",
     "@radix-ui/react-slot": "^1.0.2",
     "@storybook/addon-essentials": "^7.5.3",
@@ -59,14 +60,6 @@
     "autoprefixer": "^10.4.16",
     "classnames": "^2.3.2",
     "eslint": "^8.53.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.15",
     "lucide-react": "^0.279.0",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
