@@ -1,11 +1,11 @@
 import { GridItem } from "@chakra-ui/react";
-import { Z_INDEX } from '../../constants/zIndex';
+import { Z_INDEX } from "../../constants/zIndex";
 
-export type HeaderProps = {
+export type HeaderContainerProps = {
 	children?: React.ReactNode;
 };
 
-export function Header({ children }: HeaderProps) {
+export function HeaderContainer({ children }: HeaderContainerProps) {
 	return (
 		<GridItem
 			as="header"
@@ -18,8 +18,8 @@ export function Header({ children }: HeaderProps) {
 			top={0}
 			bg="#000"
 			columnGap={4}
-      maxH="56px"
-      gridArea="header"
+			maxH="56px"
+			gridArea="header"
 		>
 			{children}
 		</GridItem>

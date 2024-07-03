@@ -16,10 +16,10 @@ export function HeaderMenuContent({
 				backgroundColor="black"
 				color="white"
 				border="none"
-        boxShadow="lg"
-        borderRadius="4px"
-        minW="320px"
-        textAlign="left"
+				boxShadow="lg"
+				borderRadius="4px"
+				minW="320px"
+				textAlign="left"
 				{...props}
 			>
 				{children}

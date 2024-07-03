@@ -1,9 +1,10 @@
+// @ts-expect-error - Typescript doesn't how to import svgs yet
 import Logo from "@/assets/hivemq-neg.svg?component";
 
 import {
 	Box,
+	Button,
 	Card,
-	CardBody,
 	CardHeader,
 	Code,
 	HStack,
@@ -11,32 +12,16 @@ import {
 	Table,
 	Tbody,
 	Td,
+	Text,
 	Th,
 	Thead,
 	Tr,
-	Text,
 	VStack,
-	Button,
-	CardFooter,
 } from "@chakra-ui/react";
 import { InfoIcon, UserIcon } from "lucide-react";
 import { useContext, useState } from "react";
-import { Content } from "../../components/Content/Content";
-import { Header } from "../../components/Header/Header";
-import { HeaderDivider } from "../../components/Header/HeaderDivider";
-import { HeaderLogo } from "../../components/Header/HeaderLogo";
-import { HeaderMenu } from "../../components/Header/HeaderMenu";
-import { HeaderMenuButton } from "../../components/Header/HeaderMenuButton";
-import { HeaderMenuContent } from "../../components/Header/HeaderMenuContent";
-import { HeaderMenuDetails } from "../../components/Header/HeaderMenuDetails";
-import { HeaderMenuItem } from "../../components/Header/HeaderMenuItem";
-import { HeaderSidebarToggle } from "../../components/Header/HeaderSidebarToggle";
-import { Shell } from "../../components/Shell/Shell";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
-import { SidebarList } from "../../components/Sidebar/SidebarList";
-import { SidebarListItem } from "../../components/Sidebar/SidebarListItem";
-import { SidebarGroup } from "../../components/Sidebar/SidebarGroup";
-import { NavigationContext } from "../../context/NavigationContext";
+
+import { Header, Sidebar, Content, Shell, ShellContext } from "@/lib";
 
 const DEMO_SIDEBAR_ITEMS = [
 	{
@@ -92,53 +77,83 @@ const DEMO_SIDEBAR_ITEMS = [
 	},
 ] as const;
 
+const DEMO_HEADER_ITEMS = [
+	{
+		id: "clusters",
+		title: "Clusters",
+	},
+	{
+		id: "api",
+		title: "API",
+	},
+	{
+		id: "settings",
+		title: "Settings",
+	},
+];
+
 type SidebarItem = (typeof DEMO_SIDEBAR_ITEMS)[number]["items"][number];
+type HeaderItemType = (typeof DEMO_HEADER_ITEMS)[number];
 
 export function FullDemo() {
 	const [activeSidebarItem, setActiveSidebarItem] = useState<SidebarItem>(
 		DEMO_SIDEBAR_ITEMS[0].items[0],
 	);
+	const [activeHeaderItem, setActiveHeaderItem] = useState<HeaderItemType>(
+		DEMO_HEADER_ITEMS[0],
+	);
 
-	const context = useContext(NavigationContext);
+	const context = useContext(ShellContext);
 
 	return (
-		<Shell>
-			<Header>
-				<HeaderSidebarToggle />
-				<HeaderLogo src={Logo} alt="HiveMQ Logo" title="Control Center" />
-				<HeaderDivider />
+		<Shell.Container>
+			<Header.Container>
+				<Header.SidebarToggle />
+				<Header.Logo src={Logo} alt="HiveMQ Logo" title="Control Center" />
+				<Header.Divider />
+				{DEMO_HEADER_ITEMS.map((item) => (
+					<Header.NavigationItem
+						key={item.id}
+						isActive={activeHeaderItem === item}
+						onClick={() => {
+							setActiveHeaderItem(item);
+						}}
+					>
+						{item.title}
+					</Header.NavigationItem>
+				))}
 				<Box flexGrow="2" textAlign="right">
-					<HeaderMenu overlayId="profile">
-						<HeaderMenuButton icon={UserIcon} />
-						<HeaderMenuContent>
-							<HeaderMenuDetails textAlign="center">
+					<Header.Menu overlayId="profile">
+						<Header.MenuButton icon={UserIcon} />
+						<Header.MenuContent>
+							<Header.MenuDetails textAlign="center">
 								<b>Hello Batman 👋</b>
 								<br />
 								Welcome back!
-							</HeaderMenuDetails>
-							<HeaderMenuItem>Account</HeaderMenuItem>
-							<HeaderMenuItem>Billing</HeaderMenuItem>
-							<HeaderMenuItem>Logout</HeaderMenuItem>
-						</HeaderMenuContent>
-					</HeaderMenu>
-					<HeaderMenu overlayId="support">
-						<HeaderMenuButton icon={InfoIcon} />
-						<HeaderMenuContent>
-							<HeaderMenuDetails>
+							</Header.MenuDetails>
+							<Header.MenuItem>Account</Header.MenuItem>
+							<Header.MenuItem>Billing</Header.MenuItem>
+							<Header.MenuItem>Logout</Header.MenuItem>
+						</Header.MenuContent>
+					</Header.Menu>
+					<Header.Menu overlayId="support">
+						<Header.MenuButton icon={InfoIcon} />
+						<Header.MenuContent>
+							<Header.MenuDetails>
 								Hi, How can we help you? 💁‍♀️
-							</HeaderMenuDetails>
-							<HeaderMenuItem>Test</HeaderMenuItem>
-						</HeaderMenuContent>
-					</HeaderMenu>
+							</Header.MenuDetails>
+							<Header.MenuItem>Test</Header.MenuItem>
+						</Header.MenuContent>
+					</Header.Menu>
 				</Box>
-			</Header>
+			</Header.Container>
 
-			<Sidebar>
+			<Sidebar.Container>
 				{DEMO_SIDEBAR_ITEMS.map((group) => (
-					<SidebarGroup key={group.title} Title={group.title}>
-						<SidebarList>
+					<Sidebar.Group key={group.title} Title={group.title}>
+						<Sidebar.List>
 							{group.items.map((item) => (
-								<SidebarListItem
+								<Sidebar.ListItem
 									key={item.id}
 									isActive={activeSidebarItem === item}
 									onClick={() => {
@@ -146,14 +161,14 @@ export function FullDemo() {
 									}}
 								>
 									{item.title}
-								</SidebarListItem>
+								</Sidebar.ListItem>
 							))}
-						</SidebarList>
-					</SidebarGroup>
+						</Sidebar.List>
+					</Sidebar.Group>
 				))}
-			</Sidebar>
+			</Sidebar.Container>
 
-			<Content display="flex" flexDirection="column" gap={6} w="100%">
+			<Content.Base display="flex" flexDirection="column" gap={6} w="100%">
 				<VStack gap={4} alignItems="start">
 					<Heading as="h1" variant="h1">
 						Hello World 🌍
@@ -176,7 +191,7 @@ export function FullDemo() {
 								Internals of <Code>NavigationProvider</Code>
 							</CardHeader>
 
-							<Table>
+							<Table layout="fixed">
 								<Thead>
 									<Tr>
 										<Th>Property</Th>
@@ -246,7 +261,7 @@ export function FullDemo() {
 								Current selected sidebar item
 							</CardHeader>
 
-							<Table>
+							<Table layout="fixed">
 								<Thead>
 									<Tr>
 										<Th>Property</Th>
@@ -273,9 +288,42 @@ export function FullDemo() {
 								</Tbody>
 							</Table>
 						</Card>
+
+						<Card>
+							<CardHeader fontWeight={500}>
+								Current selected header navigation item
+							</CardHeader>
+
+							<Table layout="fixed">
+								<Thead>
+									<Tr>
+										<Th>Property</Th>
+										<Th>Value</Th>
+									</Tr>
+								</Thead>
+								<Tbody>
+									<Tr>
+										<Td>
+											<Code>id</Code>
+										</Td>
+										<Td>
+											<Code>{activeHeaderItem.id}</Code>
+										</Td>
+									</Tr>
+									<Tr>
+										<Td>
+											<Code>title</Code>
+										</Td>
+										<Td>
+											<Code>{activeHeaderItem.title}</Code>
+										</Td>
+									</Tr>
+								</Tbody>
+							</Table>
+						</Card>
 					</HStack>
 				</VStack>
-			</Content>
-		</Shell>
+			</Content.Base>
+		</Shell.Container>
 	);
 }

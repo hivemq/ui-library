@@ -1,6 +1,6 @@
 import { MenuItem, type MenuItemProps } from "@chakra-ui/react";
 
-type HeaderMenuItemProps = MenuItemProps & {};
+export type HeaderMenuItemProps = MenuItemProps & {};
 
 export function HeaderMenuItem({ children, ...props }: HeaderMenuItemProps) {
 	return (

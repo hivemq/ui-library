@@ -1,14 +1,14 @@
 import { Box, Grid } from "@chakra-ui/react";
 import { useContext, useMemo } from "react";
-import { NavigationContext } from "../../context/NavigationContext";
-import { Z_INDEX } from '../../constants/zIndex';
+import { ShellContext } from "../../context/ShellContext";
+import { Z_INDEX } from "../../constants/zIndex";
 
-export type ShellProps = {
+export type ShellContainerProps = {
 	children: React.ReactNode;
 };
 
-export function Shell({ children }: ShellProps) {
-	const { isSidebarOpen, openedOverlayId } = useContext(NavigationContext);
+export function ShellContainer({ children }: ShellContainerProps) {
+	const { isSidebarOpen, openedOverlayId } = useContext(ShellContext);
 
 	const gridTemplateAreas = useMemo(() => {
 		if (isSidebarOpen) {
@@ -24,9 +24,9 @@ export function Shell({ children }: ShellProps) {
     `;
 	}, [isSidebarOpen]);
 
-  const showBackdrop = useMemo(() => {
-    return !!openedOverlayId
-  }, [openedOverlayId])
+	const showBackdrop = useMemo(() => {
+		return !!openedOverlayId;
+	}, [openedOverlayId]);
 
 	const gridTemplateColumns = useMemo(() => {
 		if (isSidebarOpen) {
@@ -44,7 +44,7 @@ export function Shell({ children }: ShellProps) {
 			h="100vh"
 			position="relative"
 		>
-      {children}
+			{children}
 
 			{showBackdrop && (
 				<Box
@@ -54,8 +54,8 @@ export function Shell({ children }: ShellProps) {
 					width="100%"
 					height="100%"
 					backgroundColor="yellow"
-          opacity={0.3}
-          zIndex={Z_INDEX.BACKDROP}
+					opacity={0.3}
+					zIndex={Z_INDEX.BACKDROP}
 				/>
 			)}
 		</Grid>
