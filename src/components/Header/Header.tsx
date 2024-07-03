@@ -1,16 +1,27 @@
-import * as React from 'react'
+import { GridItem } from "@chakra-ui/react";
+import { Z_INDEX } from '../../constants/zIndex';
 
 export type HeaderProps = {
-  className?: string
-  children?: React.ReactNode
-}
+	children?: React.ReactNode;
+};
 
-export function Header({ className, children }: HeaderProps) {
-  return (
-    <header
-      className={`${className ?? ''} col-span-3 flex flex-row items-center px-0 md:px-6 sticky z-40 w-full top-0 text-xl dark bg-stone-950`}
-    >
-      {children}
-    </header>
-  )
+export function Header({ children }: HeaderProps) {
+	return (
+		<GridItem
+			as="header"
+			display="flex"
+			flexDirection="row"
+			colSpan={3}
+			position="sticky"
+			zIndex={Z_INDEX.HEADER}
+			w="100%"
+			top={0}
+			bg="#000"
+			columnGap={4}
+      maxH="56px"
+      gridArea="header"
+		>
+			{children}
+		</GridItem>
+	);
 }

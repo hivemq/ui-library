@@ -1,85 +1,87 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import * as React from 'react'
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Logo from '@/assets/hivemq-neg.svg?component'
+// @ts-expect-error - Typescript doesn't how to import svgs yet
+import Logo from "@/assets/hivemq-neg.svg?component";
 
-import { StoryContext } from '../../../.storybook/StoryContext'
-
-import { Header } from './Header'
-import { HeaderDropdown } from './HeaderDropdown'
-import { HeaderLogo } from './HeaderLogo'
-import { HeaderNavigation } from './HeaderNavigation'
-import { HeaderSearch } from './HeaderSearch'
-import { HeaderSidebarNavigationToggle } from './HeaderSidebarNavigationToggle'
-import { HeaderStatus } from './HeaderStatus'
+import { Header } from "./Header";
+import { HeaderDivider } from "./HeaderDivider";
+import { HeaderLogo } from "./HeaderLogo";
+import { HeaderMenu } from "./HeaderMenu";
+import { HeaderMenuButton } from "./HeaderMenuButton";
+import { InfoIcon, UserIcon } from "lucide-react";
+import { HeaderMenuContent } from "./HeaderMenuContent";
+import { Box } from "@chakra-ui/react";
+import { HeaderMenuItem } from "./HeaderMenuItem";
+import { HeaderMenuDetails } from "./HeaderMenuDetails";
+import { HeaderSidebarToggle } from "./HeaderSidebarToggle";
+import { Shell } from "../Shell/Shell";
+import { NavigationProvider } from "../../context/NavigationContext";
+import { Content } from '../Content/Content';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Components/Header',
-  component: Header,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered'
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {}
-} satisfies Meta<typeof Header>
+	title: "Components/Header",
+	component: Header,
+	parameters: {
+		// Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
+		layout: "centered",
+	},
+	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
+	tags: ["autodocs"],
+	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+	argTypes: {},
+} satisfies Meta<typeof Header>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  decorators: [
-    (Story, context) => {
-      Object.assign(context.args, { control: undefined })
+export const WithSidebarNavigationToggle: Story = {
+	render() {
+		return (
+			<NavigationProvider>
+				<Shell>
+					<Header>
+						<HeaderSidebarToggle />
+						<HeaderLogo src={Logo} alt="HiveMQ Logo" title="Control Center" />
+						<HeaderDivider />
+						<Box alignSelf="end">
+							<HeaderMenu overlayId="test">
+								<HeaderMenuButton icon={UserIcon} />
+								<HeaderMenuContent>
+									<HeaderMenuDetails textAlign="center">
+										<b>Hello Batman 👋</b>
+										<br />
+										Welcome back!
+									</HeaderMenuDetails>
+									<HeaderMenuItem>Account</HeaderMenuItem>
+									<HeaderMenuItem>Billing</HeaderMenuItem>
+									<HeaderMenuItem>Logout</HeaderMenuItem>
+								</HeaderMenuContent>
+							</HeaderMenu>
+							<HeaderMenu overlayId="other">
+								<HeaderMenuButton icon={InfoIcon} />
+								<HeaderMenuContent>
+									<HeaderMenuDetails>
+										Hi, How can we help you? 💁‍♀️
+									</HeaderMenuDetails>
+									<HeaderMenuItem>Test</HeaderMenuItem>
+								</HeaderMenuContent>
+							</HeaderMenu>
+						</Box>
+					</Header>
 
-      const storyContext = React.useContext(StoryContext)
+          <Sidebar>
+            <Box>
+              Sidebar content can be place here
+            </Box>
+          </Sidebar>
 
-      return (
-        <Story
-          args={{
-            children: (
-              <>
-                <HeaderSidebarNavigationToggle />
-
-                <HeaderLogo logo={Logo}>Control Center</HeaderLogo>
-
-                <HeaderNavigation>
-                  {({ item }) => (
-                    <a
-                      href="#"
-                      onClick={(event) => {
-                        event.preventDefault()
-                        storyContext.setCurrentHref(item.href)
-                      }}
-                    >
-                      {item.title}
-                    </a>
-                  )}
-                </HeaderNavigation>
-
-                <div className="flex items-center">
-                  <HeaderDropdown
-                    className="font-monospace"
-                    values={[
-                      ['a', 'v1.2'],
-                      ['b', 'v1.3']
-                    ]}
-                    id="version_select_dropdown"
-                  />
-                  <HeaderStatus title="RPM">42.8k</HeaderStatus>
-                  <HeaderStatus title="Status" indicatorVariant="success">
-                    Running
-                  </HeaderStatus>
-                  <HeaderSearch placeholder="Search" />
-                </div>
-              </>
-            )
-          }}
-        />
-      )
-    }
-  ]
-}
+          <Content>
+            Hello World 🌍
+          </Content>
+				</Shell>
+			</NavigationProvider>
+		);
+	},
+};
