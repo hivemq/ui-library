@@ -1,32 +1,23 @@
-import classnames from 'classnames'
-import * as React from 'react'
+import { Box, type BoxProps, Image, Text } from '@chakra-ui/react'
 
-export type HeaderLogoProps = {
-  logo: string
-  href?: string
-  hasLogoHr?: boolean
-  children?: React.ReactNode
-  onClick?: () => void
+type HeaderLogoProps = BoxProps & {
+  /**
+   * Source of the logo
+   */
+  src: string
+  /**
+   * Alternative text for the logo
+   */
+  alt: string
 }
 
-export function HeaderLogo({ logo, href = '#', hasLogoHr = true, onClick, children }: HeaderLogoProps) {
+export function HeaderLogo({ children, src, alt, title, ...props}: HeaderLogoProps) {
   return (
-    <a
-      href={href}
-      className={classnames('whitespace-nowrap my-px min-w-[calc(290px-1.5rem)] pr-[54px]', {
-        'md:mr-12 md:relative after:hidden md:after:block after:absolute after:h-6 after:w-[2px] after:right-0 after:top-4 after:bg-white/20':
-          hasLogoHr
-      })}
-      onClick={(e) => {
-        e.preventDefault()
-        onClick?.()
-      }}
-    >
-      <img src={logo} className="h-14 w-14 relative -left-2 left inline" />
-      <span className="text-white relative top-[2px]">
-        <span className="hidden sm:inline">HiveMQ </span>
-        <b>{children}</b>
-      </span>
-    </a>
+    <Box as="button" type="button" title={title} display="flex" alignItems="center" gap={2} py={2} pl={2} pr={4} _hover={{
+      backgroundColor: "surface.800"
+    }} {...props}>
+      <Image src={src} alt={alt} />
+      <Text as="span" color="white" fontWeight={700} fontSize="1.1rem">{title}</Text>
+    </Box>
   )
 }

@@ -1,80 +1,41 @@
 import * as React from 'react'
 
-export type Navigation = NavigationItem[]
-
-export type NavigationItemBase = {
-  /**
-   * The exact href of the navigation item.
-   */
-  href: string
-  /**
-   * The title of the navigation item.
-   */
-  title: string
-}
-
-export type NavigationItem = NavigationItemBase & {
-  isFullscreenPage?: boolean
-  sidebarNavigation?: {
-    sectionName?: string
-    items: SidebarNavigationItem[]
-  }[]
-}
-
-export type SidebarNavigationItem = NavigationItemBase & {
-  subItems?: SideNavSubItem[]
-  forceOpen?: boolean
-}
-
-type SideNavSubItem = NavigationItemBase
-
-export type isNavigationItemActive = (navigationItem: NavigationItemBase) => boolean
-
-export type RenderNavLinkCallback = (sideNavItem: NavigationItemBase, className: string) => React.ReactNode
-
 export type NavigationProviderProps = {
-  children?: React.ReactNode
-  navigation: Navigation
-  isHeaderNavigationItemActive: isNavigationItemActive
-  isSidebarNavigationItemActive: isNavigationItemActive
+  children: React.ReactNode
+  /**
+   * Define whenever the sidebar should be open by default
+   */
+  isSidebarOpen?: boolean
 }
 
-export type NavigationProviderValues = Omit<NavigationProviderProps, 'children'> & {
-  getActiveNavigationItem: () => NavigationItem | undefined
+export type NavigationProviderValues = {
   isSidebarOpen: boolean
   setSidebarOpen: (value: boolean) => void
+  openedOverlayId?: string
+  setOpenedOverlayId?: (value: string | undefined) => void
 }
 
 export const NavigationContext = React.createContext<NavigationProviderValues>({
-  navigation: undefined as unknown as Navigation,
-  isHeaderNavigationItemActive: undefined as unknown as isNavigationItemActive,
-  isSidebarNavigationItemActive: undefined as unknown as isNavigationItemActive,
-  getActiveNavigationItem: () => undefined as unknown as NavigationItem,
   isSidebarOpen: false,
-  setSidebarOpen: () => void 0
+  setSidebarOpen: () => void 0,
+  openedOverlayId: undefined,
+  setOpenedOverlayId: () => void 0
 })
 
 export function NavigationProvider({
   children,
-  navigation,
-  isHeaderNavigationItemActive,
-  isSidebarNavigationItemActive
+  isSidebarOpen: isSidebarOpenDefault = false
 }: NavigationProviderProps) {
-  const getActiveNavigationItem = React.useMemo(() => {
-    return () => navigation.find(isHeaderNavigationItemActive)
-  }, [navigation, isHeaderNavigationItemActive])
-
-  const [isSidebarOpen, setSidebarOpen] = React.useState<boolean>(false)
+  const [isSidebarOpen, setSidebarOpen] = React.useState<boolean>(isSidebarOpenDefault)
+  const [openedOverlayId, setOpenedOverlayId] = React.useState<string | undefined>(undefined)
 
   return (
     <NavigationContext.Provider
       value={{
-        navigation,
-        isHeaderNavigationItemActive,
-        isSidebarNavigationItemActive,
-        getActiveNavigationItem,
         isSidebarOpen,
-        setSidebarOpen
+        setSidebarOpen,
+        openedOverlayId,
+        setOpenedOverlayId
       }}
     >
       {children}

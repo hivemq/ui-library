@@ -42,7 +42,7 @@
     "src",
     "cypress",
     "cypress/**/*.ts",
-    "cypress.config.ts",
+    "cypress.config.ts", ".storybook/chakraTheme.ts",
   ],
   "exclude": [
     "node_modules",

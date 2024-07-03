@@ -1,11 +1,24 @@
-import classnames from 'classnames'
-import * as React from 'react'
+import { GridItem, type GridItemProps } from "@chakra-ui/react";
 
-export type ContentProps = {
-  children: React.ReactNode
-  overflowX?: boolean
-}
+export type ContentProps = GridItemProps & {
+	children: React.ReactNode;
+	canOverflowXScroll?: boolean;
+};
 
-export function Content({ children, overflowX }: ContentProps) {
-  return <div className={classnames('md:col-start-2 md:col-span-2 col-span-3', { 'overflow-x-scroll': overflowX })}>{children}</div>
+// TODO: apply responsive styles
+export function Content({
+	children,
+	canOverflowXScroll: overflowX,
+	...props
+}: ContentProps) {
+	return (
+		<GridItem
+			overflowX={overflowX ? "scroll" : "hidden"}
+			gridArea="content"
+			p={8}
+			{...props}
+		>
+			{children}
+		</GridItem>
+	);
 }
