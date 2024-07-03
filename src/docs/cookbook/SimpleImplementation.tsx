@@ -1,5 +1,5 @@
+import { ShellContainer } from "../../modules/Shell/Shell";
+
 export function SimpleImplementation() {
-  return (<>
-    HI
-  </>)
+	return <ShellContainer>Hello</ShellContainer>;
 }

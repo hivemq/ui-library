@@ -1,6 +1,6 @@
 import { Box, type BoxProps, MenuDivider } from "@chakra-ui/react";
 
-type HeaderMenuDetailsProps = BoxProps & {};
+export type HeaderMenuDetailsProps = BoxProps & {};
 
 export function HeaderMenuDetails({
 	children,

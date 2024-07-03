@@ -1,7 +1,7 @@
 import { Menu } from "@chakra-ui/react";
 
 import { useContext, useMemo } from "react";
-import { NavigationContext } from "../../context/NavigationContext";
+import { ShellContext } from "../../context/ShellContext";
 
 export type HeaderMenuProps = {
 	/**
@@ -14,7 +14,7 @@ export function HeaderMenu({
 	children,
 	overlayId,
 }: React.PropsWithChildren<HeaderMenuProps>) {
-	const context = useContext(NavigationContext);
+	const context = useContext(ShellContext);
 
 	const isOpen = useMemo(() => {
 		return context.openedOverlayId === overlayId;
@@ -24,10 +24,10 @@ export function HeaderMenu({
 		<Menu
 			isLazy
 			isOpen={isOpen}
-      onOpen={() => context.setOpenedOverlayId?.(overlayId)}
+			onOpen={() => context.setOpenedOverlayId?.(overlayId)}
 			onClose={() => context.setOpenedOverlayId?.(undefined)}
-      offset={[0, 6]}
-      placement="bottom-end"
+			offset={[0, 6]}
+			placement="bottom-end"
 		>
 			{children}
 		</Menu>

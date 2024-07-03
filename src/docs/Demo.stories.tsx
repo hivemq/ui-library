@@ -1,29 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import * as React from "react";
 
-import Logo from "@/assets/hivemq-neg.svg?component";
-
-import { StoryContext } from "../../.storybook/StoryContext";
-
-import { SimpleImplementation } from "./cookbook/SimpleImplementation";
-import { NavigationProvider } from "../context/NavigationContext";
-import { Shell } from "../components/Shell/Shell";
-import { Header } from "../components/Header/Header";
-import { HeaderLogo } from "../components/Header/HeaderLogo";
-import { HeaderSidebarToggle } from "../components/Header/HeaderSidebarToggle";
-import { HeaderDivider } from "../components/Header/HeaderDivider";
-import { Box } from "@chakra-ui/react";
-import { HeaderMenu } from "../components/Header/HeaderMenu";
-import { HeaderMenuButton } from "../components/Header/HeaderMenuButton";
-import { HeaderMenuContent } from "../components/Header/HeaderMenuContent";
-import { HeaderMenuDetails } from "../components/Header/HeaderMenuDetails";
-import { HeaderMenuItem } from "../components/Header/HeaderMenuItem";
-import { Sidebar } from "../components/Sidebar/Sidebar";
-import { Content } from "../components/Content/Content";
-import { InfoIcon, UserIcon } from "lucide-react";
-import { SidebarList } from "../components/Sidebar/SidebarList";
-import { SidebarListItem } from "../components/Sidebar/SidebarListItem";
-import { FullDemo } from './cookbook/FullDemo';
+import { Shell } from "@/lib";
+import { FullDemo } from "./cookbook/FullDemo";
 
 function Empty({ children }: { children: React.ReactNode }) {
 	return <>{children}</>;
@@ -44,6 +22,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// @ts-ignore
 export const Primary: Story = {
 	name: "Full Interactive",
 	decorators: [
@@ -54,18 +33,13 @@ export const Primary: Story = {
 				<Story
 					args={{
 						children: (
-							<NavigationProvider>
-                <FullDemo />
-							</NavigationProvider>
+							<Shell.Provider>
+								<FullDemo />
+							</Shell.Provider>
 						),
 					}}
 				/>
 			);
 		},
 	],
-};
-
-export const Cookbook01: Story = {
-	name: "Cookbook/01",
-	render: SimpleImplementation,
 };

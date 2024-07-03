@@ -1,19 +1,11 @@
-import { Content } from '@/components/Content/Content'
-import { Grid } from '@/components/Grid/Grid'
-import { Header } from '@/components/Header/Header'
-import { HeaderLogo } from '@/components/Header/old/HeaderLogo'
-import { HeaderNavigation } from '@/components/Header/old/HeaderNavigation'
-import { Sidebar, SidebarNavigation } from '@/components/Sidebar/SidebarNavigation'
+export * from "./modules/Shell";
+export * from "./modules/Content";
+export * from "./modules/Header";
+export * from "./modules/Sidebar";
 
-import { NavigationProvider as Provider } from '@/context/NavigationContext'
-
-export const UIShell = {
-  Content,
-  Grid,
-  Header,
-  HeaderLogo,
-  HeaderNavigation,
-  Sidebar,
-  SidebarNavigation,
-  Provider
-}
+// TODO make it a hook `useShellContext`
+export {
+	ShellContext,
+	type ShellProviderProps,
+	type ShellProviderValue,
+} from "@/context/ShellContext";
