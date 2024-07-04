@@ -39,10 +39,7 @@ export default defineConfig({
 			external:
 				buildEnvironment === "storybook"
 					? []
-					: [
-							...Object.keys(packageData.peerDependencies),
-							...Object.keys(packageData.devDependencies),
-						],
+					: [...Object.keys(packageData.peerDependencies)],
 			output: {
 				// Since we publish our ./src folder, there's no point
 				// in bloating sourcemaps with another copy of it.
@@ -56,7 +53,6 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": resolve(__dirname, "./src"),
-			"@hivemq/ui-shell": resolve(__dirname, "./src/lib.ts"),
 		},
 	},
 });
