@@ -11,8 +11,8 @@
     "module": "./dist/index.es.js"
   },
   "engines": {
-    "node": "18",
-    "pnpm": "8"
+    "node": ">=18",
+    "pnpm": ">=8"
   },
   "files": [
     "dist"
@@ -23,7 +23,7 @@
     "build:scripts": "vite build",
     "build:types": "tsc --emitDeclarationOnly && tsc-alias",
     "build:styles": "NODE_ENV=production pnpm tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css --postcss --minify",
-    "publish:ci": "pnpm publish --no-git-checks --dry-run",
+    "publish:ci": "pnpm publish --no-git-checks",
     "publish:dry": "pnpm publish --no-git-checks --dry-run",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
