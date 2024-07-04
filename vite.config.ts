@@ -12,9 +12,7 @@ const buildEnvironment: BuildEnvironment =
 	(process.env.BUILD_ENV as BuildEnvironment) || "library";
 
 const libPlugins = [
-	react({
-		jsxRuntime: "classic",
-	}),
+	react(),
 	dts({
 		rollupTypes: true,
 	}),
