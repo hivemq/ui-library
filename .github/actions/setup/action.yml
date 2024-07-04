@@ -4,6 +4,9 @@ inputs:
   run_install:
     description: Run the install pnpm command
     default: "false"
+  NPM_TOKEN:
+    description: "npm token for private registry"
+    required: true
 
 runs:
   using: "composite"
