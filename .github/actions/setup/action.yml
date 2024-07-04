@@ -4,7 +4,7 @@ inputs:
   run_install:
     description: Run the install pnpm command
     default: "false"
-  NPM_TOKEN:
+  GH_NPM_TOKEN:
     description: "npm token for private registry"
     required: true
 
@@ -28,3 +28,5 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile
+      env:
+        GH_NPM_TOKEN: ${{ inputs.GH_NPM_TOKEN }}
