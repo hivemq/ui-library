@@ -12,6 +12,7 @@
     /* Bundler mode */
     "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -33,9 +34,6 @@
       "@/*": [
         "./src/*"
       ],
-      "@hivemq/ui-shell": [
-        "./src/lib.ts"
-      ]
     }
   },
   "include": [

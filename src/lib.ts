@@ -5,7 +5,6 @@ export * from "./modules/Sidebar";
 
 // TODO make it a hook `useShellContext`
 export {
-	ShellContext,
-	type ShellProviderProps,
-	type ShellProviderValue,
+  ShellContext,
+  type ShellProviderValue,
 } from "@/context/ShellContext";

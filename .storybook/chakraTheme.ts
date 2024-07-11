@@ -4,8 +4,8 @@ import { extendTheme } from "@chakra-ui/react";
 import { colors, components, fonts, styles } from "@hivemq/ui-theme";
 
 export const chakraTheme = extendTheme({
-	styles,
-	fonts,
-	colors,
-	components,
+  styles,
+  fonts,
+  colors,
+  components,
 });

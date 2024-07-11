@@ -1,29 +1,29 @@
 import { MenuList, type MenuListProps, useMenuContext } from "@chakra-ui/react";
 
 export type HeaderMenuContentProps = MenuListProps & {
-	children?: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export function HeaderMenuContent({
-	children,
-	...props
+  children,
+  ...props
 }: HeaderMenuContentProps) {
-	const context = useMenuContext();
+  const context = useMenuContext();
 
-	return (
-		context.isOpen && (
-			<MenuList
-				backgroundColor="black"
-				color="white"
-				border="none"
-				boxShadow="lg"
-				borderRadius="4px"
-				minW="320px"
-				textAlign="left"
-				{...props}
-			>
-				{children}
-			</MenuList>
-		)
-	);
+  return (
+    context.isOpen && (
+      <MenuList
+        backgroundColor="black"
+        color="white"
+        border="none"
+        boxShadow="lg"
+        borderRadius="4px"
+        minW="320px"
+        textAlign="left"
+        {...props}
+      >
+        {children}
+      </MenuList>
+    )
+  );
 }
