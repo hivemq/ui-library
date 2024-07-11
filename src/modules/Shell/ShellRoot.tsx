@@ -7,6 +7,7 @@ export type ShellContainerProps = {
   children: React.ReactNode;
   /**
    * Define whenever the sidebar should be open by default
+   * @default false
    */
   isSidebarOpen?: boolean;
 };
@@ -102,11 +103,17 @@ export type ShellRootProps = {
   children: React.ReactNode;
   /**
    * Define whenever the sidebar should be open by default
+   * @default false
    */
   isSidebarOpen?: boolean;
+  /**
+ * Define the width of your sidebar
+ * @default 290px
+ */
+  sidebarWidth?: string;
 };
 
-export function ShellRoot({ children, isSidebarOpen: isSidebarOpenDefault = true }: ShellRootProps) {
+export function ShellRoot({ children, isSidebarOpen: isSidebarOpenDefault = true, sidebarWidth = "290px" }: ShellRootProps) {
   const [isSidebarOpen, setSidebarOpen] =
     useState<boolean>(isSidebarOpenDefault);
   const [openedOverlayId, setOpenedOverlayId] = useState<
@@ -133,11 +140,11 @@ export function ShellRoot({ children, isSidebarOpen: isSidebarOpenDefault = true
 
   const gridTemplateColumns = useMemo(() => {
     if (isSidebarOpen) {
-      return "290px 1fr";
+      return `${sidebarWidth} 1fr`;
     }
 
     return "1fr";
-  }, [isSidebarOpen]);
+  }, [isSidebarOpen, sidebarWidth]);
 
   return (
     <ShellContext.Provider
