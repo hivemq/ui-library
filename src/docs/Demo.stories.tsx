@@ -33,7 +33,7 @@ export const Primary: Story = {
         <Story
           args={{
             children: (
-              <Shell.Root>
+              <Shell.Root sidebarWidth="200px">
                 <FullDemo />
               </Shell.Root>
             ),
