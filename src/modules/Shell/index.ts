@@ -1,9 +1,34 @@
-import { ShellProvider } from "@/context/ShellContext";
-import { ShellContainer } from "./Shell";
+import { ShellContainer, ShellProvider, ShellRoot } from "./ShellRoot";
 
 export const Shell = {
-	Provider: ShellProvider,
-	Container: ShellContainer,
+  /**
+   * Provider for the entire UI Shell this should be at the top of all elements,
+   * even above `Shell.Root`
+   *
+   * @deprecated use `Shell.Root` instead since it provides functionality for both `Shell.Provider` and `Shell.Container`
+   */
+  Provider: ShellProvider,
+
+  /**
+   * @deprecated Use `Shell.Root` instead
+   */
+  Container: ShellContainer,
+
+  /**
+   * Root element for the shell that positions the HTML element on the grid and provides
+   * context for all shell elements.
+   */
+  Root: ShellRoot,
 };
 
-export { type ShellContainerProps as ShellProps } from "./Shell";
+export {
+  /**
+   * @deprecated use `ShellRootProps` instead
+   */
+  type ShellContainerProps as ShellProps,
+  /**
+   * @deprecated use `ShellRootProps` instead
+   */
+  type ShellContainerProps as ShellProviderProps,
+  type ShellRootProps,
+} from "./ShellRoot";
