@@ -1,4 +1,5 @@
-import { Box, ListItem, type BoxProps } from "@chakra-ui/react";
+import { Box, ListItem, type BoxProps, forwardRef } from "@chakra-ui/react";
+
 
 export type SidebarListItemProps = BoxProps & {
   /**
@@ -7,11 +8,7 @@ export type SidebarListItemProps = BoxProps & {
   isActive?: boolean;
 };
 
-export function SidebarListItem({
-  children,
-  isActive,
-  ...props
-}: SidebarListItemProps) {
+export const SidebarListItem = forwardRef<SidebarListItemProps, 'button'>(({ children, isActive, ...props }, ref) => {
   return (
     <ListItem>
       <Box
@@ -30,10 +27,11 @@ export function SidebarListItem({
           backgroundColor: "surface.200",
         }}
         w="100%"
+        ref={ref}
         {...props}
       >
         {children}
       </Box>
     </ListItem>
   );
-}
+})

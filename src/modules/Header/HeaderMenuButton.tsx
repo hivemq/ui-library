@@ -1,4 +1,4 @@
-import { Icon, MenuButton, useMenuContext } from "@chakra-ui/react";
+import { Icon, MenuButton, forwardRef, useMenuContext } from "@chakra-ui/react";
 import { XIcon, type LucideIcon } from "lucide-react";
 
 export type HeaderMenuButtonProps = {
@@ -9,7 +9,7 @@ const OPEN_MARGIN_IN_PIXEL = 4;
 const BORDER_WIDTH_IN_PIXEL = 2;
 const MAX_CONTAINER_SIZE_IN_PIXEL = 56;
 
-export function HeaderMenuButton({ icon }: HeaderMenuButtonProps) {
+export const HeaderMenuButton = forwardRef<HeaderMenuButtonProps, 'button'>(({ icon, as, ...props }, ref) => {
   const { isOpen } = useMenuContext();
 
   const containerSize = isOpen
@@ -35,8 +35,11 @@ export function HeaderMenuButton({ icon }: HeaderMenuButtonProps) {
         margin: isOpen ? `${OPEN_MARGIN_IN_PIXEL}px` : "0px",
         borderRadius: "2px",
       }}
+      as={as}
+      ref={ref}
+      {...props}
     >
       <Icon w={6} height={6} as={isOpen ? XIcon : icon} color="white" />
     </MenuButton>
   );
-}
+})
