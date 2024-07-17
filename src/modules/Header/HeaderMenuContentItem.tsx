@@ -1,8 +1,8 @@
-import { MenuItem, type MenuItemProps } from "@chakra-ui/react";
+import { MenuItem, type MenuItemProps, forwardRef } from "@chakra-ui/react";
 
 export type HeaderMenuContentItemProps = MenuItemProps & {};
 
-export function HeaderMenuContentItem({ children, ...props }: HeaderMenuContentItemProps) {
+export const HeaderMenuContentItem = forwardRef<HeaderMenuContentItemProps, 'button'>(({ children, ...props }, ref) => {
   return (
     <MenuItem
       backgroundColor="black"
@@ -12,9 +12,10 @@ export function HeaderMenuContentItem({ children, ...props }: HeaderMenuContentI
       _focusVisible={{
         backgroundColor: "surface.800",
       }}
+      ref={ref}
       {...props}
     >
       {children}
     </MenuItem>
   );
-}
+})
