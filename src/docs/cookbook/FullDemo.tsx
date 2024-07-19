@@ -21,7 +21,7 @@ import {
 import { InfoIcon, UserIcon } from "lucide-react";
 import { useContext, useState } from "react";
 
-import { Header, Sidebar, Content, ShellContext } from "@/lib";
+import { Content, Header, ShellContext, Sidebar } from "@/lib";
 
 const DEMO_SIDEBAR_ITEMS = [
   {

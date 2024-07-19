@@ -1,7 +1,7 @@
 import { Box, Grid } from "@chakra-ui/react";
 import { useContext, useMemo, useState } from "react";
-import { ShellContext } from "../../context/ShellContext";
 import { Z_INDEX } from "../../constants/zIndex";
+import { ShellContext } from "../../context/ShellContext";
 
 export type ShellContainerProps = {
   children: React.ReactNode;
@@ -22,9 +22,9 @@ export function ShellProvider({
 }: ShellContainerProps) {
   const [isSidebarOpen, setSidebarOpen] =
     useState<boolean>(isSidebarOpenDefault);
-  const [openedOverlayId, setOpenedOverlayId] = useState<
-    string | undefined
-  >(undefined);
+  const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(
+    undefined,
+  );
 
   return (
     <ShellContext.Provider
@@ -107,18 +107,22 @@ export type ShellRootProps = {
    */
   isSidebarOpen?: boolean;
   /**
- * Define the width of your sidebar
- * @default 290px
- */
+   * Define the width of your sidebar
+   * @default 290px
+   */
   sidebarWidth?: string;
 };
 
-export function ShellRoot({ children, isSidebarOpen: isSidebarOpenDefault = true, sidebarWidth = "290px" }: ShellRootProps) {
+export function ShellRoot({
+  children,
+  isSidebarOpen: isSidebarOpenDefault = true,
+  sidebarWidth = "290px",
+}: ShellRootProps) {
   const [isSidebarOpen, setSidebarOpen] =
     useState<boolean>(isSidebarOpenDefault);
-  const [openedOverlayId, setOpenedOverlayId] = useState<
-    string | undefined
-  >(undefined);
+  const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(
+    undefined,
+  );
 
   const gridTemplateAreas = useMemo(() => {
     if (isSidebarOpen) {

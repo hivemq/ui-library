@@ -14,9 +14,7 @@
     "node": ">=18",
     "pnpm": ">=8"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "packageManager": "pnpm@8.6.11",
   "scripts": {
     "build": "pnpm build:scripts",
@@ -25,8 +23,11 @@
     "build:styles": "NODE_ENV=production pnpm tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css --postcss --minify",
     "publish:ci": "pnpm publish --no-git-checks",
     "publish:dry": "pnpm publish --no-git-checks --dry-run",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint . --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:check": "biome check ./src",
+    "lint:check:write": "biome check --apply-unsafe ./src",
+    "lint:format": "biome format ./src",
+    "lint:format:write": "biome format --write ./src",
+    "lint:all": "pnpm run lint:check && pnpm run lint:format",
     "test:unit": "TZ=UTC pnpm vitest run --outputFile.junit=./test-results/junit.xml",
     "test:unit:ci": "pnpm test:unit --coverage --silent",
     "test:integration": "pnpm cypress run --component --env ELECTRON_EXTRA_LAUNCH_ARGS=--disable-gpu,LIBVA_DRIVER_NAME=--disable-software-rasterizer",

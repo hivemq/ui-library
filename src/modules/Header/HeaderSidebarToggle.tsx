@@ -1,7 +1,7 @@
-import { Box, Icon, type BoxProps } from "@chakra-ui/react";
+import { Box, type BoxProps, Icon } from "@chakra-ui/react";
+import { MenuIcon, XIcon } from "lucide-react";
 import { useContext } from "react";
 import { ShellContext } from "../../context/ShellContext";
-import { MenuIcon, XIcon } from "lucide-react";
 
 export type HeaderSidebarToggleProps = BoxProps & {};
 

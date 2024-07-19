@@ -1,7 +1,7 @@
-import { SidebarRoot } from "./SidebarRoot";
 import { SidebarGroup } from "./SidebarGroup";
 import { SidebarList } from "./SidebarList";
 import { SidebarListItem } from "./SidebarListItem";
+import { SidebarRoot } from "./SidebarRoot";
 
 export type {
   /**

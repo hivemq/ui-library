@@ -15,15 +15,8 @@ export type HeaderLogoProps = BoxProps & {
  * HeaderLogo component
  * Second parameter of the forwardRef generic has to be of the component bound to `as` prop
  */
-export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
-  ({
-    children,
-    src,
-    alt,
-    title,
-    as = 'button',
-    ...props
-  }, ref) => {
+export const HeaderLogo = forwardRef<HeaderLogoProps, "button">(
+  ({ children, src, alt, title, as = "button", ...props }, ref) => {
     return (
       <Box
         type="button"
@@ -47,5 +40,5 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
         </Text>
       </Box>
     );
-  }
-)
+  },
+);

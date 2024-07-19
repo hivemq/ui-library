@@ -1,7 +1,7 @@
 import { Box, type BoxProps } from "@chakra-ui/react";
-import { ShellContext } from "../../context/ShellContext";
 import { useContext } from "react";
 import { Z_INDEX } from "../../constants/zIndex";
+import { ShellContext } from "../../context/ShellContext";
 
 export type SidebarRootProps = BoxProps & {};
 

@@ -1,4 +1,3 @@
-import { HeaderRoot } from "./HeaderRoot";
 import { HeaderDivider } from "./HeaderDivider";
 import { HeaderLogo } from "./HeaderLogo";
 import { HeaderMenu } from "./HeaderMenu";
@@ -7,6 +6,7 @@ import { HeaderMenuContent } from "./HeaderMenuContent";
 import { HeaderMenuContentDetails } from "./HeaderMenuContentDetails";
 import { HeaderMenuContentItem } from "./HeaderMenuContentItem";
 import { HeaderNavigationItem } from "./HeaderNavigationItem";
+import { HeaderRoot } from "./HeaderRoot";
 import { HeaderSidebarToggle } from "./HeaderSidebarToggle";
 
 // ?TODO: Remove deprecated items in the next version

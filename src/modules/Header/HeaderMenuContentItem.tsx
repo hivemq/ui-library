@@ -2,7 +2,10 @@ import { MenuItem, type MenuItemProps, forwardRef } from "@chakra-ui/react";
 
 export type HeaderMenuContentItemProps = MenuItemProps & {};
 
-export const HeaderMenuContentItem = forwardRef<HeaderMenuContentItemProps, 'button'>(({ children, ...props }, ref) => {
+export const HeaderMenuContentItem = forwardRef<
+  HeaderMenuContentItemProps,
+  "button"
+>(({ children, ...props }, ref) => {
   return (
     <MenuItem
       backgroundColor="black"
@@ -18,4 +21,4 @@ export const HeaderMenuContentItem = forwardRef<HeaderMenuContentItemProps, 'but
       {children}
     </MenuItem>
   );
-})
+});

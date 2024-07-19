@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 // @ts-expect-error - Typescript doesn't how to import svgs yet
 import Logo from "@/assets/hivemq-neg.svg?component";
 
-import { Header, Content, Sidebar, Shell } from "@/lib";
+import { Content, Header, Shell, Sidebar } from "@/lib";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -26,7 +26,6 @@ export const WithSidebarNavigationToggle: Story = {
   render() {
     return (
       <Shell.Root>
-
         <Header.Root>
           <Header.SidebarToggle />
           <Header.Logo src={Logo} alt="HiveMQ Logo" title="Control Center" />
@@ -41,7 +40,6 @@ export const WithSidebarNavigationToggle: Story = {
         </Sidebar.Root>
 
         <Content.Root>Hello</Content.Root>
-
       </Shell.Root>
     );
   },
