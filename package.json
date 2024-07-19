@@ -24,7 +24,7 @@
     "publish:ci": "pnpm publish --no-git-checks",
     "publish:dry": "pnpm publish --no-git-checks --dry-run",
     "lint:check": "biome check ./src",
-    "lint:check:write": "biome check --apply-unsafe ./src",
+    "lint:check:write": "biome check --write --unsafe ./src",
     "lint:format": "biome format ./src",
     "lint:format:write": "biome format --write ./src",
     "lint:all": "pnpm run lint:check && pnpm run lint:format",

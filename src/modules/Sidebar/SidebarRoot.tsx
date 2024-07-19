@@ -1,15 +1,12 @@
-import { Box, type BoxProps } from "@chakra-ui/react";
-import { useContext } from "react";
-import { Z_INDEX } from "../../constants/zIndex";
-import { ShellContext } from "../../context/ShellContext";
+import { Box, type BoxProps } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { Z_INDEX } from '../../constants/zIndex'
+import { ShellContext } from '../../context/ShellContext'
 
-export type SidebarRootProps = BoxProps & {};
+export type SidebarRootProps = BoxProps & {}
 
-export function SidebarRoot({
-  children,
-  ...props
-}: React.PropsWithChildren<SidebarRootProps>) {
-  const context = useContext(ShellContext);
+export function SidebarRoot({ children, ...props }: React.PropsWithChildren<SidebarRootProps>) {
+  const context = useContext(ShellContext)
 
   return (
     context.isSidebarOpen && (
@@ -33,5 +30,5 @@ export function SidebarRoot({
         {children}
       </Box>
     )
-  );
+  )
 }

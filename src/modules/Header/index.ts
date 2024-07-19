@@ -1,13 +1,13 @@
-import { HeaderDivider } from "./HeaderDivider";
-import { HeaderLogo } from "./HeaderLogo";
-import { HeaderMenu } from "./HeaderMenu";
-import { HeaderMenuButton } from "./HeaderMenuButton";
-import { HeaderMenuContent } from "./HeaderMenuContent";
-import { HeaderMenuContentDetails } from "./HeaderMenuContentDetails";
-import { HeaderMenuContentItem } from "./HeaderMenuContentItem";
-import { HeaderNavigationItem } from "./HeaderNavigationItem";
-import { HeaderRoot } from "./HeaderRoot";
-import { HeaderSidebarToggle } from "./HeaderSidebarToggle";
+import { HeaderDivider } from './HeaderDivider'
+import { HeaderLogo } from './HeaderLogo'
+import { HeaderMenu } from './HeaderMenu'
+import { HeaderMenuButton } from './HeaderMenuButton'
+import { HeaderMenuContent } from './HeaderMenuContent'
+import { HeaderMenuContentDetails } from './HeaderMenuContentDetails'
+import { HeaderMenuContentItem } from './HeaderMenuContentItem'
+import { HeaderNavigationItem } from './HeaderNavigationItem'
+import { HeaderRoot } from './HeaderRoot'
+import { HeaderSidebarToggle } from './HeaderSidebarToggle'
 
 // ?TODO: Remove deprecated items in the next version
 
@@ -17,28 +17,28 @@ export type {
    */
   HeaderRootProps as HeaderContainerProps,
   HeaderRootProps,
-} from "./HeaderRoot";
-export type { HeaderDividerProps } from "./HeaderDivider";
-export type { HeaderLogoProps } from "./HeaderLogo";
-export type { HeaderMenuProps } from "./HeaderMenu";
-export type { HeaderMenuButtonProps } from "./HeaderMenuButton";
-export type { HeaderMenuContentProps } from "./HeaderMenuContent";
+} from './HeaderRoot'
+export type { HeaderDividerProps } from './HeaderDivider'
+export type { HeaderLogoProps } from './HeaderLogo'
+export type { HeaderMenuProps } from './HeaderMenu'
+export type { HeaderMenuButtonProps } from './HeaderMenuButton'
+export type { HeaderMenuContentProps } from './HeaderMenuContent'
 export type {
   /**
    * @deprecated use `HeaderMenuContentDetailsProps` instead
    */
   HeaderMenuContentDetailsProps as HeaderMenuDetailsProps,
   HeaderMenuContentDetailsProps,
-} from "./HeaderMenuContentDetails";
+} from './HeaderMenuContentDetails'
 export type {
   /**
    * @deprecated use `HeaderMenuContentItemProps` instead
    */
   HeaderMenuContentItemProps as HeaderMenuItemProps,
   HeaderMenuContentItemProps,
-} from "./HeaderMenuContentItem";
-export type { HeaderNavigationItemProps } from "./HeaderNavigationItem";
-export type { HeaderSidebarToggleProps } from "./HeaderSidebarToggle";
+} from './HeaderMenuContentItem'
+export type { HeaderNavigationItemProps } from './HeaderNavigationItem'
+export type { HeaderSidebarToggleProps } from './HeaderSidebarToggle'
 
 export const Header = {
   /**
@@ -133,4 +133,4 @@ export const Header = {
    * @requires `Header.Root` - As the parent element that provides the layout / context for the `Header.NavigationItem`
    */
   NavigationItem: HeaderNavigationItem,
-};
+}

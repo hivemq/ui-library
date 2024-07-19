@@ -1,14 +1,11 @@
-import { MenuList, type MenuListProps, useMenuContext } from "@chakra-ui/react";
+import { MenuList, type MenuListProps, useMenuContext } from '@chakra-ui/react'
 
 export type HeaderMenuContentProps = MenuListProps & {
-  children?: React.ReactNode;
-};
+  children?: React.ReactNode
+}
 
-export function HeaderMenuContent({
-  children,
-  ...props
-}: HeaderMenuContentProps) {
-  const context = useMenuContext();
+export function HeaderMenuContent({ children, ...props }: HeaderMenuContentProps) {
+  const context = useMenuContext()
 
   return (
     context.isOpen && (
@@ -25,5 +22,5 @@ export function HeaderMenuContent({
         {children}
       </MenuList>
     )
-  );
+  )
 }

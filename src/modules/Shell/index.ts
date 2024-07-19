@@ -1,4 +1,4 @@
-import { ShellContainer, ShellProvider, ShellRoot } from "./ShellRoot";
+import { ShellContainer, ShellProvider, ShellRoot } from './ShellRoot'
 
 export const Shell = {
   /**
@@ -19,7 +19,7 @@ export const Shell = {
    * context for all shell elements.
    */
   Root: ShellRoot,
-};
+}
 
 export {
   /**
@@ -31,4 +31,4 @@ export {
    */
   type ShellContainerProps as ShellProviderProps,
   type ShellRootProps,
-} from "./ShellRoot";
+} from './ShellRoot'

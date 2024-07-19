@@ -1,6 +1,6 @@
-import { Divider, type DividerProps } from "@chakra-ui/react";
+import { Divider, type DividerProps } from '@chakra-ui/react'
 
-export type HeaderDividerProps = DividerProps & {};
+export type HeaderDividerProps = DividerProps & {}
 
 export function HeaderDivider({ ...props }: HeaderDividerProps) {
   return (
@@ -12,5 +12,5 @@ export function HeaderDivider({ ...props }: HeaderDividerProps) {
       margin={4}
       {...props}
     />
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { ContentRoot } from "./ContentRoot";
+import { ContentRoot } from './ContentRoot'
 
 // ?TODO: Remove deprecated items in the next version
 
@@ -12,7 +12,7 @@ export const Content = {
    * @requires Shell.Root - As the parent element that provides the layout / context for the Content.Root
    */
   Root: ContentRoot,
-};
+}
 
 export {
   /**
@@ -20,4 +20,4 @@ export {
    */
   type ContentRootProps as ContentProps,
   type ContentRootProps,
-} from "./ContentRoot";
+} from './ContentRoot'

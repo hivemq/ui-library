@@ -1,13 +1,13 @@
-import { Box, type BoxProps, ListItem, forwardRef } from "@chakra-ui/react";
+import { Box, type BoxProps, ListItem, forwardRef } from '@chakra-ui/react'
 
 export type SidebarListItemProps = BoxProps & {
   /**
    * Define whenever the sidebar item is active
    */
-  isActive?: boolean;
-};
+  isActive?: boolean
+}
 
-export const SidebarListItem = forwardRef<SidebarListItemProps, "button">(
+export const SidebarListItem = forwardRef<SidebarListItemProps, 'button'>(
   ({ children, isActive, ...props }, ref) => {
     return (
       <ListItem>
@@ -15,16 +15,16 @@ export const SidebarListItem = forwardRef<SidebarListItemProps, "button">(
           as="button"
           type="button"
           borderLeft="6px solid"
-          borderColor={isActive ? "primary.400" : "transparent"}
+          borderColor={isActive ? 'primary.400' : 'transparent'}
           textAlign="left"
-          backgroundColor={isActive ? "surface.100" : "transparent"}
+          backgroundColor={isActive ? 'surface.100' : 'transparent'}
           p={2}
           pl={4}
           _hover={{
-            backgroundColor: "surface.200",
+            backgroundColor: 'surface.200',
           }}
           _focusVisible={{
-            backgroundColor: "surface.200",
+            backgroundColor: 'surface.200',
           }}
           w="100%"
           ref={ref}
@@ -33,6 +33,6 @@ export const SidebarListItem = forwardRef<SidebarListItemProps, "button">(
           {children}
         </Box>
       </ListItem>
-    );
+    )
   },
-);
+)

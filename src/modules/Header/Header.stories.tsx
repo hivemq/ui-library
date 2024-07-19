@@ -1,30 +1,30 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
 // @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from "@/assets/hivemq-neg.svg?component";
+import Logo from '@/assets/hivemq-neg.svg?component'
 
-import { InfoIcon, UserIcon } from "lucide-react";
+import { InfoIcon, UserIcon } from 'lucide-react'
 
-import { Box } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react'
 
-import { Content, Header, Shell, Sidebar } from "@/lib";
+import { Content, Header, Shell, Sidebar } from '@/lib'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Components/Header",
+  title: 'Components/Header',
   component: Header.Root,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
+    layout: 'centered',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof Header.Root>;
+} satisfies Meta<typeof Header.Root>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const WithSidebarNavigationToggle: Story = {
   render() {
@@ -51,9 +51,7 @@ export const WithSidebarNavigationToggle: Story = {
             <Header.Menu overlayId="other">
               <Header.MenuButton icon={InfoIcon} />
               <Header.MenuContent>
-                <Header.MenuContentDetails>
-                  Hi, How can we help you? 💁‍♀️
-                </Header.MenuContentDetails>
+                <Header.MenuContentDetails>Hi, How can we help you? 💁‍♀️</Header.MenuContentDetails>
                 <Header.MenuContentItem>Test</Header.MenuContentItem>
               </Header.MenuContent>
             </Header.Menu>
@@ -66,6 +64,6 @@ export const WithSidebarNavigationToggle: Story = {
 
         <Content.Root>Hello World 🌍</Content.Root>
       </Shell.Root>
-    );
+    )
   },
-};
+}

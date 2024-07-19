@@ -1,9 +1,9 @@
-import { GridItem } from "@chakra-ui/react";
-import { Z_INDEX } from "../../constants/zIndex";
+import { GridItem } from '@chakra-ui/react'
+import { Z_INDEX } from '../../constants/zIndex'
 
 export type HeaderRootProps = {
-  children?: React.ReactNode;
-};
+  children?: React.ReactNode
+}
 
 export function HeaderRoot({ children }: HeaderRootProps) {
   return (
@@ -23,5 +23,5 @@ export function HeaderRoot({ children }: HeaderRootProps) {
     >
       {children}
     </GridItem>
-  );
+  )
 }

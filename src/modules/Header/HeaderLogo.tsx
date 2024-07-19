@@ -1,22 +1,22 @@
-import { Box, type BoxProps, Image, Text, forwardRef } from "@chakra-ui/react";
+import { Box, type BoxProps, Image, Text, forwardRef } from '@chakra-ui/react'
 
 export type HeaderLogoProps = BoxProps & {
   /**
    * Source of the logo
    */
-  src: string;
+  src: string
   /**
    * Alternative text for the logo
    */
-  alt: string;
-};
+  alt: string
+}
 
 /**
  * HeaderLogo component
  * Second parameter of the forwardRef generic has to be of the component bound to `as` prop
  */
-export const HeaderLogo = forwardRef<HeaderLogoProps, "button">(
-  ({ children, src, alt, title, as = "button", ...props }, ref) => {
+export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
+  ({ children, src, alt, title, as = 'button', ...props }, ref) => {
     return (
       <Box
         type="button"
@@ -28,7 +28,7 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, "button">(
         pl={2}
         pr={4}
         _hover={{
-          backgroundColor: "surface.800",
+          backgroundColor: 'surface.800',
         }}
         as={as}
         ref={ref}
@@ -39,6 +39,6 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, "button">(
           {title}
         </Text>
       </Box>
-    );
+    )
   },
-);
+)

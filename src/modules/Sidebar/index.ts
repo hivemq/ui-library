@@ -1,7 +1,7 @@
-import { SidebarGroup } from "./SidebarGroup";
-import { SidebarList } from "./SidebarList";
-import { SidebarListItem } from "./SidebarListItem";
-import { SidebarRoot } from "./SidebarRoot";
+import { SidebarGroup } from './SidebarGroup'
+import { SidebarList } from './SidebarList'
+import { SidebarListItem } from './SidebarListItem'
+import { SidebarRoot } from './SidebarRoot'
 
 export type {
   /**
@@ -9,10 +9,10 @@ export type {
    */
   SidebarRootProps as SidebarContainerProps,
   SidebarRootProps,
-} from "./SidebarRoot";
-export type { SidebarGroupProps } from "./SidebarGroup";
-export type { SidebarListProps } from "./SidebarList";
-export type { SidebarListItemProps } from "./SidebarListItem";
+} from './SidebarRoot'
+export type { SidebarGroupProps } from './SidebarGroup'
+export type { SidebarListProps } from './SidebarList'
+export type { SidebarListItemProps } from './SidebarListItem'
 
 export const Sidebar = {
   /**
@@ -48,4 +48,4 @@ export const Sidebar = {
    * @requires `Sidebar.List` - As the parent element that provides the layout / context for the `Sidebar.ListItem`
    */
   ListItem: SidebarListItem,
-};
+}

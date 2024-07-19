@@ -1,5 +1,5 @@
 // @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from "@/assets/hivemq-neg.svg?component";
+import Logo from '@/assets/hivemq-neg.svg?component'
 
 import {
   Box,
@@ -17,93 +17,91 @@ import {
   Thead,
   Tr,
   VStack,
-} from "@chakra-ui/react";
-import { InfoIcon, UserIcon } from "lucide-react";
-import { useContext, useState } from "react";
+} from '@chakra-ui/react'
+import { InfoIcon, UserIcon } from 'lucide-react'
+import { useContext, useState } from 'react'
 
-import { Content, Header, ShellContext, Sidebar } from "@/lib";
+import { Content, Header, ShellContext, Sidebar } from '@/lib'
 
 const DEMO_SIDEBAR_ITEMS = [
   {
-    title: "Cluster",
+    title: 'Cluster',
     items: [
       {
-        title: "Overview",
-        id: "cluster-overview",
+        title: 'Overview',
+        id: 'cluster-overview',
       },
       {
-        title: "Nodes",
-        id: "cluster-nodes",
+        title: 'Nodes',
+        id: 'cluster-nodes',
       },
       {
-        title: "Clients",
-        id: "cluster-clients",
+        title: 'Clients',
+        id: 'cluster-clients',
       },
     ],
   },
   {
-    title: "API",
+    title: 'API',
     items: [
       {
-        title: "Overview",
-        id: "api-overview",
+        title: 'Overview',
+        id: 'api-overview',
       },
       {
-        title: "Clients",
-        id: "api-clients",
+        title: 'Clients',
+        id: 'api-clients',
       },
       {
-        title: "Metrics",
-        id: "api-metrics",
+        title: 'Metrics',
+        id: 'api-metrics',
       },
     ],
   },
   {
-    title: "Settings",
+    title: 'Settings',
     items: [
       {
-        title: "Overview",
-        id: "settings-overview",
+        title: 'Overview',
+        id: 'settings-overview',
       },
       {
-        title: "Users",
-        id: "settings-users",
+        title: 'Users',
+        id: 'settings-users',
       },
       {
-        title: "Roles",
-        id: "settings-roles",
+        title: 'Roles',
+        id: 'settings-roles',
       },
     ],
   },
-] as const;
+] as const
 
 const DEMO_HEADER_ITEMS = [
   {
-    id: "clusters",
-    title: "Clusters",
+    id: 'clusters',
+    title: 'Clusters',
   },
   {
-    id: "api",
-    title: "API",
+    id: 'api',
+    title: 'API',
   },
   {
-    id: "settings",
-    title: "Settings",
+    id: 'settings',
+    title: 'Settings',
   },
-];
+]
 
-type SidebarItem = (typeof DEMO_SIDEBAR_ITEMS)[number]["items"][number];
-type HeaderItemType = (typeof DEMO_HEADER_ITEMS)[number];
+type SidebarItem = (typeof DEMO_SIDEBAR_ITEMS)[number]['items'][number]
+type HeaderItemType = (typeof DEMO_HEADER_ITEMS)[number]
 
 export function FullDemo() {
   const [activeSidebarItem, setActiveSidebarItem] = useState<SidebarItem>(
     DEMO_SIDEBAR_ITEMS[0].items[0],
-  );
-  const [activeHeaderItem, setActiveHeaderItem] = useState<HeaderItemType>(
-    DEMO_HEADER_ITEMS[0],
-  );
+  )
+  const [activeHeaderItem, setActiveHeaderItem] = useState<HeaderItemType>(DEMO_HEADER_ITEMS[0])
 
-  const context = useContext(ShellContext);
+  const context = useContext(ShellContext)
 
   return (
     <>
@@ -116,7 +114,7 @@ export function FullDemo() {
             key={item.id}
             isActive={activeHeaderItem === item}
             onClick={() => {
-              setActiveHeaderItem(item);
+              setActiveHeaderItem(item)
             }}
           >
             {item.title}
@@ -139,9 +137,7 @@ export function FullDemo() {
           <Header.Menu overlayId="support">
             <Header.MenuButton icon={InfoIcon} />
             <Header.MenuContent>
-              <Header.MenuContentDetails>
-                Hi, How can we help you? 💁‍♀️
-              </Header.MenuContentDetails>
+              <Header.MenuContentDetails>Hi, How can we help you? 💁‍♀️</Header.MenuContentDetails>
               <Header.MenuContentItem>Test</Header.MenuContentItem>
             </Header.MenuContent>
           </Header.Menu>
@@ -157,7 +153,7 @@ export function FullDemo() {
                   key={item.id}
                   isActive={activeSidebarItem === item}
                   onClick={() => {
-                    setActiveSidebarItem(item);
+                    setActiveSidebarItem(item)
                   }}
                 >
                   {item.title}
@@ -175,8 +171,8 @@ export function FullDemo() {
           </Heading>
 
           <Text>
-            This is a full demo of the HiveMQ UI Shell. You can interact with
-            the sidebar to change the active item.
+            This is a full demo of the HiveMQ UI Shell. You can interact with the sidebar to change
+            the active item.
           </Text>
         </VStack>
 
@@ -206,7 +202,7 @@ export function FullDemo() {
                     </Td>
                     <Td>Is the sidebar open?</Td>
                     <Td>
-                      <Code>{context.isSidebarOpen ? "true" : "false"}</Code>
+                      <Code>{context.isSidebarOpen ? 'true' : 'false'}</Code>
                     </Td>
                   </Tr>
                   <Tr>
@@ -215,7 +211,7 @@ export function FullDemo() {
                     </Td>
                     <Td>Currently opened overlay ID</Td>
                     <Td>
-                      <Code>{context.openedOverlayId ?? "undefined"}</Code>
+                      <Code>{context.openedOverlayId ?? 'undefined'}</Code>
                     </Td>
                   </Tr>
                   <Tr>
@@ -227,8 +223,8 @@ export function FullDemo() {
                       <Button
                         variant="secondary"
                         onClick={(event) => {
-                          event.preventDefault();
-                          context.setSidebarOpen(!context.isSidebarOpen);
+                          event.preventDefault()
+                          context.setSidebarOpen(!context.isSidebarOpen)
                         }}
                       >
                         Toggle Sidebar
@@ -244,8 +240,8 @@ export function FullDemo() {
                       <Button
                         variant="secondary"
                         onClick={(event) => {
-                          event.preventDefault();
-                          context.setOpenedOverlayId?.("profile");
+                          event.preventDefault()
+                          context.setOpenedOverlayId?.('profile')
                         }}
                       >
                         Open profile
@@ -257,9 +253,7 @@ export function FullDemo() {
             </Card>
 
             <Card>
-              <CardHeader fontWeight={500}>
-                Current selected sidebar item
-              </CardHeader>
+              <CardHeader fontWeight={500}>Current selected sidebar item</CardHeader>
 
               <Table layout="fixed">
                 <Thead>
@@ -290,9 +284,7 @@ export function FullDemo() {
             </Card>
 
             <Card>
-              <CardHeader fontWeight={500}>
-                Current selected header navigation item
-              </CardHeader>
+              <CardHeader fontWeight={500}>Current selected header navigation item</CardHeader>
 
               <Table layout="fixed">
                 <Thead>
@@ -325,5 +317,5 @@ export function FullDemo() {
         </VStack>
       </Content.Root>
     </>
-  );
+  )
 }

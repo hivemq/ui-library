@@ -1,9 +1,9 @@
-import { GridItem, type GridItemProps } from "@chakra-ui/react";
+import { GridItem, type GridItemProps } from '@chakra-ui/react'
 
 export type ContentRootProps = GridItemProps & {
-  children: React.ReactNode;
-  canOverflowXScroll?: boolean;
-};
+  children: React.ReactNode
+  canOverflowXScroll?: boolean
+}
 
 // TODO: apply responsive styles
 export function ContentRoot({
@@ -12,13 +12,8 @@ export function ContentRoot({
   ...props
 }: ContentRootProps) {
   return (
-    <GridItem
-      overflowX={overflowX ? "scroll" : "hidden"}
-      gridArea="content"
-      p={8}
-      {...props}
-    >
+    <GridItem overflowX={overflowX ? 'scroll' : 'hidden'} gridArea="content" p={8} {...props}>
       {children}
     </GridItem>
-  );
+  )
 }

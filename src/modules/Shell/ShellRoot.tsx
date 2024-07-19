@@ -1,16 +1,16 @@
-import { Box, Grid } from "@chakra-ui/react";
-import { useContext, useMemo, useState } from "react";
-import { Z_INDEX } from "../../constants/zIndex";
-import { ShellContext } from "../../context/ShellContext";
+import { Box, Grid } from '@chakra-ui/react'
+import { useContext, useMemo, useState } from 'react'
+import { Z_INDEX } from '../../constants/zIndex'
+import { ShellContext } from '../../context/ShellContext'
 
 export type ShellContainerProps = {
-  children: React.ReactNode;
+  children: React.ReactNode
   /**
    * Define whenever the sidebar should be open by default
    * @default false
    */
-  isSidebarOpen?: boolean;
-};
+  isSidebarOpen?: boolean
+}
 
 /**
  * @deprecated - Use Shell.Root instead
@@ -20,11 +20,8 @@ export function ShellProvider({
   children,
   isSidebarOpen: isSidebarOpenDefault = false,
 }: ShellContainerProps) {
-  const [isSidebarOpen, setSidebarOpen] =
-    useState<boolean>(isSidebarOpenDefault);
-  const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(
-    undefined,
-  );
+  const [isSidebarOpen, setSidebarOpen] = useState<boolean>(isSidebarOpenDefault)
+  const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(undefined)
 
   return (
     <ShellContext.Provider
@@ -37,7 +34,7 @@ export function ShellProvider({
     >
       {children}
     </ShellContext.Provider>
-  );
+  )
 }
 
 /**
@@ -45,33 +42,33 @@ export function ShellProvider({
  * @returns
  */
 export function ShellContainer({ children }: ShellContainerProps) {
-  const { isSidebarOpen, openedOverlayId } = useContext(ShellContext);
+  const { isSidebarOpen, openedOverlayId } = useContext(ShellContext)
 
   const gridTemplateAreas = useMemo(() => {
     if (isSidebarOpen) {
       return `
         "header header"
         "sidebar content"
-      `;
+      `
     }
 
     return `
       "header"
       "content"
-    `;
-  }, [isSidebarOpen]);
+    `
+  }, [isSidebarOpen])
 
   const showBackdrop = useMemo(() => {
-    return !!openedOverlayId;
-  }, [openedOverlayId]);
+    return !!openedOverlayId
+  }, [openedOverlayId])
 
   const gridTemplateColumns = useMemo(() => {
     if (isSidebarOpen) {
-      return "290px 1fr";
+      return '290px 1fr'
     }
 
-    return "1fr";
-  }, [isSidebarOpen]);
+    return '1fr'
+  }, [isSidebarOpen])
 
   return (
     <Grid
@@ -96,59 +93,56 @@ export function ShellContainer({ children }: ShellContainerProps) {
         />
       )}
     </Grid>
-  );
+  )
 }
 
 export type ShellRootProps = {
-  children: React.ReactNode;
+  children: React.ReactNode
   /**
    * Define whenever the sidebar should be open by default
    * @default false
    */
-  isSidebarOpen?: boolean;
+  isSidebarOpen?: boolean
   /**
    * Define the width of your sidebar
    * @default 290px
    */
-  sidebarWidth?: string;
-};
+  sidebarWidth?: string
+}
 
 export function ShellRoot({
   children,
   isSidebarOpen: isSidebarOpenDefault = true,
-  sidebarWidth = "290px",
+  sidebarWidth = '290px',
 }: ShellRootProps) {
-  const [isSidebarOpen, setSidebarOpen] =
-    useState<boolean>(isSidebarOpenDefault);
-  const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(
-    undefined,
-  );
+  const [isSidebarOpen, setSidebarOpen] = useState<boolean>(isSidebarOpenDefault)
+  const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(undefined)
 
   const gridTemplateAreas = useMemo(() => {
     if (isSidebarOpen) {
       return `
         "header header"
         "sidebar content"
-      `;
+      `
     }
 
     return `
       "header"
       "content"
-    `;
-  }, [isSidebarOpen]);
+    `
+  }, [isSidebarOpen])
 
   const showBackdrop = useMemo(() => {
-    return !!openedOverlayId;
-  }, [openedOverlayId]);
+    return !!openedOverlayId
+  }, [openedOverlayId])
 
   const gridTemplateColumns = useMemo(() => {
     if (isSidebarOpen) {
-      return `${sidebarWidth} 1fr`;
+      return `${sidebarWidth} 1fr`
     }
 
-    return "1fr";
-  }, [isSidebarOpen, sidebarWidth]);
+    return '1fr'
+  }, [isSidebarOpen, sidebarWidth])
 
   return (
     <ShellContext.Provider
@@ -182,5 +176,5 @@ export function ShellRoot({
         )}
       </Grid>
     </ShellContext.Provider>
-  );
+  )
 }
