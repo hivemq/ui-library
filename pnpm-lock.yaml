@@ -89,18 +89,12 @@ importers:
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.39)
-      classnames:
-        specifier: ^2.5.1
-        version: 2.5.1
       lucide-react:
         specifier: ^0.410.0
         version: 0.410.0(react@18.3.1)
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
-      prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -3276,9 +3270,6 @@ packages:
 
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
-
-  classnames@2.5.1:
-    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
 
   clear-any-console@1.16.2:
     resolution: {integrity: sha512-OL/7wZpNy9x0GBSzz3poWja84Nr7iaH8aYNsJ5Uet2BVLj6Lm1zvWpZN/yH46Vv3ae7YfHmLLMmfHj911fshJg==}
@@ -9528,8 +9519,6 @@ snapshots:
   citty@0.1.6:
     dependencies:
       consola: 3.2.3
-
-  classnames@2.5.1: {}
 
   clear-any-console@1.16.2: {}
 
