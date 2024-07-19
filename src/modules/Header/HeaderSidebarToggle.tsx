@@ -1,6 +1,6 @@
 import { Box, type BoxProps, Icon } from "@chakra-ui/react";
 import { MenuIcon, XIcon } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { ShellContext } from "../../context/ShellContext";
 
 export type HeaderSidebarToggleProps = BoxProps & {};
@@ -10,6 +10,8 @@ export function HeaderSidebarToggle({
   ...props
 }: HeaderSidebarToggleProps) {
   const context = useContext(ShellContext);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: needs initial value
+  const wasInitiallyOpen = useMemo(() => context.isSidebarOpen, []);
 
   return (
     <Box
@@ -36,7 +38,7 @@ export function HeaderSidebarToggle({
       <Icon
         w={6}
         height={6}
-        as={context.isSidebarOpen ? XIcon : MenuIcon}
+        as={context.isSidebarOpen && !wasInitiallyOpen ? XIcon : MenuIcon}
         color="white"
       />
     </Box>
