@@ -1,6 +1,6 @@
-# UI Kit
+# UI Library
 
-The HiveMQ UI Kit provides components on top of Chakra UI for various applications.
+The HiveMQ UI Library provides components on top of Chakra UI for various applications.
 
 ## Development
 
