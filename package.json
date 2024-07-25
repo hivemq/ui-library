@@ -1,6 +1,6 @@
 {
   "name": "@hivemq/ui-shell",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
@@ -14,7 +14,9 @@
     "node": ">=18",
     "pnpm": ">=8"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "packageManager": "pnpm@8.6.11",
   "scripts": {
     "build": "pnpm build:scripts",
