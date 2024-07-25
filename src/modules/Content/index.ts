@@ -8,7 +8,7 @@ export const Content = {
    */
   Base: ContentRoot,
   /**
-   * Root element for the UI Kit content that positions the HTML element on the grid and provides
+   * Root element for the UI Library content that positions the HTML element on the grid and provides
    * @requires Shell.Root - As the parent element that provides the layout / context for the Content.Root
    */
   Root: ContentRoot,
