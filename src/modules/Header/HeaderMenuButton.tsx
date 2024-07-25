@@ -4,6 +4,7 @@ import { type LucideIcon, XIcon } from 'lucide-react'
 export type HeaderMenuButtonProps = {
   icon: LucideIcon
   closeIcon?: LucideIcon
+  ariaLabel: string
 }
 
 const OPEN_MARGIN_IN_PIXEL = 4
@@ -11,7 +12,7 @@ const BORDER_WIDTH_IN_PIXEL = 2
 const MAX_CONTAINER_SIZE_IN_PIXEL = 56
 
 export const HeaderMenuButton = forwardRef<HeaderMenuButtonProps, 'button'>((props, ref) => {
-  const { as, icon, closeIcon = XIcon } = props
+  const { ariaLabel, as, icon, closeIcon = XIcon } = props
   const { isOpen } = useMenuContext()
 
   const containerSize = isOpen
@@ -20,6 +21,7 @@ export const HeaderMenuButton = forwardRef<HeaderMenuButtonProps, 'button'>((pro
 
   return (
     <MenuButton
+      aria-label={ariaLabel}
       _hover={{
         backgroundColor: 'surface.800',
       }}
