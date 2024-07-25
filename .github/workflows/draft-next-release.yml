@@ -13,7 +13,7 @@ on:
 
 jobs:
   draft_release:
-    name: 'Draft UI Shell release'
+    name: 'Draft UI Kit release'
     permissions:
       contents: write
       pull-requests: write

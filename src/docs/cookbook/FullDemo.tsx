@@ -171,7 +171,7 @@ export function FullDemo() {
           </Heading>
 
           <Text>
-            This is a full demo of the HiveMQ UI Shell. You can interact with the sidebar to change
+            This is a full demo of the HiveMQ UI Kit. You can interact with the sidebar to change
             the active item.
           </Text>
         </VStack>

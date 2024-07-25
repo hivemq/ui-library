@@ -2,7 +2,7 @@ import { ShellContainer, ShellProvider, ShellRoot } from './ShellRoot'
 
 export const Shell = {
   /**
-   * Provider for the entire UI Shell this should be at the top of all elements,
+   * Provider for the entire UI Kit this should be at the top of all elements,
    * even above `Shell.Root`
    *
    * @deprecated use `Shell.Root` instead since it provides functionality for both `Shell.Provider` and `Shell.Container`
@@ -30,5 +30,6 @@ export {
    * @deprecated use `ShellRootProps` instead
    */
   type ShellContainerProps as ShellProviderProps,
-  type ShellRootProps,
+  type ShellRootProps
 } from './ShellRoot'
+

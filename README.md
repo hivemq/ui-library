@@ -1,6 +1,6 @@
-# UI Shell
+# UI Kit
 
-UI Shell to share similar navigations between different applications.
+The HiveMQ UI Kit provides components on top of Chakra UI for various applications.
 
 ## Development
 

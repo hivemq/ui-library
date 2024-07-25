@@ -1,6 +1,6 @@
 {
-  "name": "@hivemq/ui-shell",
-  "version": "0.2.3",
+  "name": "@hivemq/ui-kit",
+  "version": "0.2.32",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",

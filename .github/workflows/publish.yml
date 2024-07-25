@@ -1,4 +1,4 @@
-name: Publish UI Shell to GitHub Packages
+name: Publish UI Kit to GitHub Packages
 
 on:
   release:
