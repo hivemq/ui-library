@@ -1,5 +1,5 @@
 {
-  "name": "@hivemq/ui-kit",
+  "name": "@hivemq/ui-kit-test",
   "version": "0.2.4",
   "type": "module",
   "main": "./dist/index.cjs.js",
