@@ -47,6 +47,7 @@
     "@fontsource/roboto": "^5.0.13",
     "@hivemq/ui-theme": "^0.2.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@storybook/addon-a11y": "^8.2.6",
     "@storybook/addon-essentials": "^8.2.4",
     "@storybook/addon-interactions": "^8.2.4",
     "@storybook/addon-links": "^8.2.4",
