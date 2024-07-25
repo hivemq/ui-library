@@ -36,7 +36,7 @@ export const WithSidebarNavigationToggle: Story = {
           <Header.Divider />
           <Box alignSelf="end">
             <Header.Menu overlayId="test">
-              <Header.MenuButton icon={UserIcon} />
+              <Header.MenuButton icon={UserIcon} ariaLabel='Profile' />
               <Header.MenuContent>
                 <Header.MenuContentDetails textAlign="center">
                   <b>Hello Batman 👋</b>
@@ -49,7 +49,7 @@ export const WithSidebarNavigationToggle: Story = {
               </Header.MenuContent>
             </Header.Menu>
             <Header.Menu overlayId="other">
-              <Header.MenuButton icon={InfoIcon} />
+              <Header.MenuButton icon={InfoIcon} ariaLabel='Support' />
               <Header.MenuContent>
                 <Header.MenuContentDetails>Hi, How can we help you? 💁‍♀️</Header.MenuContentDetails>
                 <Header.MenuContentItem>Test</Header.MenuContentItem>

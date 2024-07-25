@@ -31,6 +31,7 @@ export function HeaderSidebarToggle({ onClick, ...props }: HeaderSidebarTogglePr
         context.setSidebarOpen(!context.isSidebarOpen)
         onClick?.(event)
       }}
+      aria-label={'Menu Toggle'}
     >
       <Icon
         w={6}
