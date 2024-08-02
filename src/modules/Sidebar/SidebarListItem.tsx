@@ -26,6 +26,7 @@ export const SidebarListItem = forwardRef<SidebarListItemProps, 'button'>(
           _focusVisible={{
             backgroundColor: 'surface.200',
           }}
+          display="block"
           w="100%"
           ref={ref}
           {...props}
