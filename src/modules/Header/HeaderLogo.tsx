@@ -9,6 +9,10 @@ export type HeaderLogoProps = BoxProps & {
    * Alternative text for the logo
    */
   alt: string
+  /**
+   * Show/hide "HiveMQ" text
+   */
+  showHiveMQText?: boolean
 }
 
 /**
@@ -16,7 +20,7 @@ export type HeaderLogoProps = BoxProps & {
  * Second parameter of the forwardRef generic has to be of the component bound to `as` prop
  */
 export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
-  ({ children, src, alt, title, as = 'button', ...props }, ref) => {
+  ({ children, src, alt, title, showHiveMQText = true, as = 'button', ...props }, ref) => {
     return (
       <Box
         type="button"
@@ -35,7 +39,12 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
         {...props}
       >
         <Image src={src} alt={alt} />
-        <Text as="span" color="white" fontWeight={700} fontSize="1.1rem">
+        {showHiveMQText && (
+          <Text as="span" color="white" fontSize="1.2rem">
+            HiveMQ
+          </Text>
+        )}
+        <Text as="span" color="white" fontWeight={700} fontSize="1.2rem">
           {title}
         </Text>
       </Box>
