@@ -16,6 +16,7 @@ export function SidebarGroup({ Title, children, ...props }: SidebarGroupProps) {
         fontWeight={700}
         textTransform="uppercase"
         color="surface.600"
+        fontSize="sm"
       >
         {Title}
       </Box>
