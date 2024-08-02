@@ -7,7 +7,16 @@ export type SidebarGroupProps = BoxProps & {
 export function SidebarGroup({ Title, children, ...props }: SidebarGroupProps) {
   return (
     <Box {...props}>
-      <Box px={6} mb={1} fontWeight={700} textTransform="uppercase" color="surface.600">
+      <Box
+        borderLeft="6px solid"
+        borderColor="transparent"
+        textAlign="left"
+        pl={4}
+        mb={1}
+        fontWeight={700}
+        textTransform="uppercase"
+        color="surface.600"
+      >
         {Title}
       </Box>
       {children}
