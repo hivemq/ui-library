@@ -2,6 +2,12 @@
 
 The HiveMQ UI Library provides components on top of Chakra UI for various applications.
 
+Resources:
+* Web Site: [hivemq-website](http://www.hivemq.com)
+* Community Forum: [hivemq-community-forum](https://community.hivemq.com/)
+* Contribution Guidelines: [CONTRIBUTING.md](CONTRIBUTING.md)
+* License: The source files in this repository are made available under the [Apache License Version 2.0](LICENSE).
+
 ## Development
 
 ### Git Hooks
@@ -59,3 +65,13 @@ Since all dependencies are installed on your machine you can now execute the fol
 | ---------------- | -------------------------------------------------- | ------- |
 | `pnpm storybook` | Boot up the development environment to view the UI |         |
 | `pnpm test:unit` | Run all project unit tests                         |         |
+
+
+## Contributing
+
+If you want to contribute to the HiveMQ Extension SDK, see the [contribution guidelines](CONTRIBUTING.md).
+
+## License
+
+The HiveMQ UI Library is licensed under the `APACHE LICENSE, VERSION 2.0`.
+A copy of the license can be found [here](LICENSE).
