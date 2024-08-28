@@ -2,17 +2,31 @@ on:
   workflow_call:
 
 jobs:
+  run_linter:
+    name: 🧪 Lint files
+    runs-on: ubuntu-latest
+    steps:
+      - name: 👓 Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/setup
+
+      - name: 📝 Execute linter
+        run: pnpm lint:check:all
+
   unit_tests:
     runs-on: ubuntu-latest
 
     steps:
-       - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-       - uses: ./.github/actions/setup
+      - uses: ./.github/actions/setup
+        with:
+          GH_NPM_TOKEN: ${{ secrets.GH_NPM_TOKEN }}
 
-       - name: 📝 Run frontend unit tests
-         run: pnpm test:unit:ci
-         shell: bash
+      - name: 📝 Run frontend unit tests
+        run: pnpm test:unit:ci
+        shell: bash
 
   integration_tests:
     runs-on: ubuntu-latest
