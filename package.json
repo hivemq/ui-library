@@ -27,9 +27,11 @@
     "publish:dry": "pnpm publish --no-git-checks --dry-run",
     "lint:check": "biome check ./src",
     "lint:check:write": "biome check --write --unsafe ./src",
+    "lint:headers": "node check-headers.js",
+    "lint:check:all": "pnpm run lint:check && pnpm run lint:headers",
     "lint:format": "biome format ./src",
     "lint:format:write": "biome format --write ./src",
-    "lint:all": "pnpm run lint:check && pnpm run lint:format",
+    "lint:all": "pnpm run lint:check && pnpm run lint:headers && pnpm run lint:format",
     "test:unit": "TZ=UTC pnpm vitest run --outputFile.junit=./test-results/junit.xml",
     "test:unit:ci": "pnpm test:unit --coverage --silent",
     "test:integration": "pnpm cypress run --component --env ELECTRON_EXTRA_LAUNCH_ARGS=--disable-gpu,LIBVA_DRIVER_NAME=--disable-software-rasterizer",
@@ -85,7 +87,7 @@
     "@chakra-ui/styled-system": "^2.9.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@hivemq/ui-theme": "^0.2.1",
+    "@hivemq/ui-theme": "^0.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
