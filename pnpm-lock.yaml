@@ -30,8 +30,8 @@ devDependencies:
     specifier: ^5.0.13
     version: 5.0.13
   '@hivemq/ui-theme':
-    specifier: ^0.2.1
-    version: 0.2.1(@chakra-ui/anatomy@2.2.2)(@chakra-ui/react@2.8.2)(@chakra-ui/theme-tools@2.1.2)
+    specifier: ^0.4.1
+    version: 0.4.1(@chakra-ui/anatomy@2.2.2)(@chakra-ui/react@2.8.2)(@chakra-ui/theme-tools@2.1.2)
   '@radix-ui/react-slot':
     specifier: ^1.1.0
     version: 1.1.0(@types/react@18.3.3)(react@18.3.1)
@@ -3456,8 +3456,9 @@ packages:
     resolution: {integrity: sha512-j61DHjsdUCKMXSdNLTOxcG701FWnF0jcqNNQi2iPCDxU8seN/sMxeh62dC++UiagCWq9ghTypX+Pcy7kX+QOeQ==}
     dev: true
 
-  /@hivemq/ui-theme@0.2.1(@chakra-ui/anatomy@2.2.2)(@chakra-ui/react@2.8.2)(@chakra-ui/theme-tools@2.1.2):
-    resolution: {integrity: sha512-Oai9a8JO6nZnmGydJAJuNJIQ4RonoDvXYw5bdfBkjae8niqAYtZmYquDxeM9EaBUfpeR+0CM8UbMoJwjkhF97w==, tarball: https://npm.pkg.github.com/download/@hivemq/ui-theme/0.2.1/ad62f77a935a8ee485ff3d26541b1b094c735b2e}
+  /@hivemq/ui-theme@0.4.1(@chakra-ui/anatomy@2.2.2)(@chakra-ui/react@2.8.2)(@chakra-ui/theme-tools@2.1.2):
+    resolution: {integrity: sha512-/FIYzUrmY6OLt/a/q4XHtBhQT3/SfJZfBPCV4xlfDPEtcdw7W1yOx872nMaTzWaT4UgLAEt/YP1JUhjNNwh6FA==, tarball: https://npm.pkg.github.com/download/@hivemq/ui-theme/0.4.1/554fc28a94effa0beb32aebe4797203a988df8f0}
+    engines: {node: '20', pnpm: '9'}
     peerDependencies:
       '@chakra-ui/anatomy': ^2.2.2
       '@chakra-ui/react': ^2.8.2
