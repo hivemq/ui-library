@@ -122,7 +122,7 @@ export function FullDemo() {
         ))}
         <Box flexGrow="2" textAlign="right">
           <Header.Menu overlayId="profile">
-            <Header.MenuButton icon={UserIcon} ariaLabel="Profile" />
+            <Header.MenuButton icon={UserIcon} aria-label="Profile" />
             <Header.MenuContent>
               <Header.MenuContentDetails textAlign="center">
                 <b>Hello Batman 👋</b>
@@ -135,7 +135,7 @@ export function FullDemo() {
             </Header.MenuContent>
           </Header.Menu>
           <Header.Menu overlayId="support">
-            <Header.MenuButton icon={InfoIcon} ariaLabel="Support" />
+            <Header.MenuButton icon={InfoIcon} aria-label="Support" />
             <Header.MenuContent>
               <Header.MenuContentDetails>Hi, How can we help you? 💁‍♀️</Header.MenuContentDetails>
               <Header.MenuContentItem>Test</Header.MenuContentItem>
