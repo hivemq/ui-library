@@ -2,12 +2,10 @@
   "name": "@hivemq/ui-library",
   "version": "0.3.3",
   "type": "module",
-  "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "types": "./dist/index.d.ts",
-    "main": "./dist/index.cjs.js",
     "module": "./dist/index.es.js"
   },
   "engines": {
