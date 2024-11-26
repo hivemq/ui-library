@@ -14,18 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import * as React from 'react'
+import { createContext, useContext } from 'react'
 
-export type ShellProviderValue = {
+type ShellProviderValue = {
   isSidebarOpen: boolean
   setSidebarOpen: (value: boolean) => void
   openedOverlayId?: string
   setOpenedOverlayId?: (value: string | undefined) => void
 }
 
-export const ShellContext = React.createContext<ShellProviderValue>({
+export const ShellContext = createContext<ShellProviderValue>({
   isSidebarOpen: false,
   setSidebarOpen: () => void 0,
   openedOverlayId: undefined,
   setOpenedOverlayId: () => void 0,
 })
+
+export function useShellContext() {
+  return useContext(ShellContext)
+}

@@ -27,41 +27,18 @@ import { HeaderSidebarToggle } from './HeaderSidebarToggle'
 
 // ?TODO: Remove deprecated items in the next version
 
-export type {
-  /**
-   * @deprecated use `HeaderRootProps` instead
-   */
-  HeaderRootProps as HeaderContainerProps,
-  HeaderRootProps,
-} from './HeaderRoot'
+export type { HeaderRootProps } from './HeaderRoot'
 export type { HeaderDividerProps } from './HeaderDivider'
 export type { HeaderLogoProps } from './HeaderLogo'
 export type { HeaderMenuProps } from './HeaderMenu'
 export type { HeaderMenuButtonProps } from './HeaderMenuButton'
 export type { HeaderMenuContentProps } from './HeaderMenuContent'
-export type {
-  /**
-   * @deprecated use `HeaderMenuContentDetailsProps` instead
-   */
-  HeaderMenuContentDetailsProps as HeaderMenuDetailsProps,
-  HeaderMenuContentDetailsProps,
-} from './HeaderMenuContentDetails'
-export type {
-  /**
-   * @deprecated use `HeaderMenuContentItemProps` instead
-   */
-  HeaderMenuContentItemProps as HeaderMenuItemProps,
-  HeaderMenuContentItemProps,
-} from './HeaderMenuContentItem'
+export type { HeaderMenuContentDetailsProps } from './HeaderMenuContentDetails'
+export type { HeaderMenuContentItemProps } from './HeaderMenuContentItem'
 export type { HeaderNavigationItemProps } from './HeaderNavigationItem'
 export type { HeaderSidebarToggleProps } from './HeaderSidebarToggle'
 
 export const Header = {
-  /**
-   * @deprecated use `Header.Root` instead
-   */
-  Container: HeaderRoot,
-
   /**
    * Root element for the header that positions the HTML element on the grid and provides
    * context for all header elements.
@@ -111,22 +88,12 @@ export const Header = {
   MenuContent: HeaderMenuContent,
 
   /**
-   * @deprecated use Header.MenuContentDetails instead
-   */
-  MenuDetails: HeaderMenuContentDetails,
-
-  /**
    * Display details in the Menu Content
    * For example, a greeting or a user name
    *
    * @requires `Header.MenuContent` - As the parent element that provides the layout / context for the `Header.MenuContentDetails`
    */
   MenuContentDetails: HeaderMenuContentDetails,
-
-  /**
-   * @deprecated use `Header.MenuContentItem` instead
-   */
-  MenuItem: HeaderMenuContentItem,
 
   /**
    * Render an iterative element within the Header.MenuContent item

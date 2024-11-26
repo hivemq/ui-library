@@ -19,9 +19,9 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { InfoIcon, UserIcon } from 'lucide-react'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
-import { Content, Header, ShellContext, Sidebar } from '@/lib'
+import { Content, Header, Sidebar, useShellContext } from '@/lib'
 
 const DEMO_SIDEBAR_ITEMS = [
   {
@@ -101,7 +101,7 @@ export function FullDemo() {
   )
   const [activeHeaderItem, setActiveHeaderItem] = useState<HeaderItemType>(DEMO_HEADER_ITEMS[0])
 
-  const context = useContext(ShellContext)
+  const context = useShellContext()
 
   return (
     <>

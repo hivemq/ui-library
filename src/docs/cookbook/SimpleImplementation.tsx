@@ -1,5 +1,5 @@
-import { ShellContainer } from '../../modules/Shell/ShellRoot'
+import { ShellRoot } from '../../modules/Shell/ShellRoot'
 
 export function SimpleImplementation() {
-  return <ShellContainer>Hello</ShellContainer>
+  return <ShellRoot>Hello</ShellRoot>
 }

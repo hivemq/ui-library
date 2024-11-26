@@ -15,17 +15,16 @@ limitations under the License.
 */
 
 import { Box, type BoxProps } from '@chakra-ui/react'
-import { useContext } from 'react'
 import { Z_INDEX } from '../../constants/zIndex'
-import { ShellContext } from '../../context/ShellContext'
+import { useShellContext } from '../../context/ShellContext'
 
 export type SidebarRootProps = BoxProps & {}
 
 export function SidebarRoot({ children, ...props }: React.PropsWithChildren<SidebarRootProps>) {
-  const context = useContext(ShellContext)
+  const { isSidebarOpen } = useShellContext()
 
   return (
-    context.isSidebarOpen && (
+    isSidebarOpen && (
       <Box
         as="nav"
         position="sticky"
