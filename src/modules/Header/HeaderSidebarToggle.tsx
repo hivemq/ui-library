@@ -16,15 +16,15 @@ limitations under the License.
 
 import { Box, type BoxProps, Icon } from '@chakra-ui/react'
 import { MenuIcon, XIcon } from 'lucide-react'
-import { useContext, useMemo } from 'react'
-import { ShellContext } from '../../context/ShellContext'
+import { useMemo } from 'react'
+import { useShellContext } from '../../context/ShellContext'
 
 export type HeaderSidebarToggleProps = BoxProps & {}
 
 export function HeaderSidebarToggle({ onClick, ...props }: HeaderSidebarToggleProps) {
-  const context = useContext(ShellContext)
+  const { isSidebarOpen, setSidebarOpen } = useShellContext()
   // biome-ignore lint/correctness/useExhaustiveDependencies: needs initial value
-  const wasInitiallyOpen = useMemo(() => context.isSidebarOpen, [])
+  const wasInitiallyOpen = useMemo(() => isSidebarOpen, [])
 
   return (
     <Box
@@ -44,7 +44,7 @@ export function HeaderSidebarToggle({ onClick, ...props }: HeaderSidebarTogglePr
       {...props}
       onClick={(event) => {
         event.preventDefault()
-        context.setSidebarOpen(!context.isSidebarOpen)
+        setSidebarOpen(!isSidebarOpen)
         onClick?.(event)
       }}
       aria-label={'Menu Toggle'}
@@ -52,7 +52,7 @@ export function HeaderSidebarToggle({ onClick, ...props }: HeaderSidebarTogglePr
       <Icon
         w={6}
         height={6}
-        as={context.isSidebarOpen && !wasInitiallyOpen ? XIcon : MenuIcon}
+        as={isSidebarOpen && !wasInitiallyOpen ? XIcon : MenuIcon}
         color="white"
       />
     </Box>

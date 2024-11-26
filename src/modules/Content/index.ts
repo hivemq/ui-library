@@ -20,20 +20,10 @@ import { ContentRoot } from './ContentRoot'
 
 export const Content = {
   /**
-   * @deprecated Use Content.Root instead
-   */
-  Base: ContentRoot,
-  /**
    * Root element for the UI Library content that positions the HTML element on the grid and provides
    * @requires Shell.Root - As the parent element that provides the layout / context for the Content.Root
    */
   Root: ContentRoot,
 }
 
-export type {
-  /**
-   * @deprecated use ContentRootProps instead
-   */
-  ContentRootProps as ContentProps,
-  ContentRootProps,
-} from './ContentRoot'
+export type { ContentRootProps } from './ContentRoot'

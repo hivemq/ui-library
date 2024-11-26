@@ -24,7 +24,7 @@ import { Content, Header, Shell, Sidebar } from '@/lib'
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: 'Components/Sidebar',
-  component: Sidebar.Container,
+  component: Sidebar.Root,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -33,7 +33,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof Sidebar.Container>
+} satisfies Meta<typeof Sidebar.Root>
 
 export default meta
 type Story = StoryObj<typeof meta>

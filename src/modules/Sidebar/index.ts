@@ -19,23 +19,12 @@ import { SidebarList } from './SidebarList'
 import { SidebarListItem } from './SidebarListItem'
 import { SidebarRoot } from './SidebarRoot'
 
-export type {
-  /**
-   * @deprecated Use `SidebarRootProps` instead
-   */
-  SidebarRootProps as SidebarContainerProps,
-  SidebarRootProps,
-} from './SidebarRoot'
+export type { SidebarRootProps } from './SidebarRoot'
 export type { SidebarGroupProps } from './SidebarGroup'
 export type { SidebarListProps } from './SidebarList'
 export type { SidebarListItemProps } from './SidebarListItem'
 
 export const Sidebar = {
-  /**
-   * @deprecated Use `Sidebar.Root` instead
-   */
-  Container: SidebarRoot,
-
   /**
    * Root element for the sidebar that positions the HTML element on the grid and provides
    * context for all sidebar elements.

@@ -14,37 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { ShellContainer, ShellProvider, ShellRoot } from './ShellRoot'
+import { ShellRoot } from './ShellRoot'
 
 export const Shell = {
-  /**
-   * Provider for the entire UI Shell this should be at the top of all elements,
-   * even above `Shell.Root`
-   *
-   * @deprecated use `Shell.Root` instead since it provides functionality for both `Shell.Provider` and `Shell.Container`
-   */
-  Provider: ShellProvider,
-
-  /**
-   * @deprecated Use `Shell.Root` instead
-   */
-  Container: ShellContainer,
-
-  /**
-   * Root element for the shell that positions the HTML element on the grid and provides
-   * context for all shell elements.
-   */
   Root: ShellRoot,
 }
 
-export type {
-  /**
-   * @deprecated use `ShellRootProps` instead
-   */
-  ShellContainerProps as ShellProps,
-  /**
-   * @deprecated use `ShellRootProps` instead
-   */
-  ShellContainerProps as ShellProviderProps,
-  ShellRootProps,
-} from './ShellRoot'
+export type { ShellRootProps } from './ShellRoot'

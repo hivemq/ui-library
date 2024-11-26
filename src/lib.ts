@@ -20,8 +20,4 @@ export * from './modules/Header'
 export * from './modules/Sidebar'
 export * from './modules/Buttons'
 
-// TODO make it a hook `useShellContext`
-export {
-  ShellContext,
-  type ShellProviderValue,
-} from '@/context/ShellContext'
+export { useShellContext } from '@/context/ShellContext'
