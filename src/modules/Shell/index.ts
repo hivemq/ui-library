@@ -37,14 +37,14 @@ export const Shell = {
   Root: ShellRoot,
 }
 
-export {
+export type {
   /**
    * @deprecated use `ShellRootProps` instead
    */
-  type ShellContainerProps as ShellProps,
+  ShellContainerProps as ShellProps,
   /**
    * @deprecated use `ShellRootProps` instead
    */
-  type ShellContainerProps as ShellProviderProps,
-  type ShellRootProps,
+  ShellContainerProps as ShellProviderProps,
+  ShellRootProps,
 } from './ShellRoot'
