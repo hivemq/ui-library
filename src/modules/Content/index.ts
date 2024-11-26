@@ -30,10 +30,10 @@ export const Content = {
   Root: ContentRoot,
 }
 
-export {
+export type {
   /**
    * @deprecated use ContentRootProps instead
    */
-  type ContentRootProps as ContentProps,
-  type ContentRootProps,
+  ContentRootProps as ContentProps,
+  ContentRootProps,
 } from './ContentRoot'
