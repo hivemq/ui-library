@@ -37,3 +37,4 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
           message: "chore: bump version ${{ steps.releaseDrafter.outputs.resolved_version }}"
+          new_branch: chore/version-bump
