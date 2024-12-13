@@ -29,8 +29,6 @@
     "lint:all": "pnpm run lint:check && pnpm run lint:headers && pnpm run lint:format",
     "test:unit": "TZ=UTC pnpm vitest run --outputFile.junit=./test-results/junit.xml",
     "test:unit:ci": "pnpm test:unit --coverage --silent",
-    "test:integration": "pnpm cypress run --component --env ELECTRON_EXTRA_LAUNCH_ARGS=--disable-gpu,LIBVA_DRIVER_NAME=--disable-software-rasterizer",
-    "test:integration:open": "pnpm cypress open --component --browser=chrome",
     "preview": "vite preview",
     "storybook": "BUILD_ENV='storybook' storybook dev -p 6006",
     "storybook:build": "BUILD_ENV='storybook' storybook build"
