@@ -24,7 +24,7 @@ export function HeaderMenuContentDetails({ children, ...props }: HeaderMenuConte
       <Box backgroundColor="black" px={3} py={2} {...props}>
         {children}
       </Box>
-      <MenuDivider borderColor="surface.500" />
+      <MenuDivider borderColor="neutrals.600" />
     </>
   )
 }

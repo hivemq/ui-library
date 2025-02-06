@@ -37,17 +37,17 @@ export const HeaderMenuButton = forwardRef<HeaderMenuButtonProps, 'button'>((pro
   return (
     <MenuButton
       _hover={{
-        backgroundColor: 'surface.800',
+        backgroundColor: 'neutrals.800',
       }}
       _focusVisible={{
-        backgroundColor: 'surface.800',
+        backgroundColor: 'neutrals.800',
       }}
       lineHeight={1}
       sx={{
         width: containerSize,
         height: containerSize,
         border: `${BORDER_WIDTH_IN_PIXEL}px solid`,
-        borderColor: isOpen ? 'surface.400' : 'transparent',
+        borderColor: isOpen ? 'neutrals.400' : 'transparent',
         margin: isOpen ? `${OPEN_MARGIN_IN_PIXEL}px` : '0px',
         borderRadius: '2px',
       }}

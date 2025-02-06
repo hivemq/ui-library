@@ -33,12 +33,12 @@ export function HeaderNavigationItem({ children, isActive, ...props }: HeaderNav
       borderBottom="4px solid"
       px={4}
       pt="4px"
-      borderColor={isActive ? 'primary.500' : 'transparent'}
+      borderColor={isActive ? 'border.border-brand' : 'transparent'}
       _hover={{
-        backgroundColor: 'surface.800',
+        backgroundColor: 'neutrals.800',
       }}
       _focusVisible={{
-        backgroundColor: 'surface.800',
+        backgroundColor: 'neutrals.800',
       }}
       fontSize="1.1rem"
       fontWeight={500}

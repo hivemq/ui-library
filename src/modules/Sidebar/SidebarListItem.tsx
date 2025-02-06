@@ -31,16 +31,17 @@ export const SidebarListItem = forwardRef<SidebarListItemProps, 'button'>(
           as="button"
           type="button"
           borderLeft="6px solid"
-          borderColor={isActive ? 'primary.400' : 'transparent'}
+          borderColor={isActive ? 'border.border-brand' : 'transparent'}
+          fontWeight={isActive ? 'border.border-brand' : 'transparent'}
           textAlign="left"
-          backgroundColor={isActive ? 'surface.100' : 'transparent'}
+          backgroundColor={isActive ? 'background.bg-active-hover' : 'transparent'}
           p={2}
           pl={4}
           _hover={{
-            backgroundColor: 'surface.200',
+            backgroundColor: 'background.bg-active-hover',
           }}
           _focusVisible={{
-            backgroundColor: 'surface.200',
+            backgroundColor: 'background.bg-active-hover',
           }}
           display="block"
           w="100%"
