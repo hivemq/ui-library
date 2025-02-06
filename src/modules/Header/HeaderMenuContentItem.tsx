@@ -24,10 +24,10 @@ export const HeaderMenuContentItem = forwardRef<HeaderMenuContentItemProps, 'but
       <MenuItem
         backgroundColor="black"
         _hover={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'neutrals.800',
         }}
         _focusVisible={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'neutrals.800',
         }}
         ref={ref}
         {...props}

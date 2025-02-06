@@ -48,7 +48,7 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
         pl={2}
         pr={4}
         _hover={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'neutrals.800',
         }}
         as={as}
         ref={ref}
@@ -56,7 +56,7 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
       >
         <Image src={src} alt={alt} />
         {showHiveMQText && (
-          <Text as="span" color="white" fontSize="1.2rem">
+          <Text as="span" color="white" fontWeight={700} fontSize="1.2rem">
             HiveMQ
           </Text>
         )}

@@ -24,7 +24,7 @@ export function HeaderDivider({ ...props }: HeaderDividerProps) {
       orientation="vertical"
       height="auto"
       borderLeft="2px solid"
-      borderColor="surface.400"
+      borderColor="neutrals.700"
       margin={4}
       {...props}
     />
