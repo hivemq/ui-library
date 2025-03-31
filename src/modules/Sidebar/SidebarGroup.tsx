@@ -29,9 +29,9 @@ export function SidebarGroup({ Title, children, ...props }: SidebarGroupProps) {
         textAlign="left"
         pl={4}
         mb={1}
-        fontWeight={700}
+        fontWeight={500}
         textTransform="uppercase"
-        color="text.text-subtle"
+        color="shell.group"
         fontSize="sm"
       >
         {Title}

@@ -9,12 +9,12 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      insertTypesEntry: true
-    })
+      insertTypesEntry: true,
+    }),
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
-    }
-  }
+      '~': resolve(__dirname, './src'),
+    },
+  },
 })

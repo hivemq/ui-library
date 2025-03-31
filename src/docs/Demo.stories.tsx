@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Shell } from '@/lib'
+import { Shell } from '~/modules/Shell'
 import { FullDemo } from './cookbook/FullDemo'
 
 function Empty({ children }: { children: React.ReactNode }) {
