@@ -14,7 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Box, type BoxProps, ListItem, forwardRef } from '@chakra-ui/react'
+import { Box, type BoxProps, List } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
 export type SidebarListItemProps = BoxProps & {
   /**
@@ -23,34 +24,31 @@ export type SidebarListItemProps = BoxProps & {
   isActive?: boolean
 }
 
-export const SidebarListItem = forwardRef<SidebarListItemProps, 'button'>(
+export const SidebarListItem = forwardRef<HTMLLIElement, SidebarListItemProps>(
   ({ children, isActive, ...props }, ref) => {
     return (
-      <ListItem>
+      <List.Item>
         <Box
-          as="button"
-          type="button"
-          borderLeft="6px solid"
-          borderColor={isActive ? 'border.border-brand' : 'transparent'}
-          fontWeight={isActive ? 'border.border-brand' : 'transparent'}
-          textAlign="left"
-          backgroundColor={isActive ? 'background.bg-active-hover' : 'transparent'}
           p={2}
           pl={4}
-          _hover={{
-            backgroundColor: 'background.bg-active-hover',
-          }}
-          _focusVisible={{
-            backgroundColor: 'background.bg-active-hover',
-          }}
           display="block"
-          w="100%"
+          width="100%"
+          textAlign="left"
+          color="shell.item"
+          fontWeight={isActive ? 700 : undefined}
+          borderLeft="6px solid"
+          borderColor={isActive ? 'brand.solid' : 'transparent'}
+          backgroundColor={{
+            base: isActive ? 'shell.subtile' : undefined,
+            _hover: 'shell.muted',
+            _focusVisible: 'shell.muted',
+          }}
           ref={ref}
           {...props}
         >
           {children}
         </Box>
-      </ListItem>
+      </List.Item>
     )
   },
 )

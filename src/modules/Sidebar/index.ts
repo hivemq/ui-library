@@ -18,11 +18,11 @@ import { SidebarGroup } from './SidebarGroup'
 import { SidebarList } from './SidebarList'
 import { SidebarListItem } from './SidebarListItem'
 import { SidebarRoot } from './SidebarRoot'
+import { SidebarSeparator } from './SidebarSeparator'
 
-export type { SidebarRootProps } from './SidebarRoot'
 export type { SidebarGroupProps } from './SidebarGroup'
-export type { SidebarListProps } from './SidebarList'
 export type { SidebarListItemProps } from './SidebarListItem'
+export type { SidebarRootProps } from './SidebarRoot'
 
 export const Sidebar = {
   /**
@@ -32,6 +32,13 @@ export const Sidebar = {
    * @requires `Shell.Root` as the parent element that provides the layout / context for the `Sidebar.Root`
    */
   Root: SidebarRoot,
+
+  /**
+   * Show a visual separation line between group items
+   *
+   * @requires `Shell.Root` as the parent element that provides the layout / context for the `Sidebar.Root`
+   */
+  Separator: SidebarSeparator,
 
   /**
    * Show a group of items in the sidebar with a respective title

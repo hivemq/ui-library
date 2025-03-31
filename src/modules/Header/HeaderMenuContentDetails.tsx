@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Box, type BoxProps, MenuDivider } from '@chakra-ui/react'
+import { Box, type BoxProps } from '@chakra-ui/react'
 
 export type HeaderMenuContentDetailsProps = BoxProps & {}
 
@@ -24,7 +24,7 @@ export function HeaderMenuContentDetails({ children, ...props }: HeaderMenuConte
       <Box backgroundColor="black" px={3} py={2} {...props}>
         {children}
       </Box>
-      <MenuDivider borderColor="neutrals.600" />
+      <Box height="1px" backgroundColor="surface.600" />
     </>
   )
 }

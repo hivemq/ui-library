@@ -14,7 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export {
-  IconButtonWithTooltip,
-  type IconButtonWithTooltipProps,
-} from './IconButtonWithTooltip'
+import { Box } from '@chakra-ui/react'
+
+export function SidebarSeparator() {
+  return (
+    <Box
+      mx={4}
+      mb={2}
+      width="auto"
+      height="1px"
+      // textTransform="uppercase"
+      bg="shell.subtile"
+    />
+  )
+}

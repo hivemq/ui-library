@@ -15,13 +15,14 @@ limitations under the License.
 */
 
 import { GridItem } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 import { Z_INDEX } from '../../constants/zIndex'
 
 export type HeaderRootProps = {
   children?: React.ReactNode
 }
 
-export function HeaderRoot({ children }: HeaderRootProps) {
+export const HeaderRoot = forwardRef<HTMLDivElement, HeaderRootProps>((props, ref) => {
   return (
     <GridItem
       as="header"
@@ -36,8 +37,10 @@ export function HeaderRoot({ children }: HeaderRootProps) {
       columnGap={4}
       maxH="56px"
       gridArea="header"
-    >
-      {children}
-    </GridItem>
+      ref={ref}
+      {...props}
+    />
   )
-}
+})
+
+HeaderRoot.displayName = 'HeaderRoot'

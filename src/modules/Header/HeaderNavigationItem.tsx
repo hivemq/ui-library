@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 import { Box, type BoxProps } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
 export type HeaderNavigationItemProps = BoxProps & {
   /**
@@ -22,28 +23,29 @@ export type HeaderNavigationItemProps = BoxProps & {
    */
   isActive?: boolean
 }
+export const HeaderNavigationItem = forwardRef<HTMLDivElement, HeaderNavigationItemProps>(
+  ({ isActive, ...props }, ref) => {
+    return (
+      <Box
+        as="button"
+        color="white"
+        borderBottom="4px solid"
+        px={4}
+        pt="4px"
+        borderColor={isActive ? 'brand.solid' : 'transparent'}
+        _hover={{
+          backgroundColor: 'surface.800',
+        }}
+        _focusVisible={{
+          backgroundColor: 'surface.800',
+        }}
+        fontSize="1.1rem"
+        fontWeight={500}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
 
-export function HeaderNavigationItem({ children, isActive, ...props }: HeaderNavigationItemProps) {
-  return (
-    <Box
-      as="button"
-      type="button"
-      color="white"
-      {...props}
-      borderBottom="4px solid"
-      px={4}
-      pt="4px"
-      borderColor={isActive ? 'border.border-brand' : 'transparent'}
-      _hover={{
-        backgroundColor: 'neutrals.800',
-      }}
-      _focusVisible={{
-        backgroundColor: 'neutrals.800',
-      }}
-      fontSize="1.1rem"
-      fontWeight={500}
-    >
-      {children}
-    </Box>
-  )
-}
+HeaderNavigationItem.displayName = 'HeaderNavigationItem'
