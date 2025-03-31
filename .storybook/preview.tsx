@@ -1,18 +1,16 @@
-import * as React from "react";
-import type { Preview } from "@storybook/react";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from '@chakra-ui/react'
+import type { Preview } from '@storybook/react'
+import './styles.css'
+import type { PropsWithChildren } from 'react'
+import { system as theme } from './theme'
 
-import "./styles.css";
-
-import { chakraTheme } from "./chakraTheme";
-
-function StoryWrapper({ children }: { children: React.ReactNode }) {
-  return <ChakraProvider theme={chakraTheme}>{children}</ChakraProvider>;
+function StoryWrapper({ children }: PropsWithChildren) {
+  return <ChakraProvider value={theme}>{children}</ChakraProvider>
 }
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -28,6 +26,6 @@ const preview: Preview = {
       </StoryWrapper>
     ),
   ],
-};
+}
 
-export default preview;
+export default preview

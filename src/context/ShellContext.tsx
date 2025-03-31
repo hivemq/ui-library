@@ -19,14 +19,12 @@ import { createContext, useContext } from 'react'
 type ShellProviderValue = {
   isSidebarOpen: boolean
   setSidebarOpen: (value: boolean) => void
-  openedOverlayId?: string
-  setOpenedOverlayId?: (value: string | undefined) => void
+  setOpenedOverlayId: (value: string) => void
 }
 
 export const ShellContext = createContext<ShellProviderValue>({
   isSidebarOpen: false,
   setSidebarOpen: () => void 0,
-  openedOverlayId: undefined,
   setOpenedOverlayId: () => void 0,
 })
 

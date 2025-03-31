@@ -17,13 +17,15 @@ limitations under the License.
 import type { Meta, StoryObj } from '@storybook/react'
 
 // @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from '@/assets/hivemq-neg.svg?component'
+import Logo from '~/assets/hivemq-neg.svg?component'
 
 import { InfoIcon, UserIcon } from 'lucide-react'
 
 import { Box } from '@chakra-ui/react'
-
-import { Content, Header, Shell, Sidebar } from '@/lib'
+import { Content } from '../Content'
+import { Header } from '../Header'
+import { Shell } from '../Shell'
+import { Sidebar } from '../Sidebar'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {

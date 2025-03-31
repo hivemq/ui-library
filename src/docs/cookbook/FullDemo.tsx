@@ -1,5 +1,5 @@
 // @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from '@/assets/hivemq-neg.svg?component'
+import Logo from '~/assets/hivemq-neg.svg?component'
 
 import {
   Box,
@@ -10,18 +10,15 @@ import {
   HStack,
   Heading,
   Table,
-  Tbody,
-  Td,
   Text,
-  Th,
-  Thead,
-  Tr,
   VStack,
 } from '@chakra-ui/react'
 import { InfoIcon, UserIcon } from 'lucide-react'
 import { useState } from 'react'
-
-import { Content, Header, Sidebar, useShellContext } from '@/lib'
+import { useShellContext } from '~/context/ShellContext'
+import { Content } from '~/modules/Content'
+import { Header } from '~/modules/Header'
+import { Sidebar } from '~/modules/Sidebar'
 
 const DEMO_SIDEBAR_ITEMS = [
   {
@@ -166,7 +163,7 @@ export function FullDemo() {
 
       <Content.Root display="flex" flexDirection="column" gap={6} w="100%">
         <VStack gap={4} alignItems="start">
-          <Heading as="h1" variant="h1">
+          <Heading as="h1" fontSize="2xl">
             Hello World 🌍
           </Heading>
 
@@ -177,51 +174,41 @@ export function FullDemo() {
         </VStack>
 
         <VStack gap={4} alignItems="start">
-          <Heading as="h2" variant="h2">
+          <Heading as="h2" fontSize="1xl">
             Internal State
           </Heading>
 
           <HStack alignItems="start">
-            <Card>
+            <Card.Root>
               <CardHeader fontWeight={500}>
                 Internals of <Code>NavigationProvider</Code>
               </CardHeader>
 
-              <Table layout="fixed">
-                <Thead>
-                  <Tr>
-                    <Th>Property</Th>
-                    <Th>Description</Th>
-                    <Th>Value</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>
+              <Table.Root tableLayout="fixed">
+                <Table.Header>
+                  <Table.Row>
+                    <Table.ColumnHeader>Property</Table.ColumnHeader>
+                    <Table.ColumnHeader>Description</Table.ColumnHeader>
+                    <Table.ColumnHeader>Value</Table.ColumnHeader>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>isSidebarOpen</Code>
-                    </Td>
-                    <Td>Is the sidebar open?</Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>Is the sidebar open?</Table.Cell>
+                    <Table.Cell>
                       <Code>{context.isSidebarOpen ? 'true' : 'false'}</Code>
-                    </Td>
-                  </Tr>
-                  <Tr>
-                    <Td>
-                      <Code>openedOverlayId</Code>
-                    </Td>
-                    <Td>Currently opened overlay ID</Td>
-                    <Td>
-                      <Code>{context.openedOverlayId ?? 'undefined'}</Code>
-                    </Td>
-                  </Tr>
-                  <Tr>
-                    <Td>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>setSidebarOpen</Code>
-                    </Td>
-                    <Td>Function set the opened state of the sidebar</Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>Function set the opened state of the sidebar</Table.Cell>
+                    <Table.Cell>
                       <Button
-                        variant="secondary"
                         onClick={(event) => {
                           event.preventDefault()
                           context.setSidebarOpen(!context.isSidebarOpen)
@@ -229,16 +216,15 @@ export function FullDemo() {
                       >
                         Toggle Sidebar
                       </Button>
-                    </Td>
-                  </Tr>
-                  <Tr>
-                    <Td>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>setOpenedOverlayId</Code>
-                    </Td>
-                    <Td>Function to set the opened overlay ID</Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>Function to set the opened overlay ID</Table.Cell>
+                    <Table.Cell>
                       <Button
-                        variant="secondary"
                         onClick={(event) => {
                           event.preventDefault()
                           context.setOpenedOverlayId?.('profile')
@@ -246,73 +232,73 @@ export function FullDemo() {
                       >
                         Open profile
                       </Button>
-                    </Td>
-                  </Tr>
-                </Tbody>
-              </Table>
-            </Card>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
+              </Table.Root>
+            </Card.Root>
 
-            <Card>
+            <Card.Root>
               <CardHeader fontWeight={500}>Current selected sidebar item</CardHeader>
 
-              <Table layout="fixed">
-                <Thead>
-                  <Tr>
-                    <Th>Property</Th>
-                    <Th>Value</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>
+              <Table.Root tableLayout="fixed">
+                <Table.Header>
+                  <Table.Row>
+                    <Table.ColumnHeader>Property</Table.ColumnHeader>
+                    <Table.ColumnHeader>Value</Table.ColumnHeader>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>id</Code>
-                    </Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>
                       <Code>{activeSidebarItem.id}</Code>
-                    </Td>
-                  </Tr>
-                  <Tr>
-                    <Td>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>title</Code>
-                    </Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>
                       <Code>{activeSidebarItem.title}</Code>
-                    </Td>
-                  </Tr>
-                </Tbody>
-              </Table>
-            </Card>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
+              </Table.Root>
+            </Card.Root>
 
-            <Card>
+            <Card.Root>
               <CardHeader fontWeight={500}>Current selected header navigation item</CardHeader>
 
-              <Table layout="fixed">
-                <Thead>
-                  <Tr>
-                    <Th>Property</Th>
-                    <Th>Value</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>
+              <Table.Root tableLayout="fixed">
+                <Table.Header>
+                  <Table.Row>
+                    <Table.ColumnHeader>Property</Table.ColumnHeader>
+                    <Table.ColumnHeader>Value</Table.ColumnHeader>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>id</Code>
-                    </Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>
                       <Code>{activeHeaderItem.id}</Code>
-                    </Td>
-                  </Tr>
-                  <Tr>
-                    <Td>
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>
                       <Code>title</Code>
-                    </Td>
-                    <Td>
+                    </Table.Cell>
+                    <Table.Cell>
                       <Code>{activeHeaderItem.title}</Code>
-                    </Td>
-                  </Tr>
-                </Tbody>
-              </Table>
-            </Card>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
+              </Table.Root>
+            </Card.Root>
           </HStack>
         </VStack>
       </Content.Root>

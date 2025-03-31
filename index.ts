@@ -14,10 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export * from './modules/Shell'
-export * from './modules/Content'
-export * from './modules/Header'
-export * from './modules/Sidebar'
-export * from './modules/Buttons'
+export * from './src/modules/Shell'
+export * from './src/modules/Content'
+export * from './src/modules/Header'
+export * from './src/modules/Sidebar'
 
-export { useShellContext } from '@/context/ShellContext'
+export { useShellContext } from './src/context/ShellContext'
