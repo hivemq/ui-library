@@ -34,10 +34,10 @@ export const HeaderNavigationItem = forwardRef<HTMLDivElement, HeaderNavigationI
         pt="4px"
         borderColor={isActive ? 'brand.solid' : 'transparent'}
         _hover={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'secondary.800',
         }}
         _focusVisible={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'secondary.800',
         }}
         fontSize="1.1rem"
         fontWeight={500}

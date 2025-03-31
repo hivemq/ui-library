@@ -27,8 +27,8 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5
       '@hivemq/ui-theme':
-        specifier: ^1.0.0-rc.1
-        version: 1.0.0-rc.2(@chakra-ui/react@3.14.2(@emotion/react@11.14.0(@types/react@18.3.20)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        specifier: ^1.0.0-rc.3
+        version: 1.0.0-rc.3(@chakra-ui/react@3.14.2(@emotion/react@11.14.0(@types/react@18.3.20)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@radix-ui/react-slot':
         specifier: ^1.1.2
         version: 1.1.2(@types/react@18.3.20)(react@18.3.1)
@@ -638,8 +638,8 @@ packages:
   '@fontsource/roboto@5.2.5':
     resolution: {integrity: sha512-70r2UZ0raqLn5W+sPeKhqlf8wGvUXFWlofaDlcbt/S3d06+17gXKr3VNqDODB0I1ASme3dGT5OJj9NABt7OTZQ==}
 
-  '@hivemq/ui-theme@1.0.0-rc.2':
-    resolution: {integrity: sha512-sii+zdfIBSeCTIAlVCmVachiBQwnxuxm4ArxtwDGzRXuzhPby8xzSofpLWKmCPzQW+/6M/aPz0fCdsvoC5Tc3w==, tarball: https://npm.pkg.github.com/download/@hivemq/ui-theme/1.0.0-rc.2/b1955bc92726db1e86818ff1064d69de480a49f6}
+  '@hivemq/ui-theme@1.0.0-rc.3':
+    resolution: {integrity: sha512-IQhc85texuClX0+j69dc+wZUWJUSuDCp48er2Va+NVDaxehu5QRB6li0ZhQEds22E2kseG4SpFzxzeT1LQI/aQ==, tarball: https://npm.pkg.github.com/download/@hivemq/ui-theme/1.0.0-rc.3/3791670e1b332d72c368664778d8c2f3402194ae}
     engines: {node: '20', pnpm: '9'}
     peerDependencies:
       '@chakra-ui/react': ^3.14.2
@@ -4556,7 +4556,7 @@ snapshots:
 
   '@fontsource/roboto@5.2.5': {}
 
-  '@hivemq/ui-theme@1.0.0-rc.2(@chakra-ui/react@3.14.2(@emotion/react@11.14.0(@types/react@18.3.20)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@hivemq/ui-theme@1.0.0-rc.3(@chakra-ui/react@3.14.2(@emotion/react@11.14.0(@types/react@18.3.20)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@chakra-ui/react': 3.14.2(@emotion/react@11.14.0(@types/react@18.3.20)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 

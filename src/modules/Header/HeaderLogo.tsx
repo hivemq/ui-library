@@ -47,7 +47,7 @@ export const HeaderLogo = forwardRef<HTMLDivElement, HeaderLogoProps>(
         pl={2}
         pr={4}
         _hover={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'secondary.800',
         }}
         {...props}
         ref={ref}

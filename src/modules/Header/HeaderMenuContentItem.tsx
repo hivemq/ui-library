@@ -23,10 +23,10 @@ export const HeaderMenuContentItem = forwardRef<HTMLDivElement, BoxProps>((props
       <Box
         backgroundColor="black"
         _hover={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'secondary.800',
         }}
         _focusVisible={{
-          backgroundColor: 'surface.800',
+          backgroundColor: 'secondary.800',
         }}
         color="white"
         ref={ref}
