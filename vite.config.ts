@@ -1,14 +1,8 @@
 import { resolve } from 'node:path'
-
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-
 import packageData from './package.json'
-
-type BuildEnvironment = 'storybook' | 'library'
-
-const buildEnvironment: BuildEnvironment = (process.env.BUILD_ENV as BuildEnvironment) || 'library'
 
 const libPlugins = [
   react(),
@@ -17,15 +11,9 @@ const libPlugins = [
   }),
 ]
 
-const storybookPlugins = [
-  react({
-    jsxRuntime: 'automatic',
-  }),
-]
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: buildEnvironment === 'storybook' ? storybookPlugins : libPlugins,
+  plugins: libPlugins,
   build: {
     lib: {
       entry: resolve(__dirname, 'index.ts'),
@@ -33,17 +21,9 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external:
-        buildEnvironment === 'storybook' ? [] : [...Object.keys(packageData.peerDependencies)],
-      output: {
-        // Since we publish our ./src folder, there's no point
-        // in bloating sourcemaps with another copy of it.
-        sourcemapExcludeSources: true,
-      },
+      // make sure to externalize peer dependencies that shouldn't be bundled
+      external: Object.keys(packageData.peerDependencies),
     },
-    target: 'esnext',
-    sourcemap: true,
-    minify: false,
   },
   resolve: {
     alias: {
