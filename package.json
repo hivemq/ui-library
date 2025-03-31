@@ -1,6 +1,6 @@
 {
   "name": "@hivemq/ui-library",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.4",
   "type": "module",
   "main": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
@@ -8,6 +8,7 @@
     "types": "./dist/index.d.ts",
     "module": "./dist/index.es.js"
   },
+  "license": "Apache-2.0",
   "files": [
     "dist"
   ],
@@ -16,9 +17,9 @@
     "pnpm": "9"
   },
   "scripts": {
-    "build": "pnpm build:scripts",
-    "build:scripts": "vite build",
-    "build:types": "tsc --emitDeclarationOnly && tsc-alias",
+    "build": "pnpm build:types && pnpm build:lib",
+    "build:lib": "vite build",
+    "build:types": "tsc --emitDeclarationOnly",
     "build:styles": "NODE_ENV=production pnpm tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css --postcss --minify",
     "publish:ci": "pnpm publish --no-git-checks",
     "publish:dry": "pnpm publish --no-git-checks --dry-run",
@@ -70,7 +71,6 @@
     "react-dom": "^18.3.1",
     "storybook": "^8.6.8",
     "tailwindcss": "^4.0.15",
-    "tsc-alias": "^1.8.11",
     "typescript": "^5.8.2",
     "vite": "^6.2.2",
     "vite-plugin-dts": "4.5.3",
