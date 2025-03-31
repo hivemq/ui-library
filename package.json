@@ -1,6 +1,6 @@
 {
   "name": "@hivemq/ui-library",
-  "version": "2.0.0-rc.4",
+  "version": "2.0.0-rc.5",
   "type": "module",
   "main": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
@@ -46,7 +46,7 @@
     "@fontsource/raleway": "^5.2.5",
     "@fontsource/roboto": "^5.2.5",
     "@radix-ui/react-slot": "^1.1.2",
-    "@hivemq/ui-theme": "^1.0.0-rc.1",
+    "@hivemq/ui-theme": "^1.0.0-rc.3",
     "@storybook/addon-a11y": "^8.6.8",
     "@storybook/addon-essentials": "^8.6.8",
     "@storybook/addon-interactions": "^8.6.8",

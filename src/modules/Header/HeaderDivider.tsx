@@ -23,7 +23,7 @@ export const HeaderDivider = forwardRef<HTMLDivElement, BoxProps>(
       <Box
         height="30px"
         borderLeft="2px solid"
-        borderColor="surface.700"
+        borderColor="secondary.700"
         margin={4}
         ref={ref}
         {...props}

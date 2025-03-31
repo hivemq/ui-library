@@ -107,7 +107,7 @@ export function ShellRoot({
             left="0"
             width="100%"
             height="100%"
-            backgroundColor="surface.700"
+            backgroundColor="secondary.700"
             opacity={0.6}
             zIndex={Z_INDEX.BACKDROP}
           />
