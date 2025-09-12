@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { GridItem } from '@chakra-ui/react'
+import { GridItem, Span } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 import { Z_INDEX } from '../../constants/zIndex'
 
@@ -24,22 +24,30 @@ export type HeaderRootProps = {
 
 export const HeaderRoot = forwardRef<HTMLDivElement, HeaderRootProps>((props, ref) => {
   return (
-    <GridItem
-      as="header"
-      display="flex"
-      flexDirection="row"
-      colSpan={3}
-      position="sticky"
-      zIndex={Z_INDEX.HEADER}
-      w="100%"
-      top={0}
-      bg="#000"
-      columnGap={4}
-      maxH="56px"
-      gridArea="header"
-      ref={ref}
-      {...props}
-    />
+    <Span
+      color="fg"
+      display="contents"
+      className="chakra-theme dark"
+      colorPalette="gray"
+      colorScheme="dark"
+    >
+      <GridItem
+        as="header"
+        display="flex"
+        flexDirection="row"
+        colSpan={3}
+        position="sticky"
+        zIndex={Z_INDEX.HEADER}
+        w="100%"
+        top={0}
+        bg="#000"
+        columnGap={4}
+        maxH="56px"
+        gridArea="header"
+        ref={ref}
+        {...props}
+      />
+    </Span>
   )
 })
 
