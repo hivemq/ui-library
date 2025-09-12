@@ -16,15 +16,21 @@ limitations under the License.
 
 import { Box, type BoxProps } from '@chakra-ui/react'
 
-export type HeaderMenuContentDetailsProps = BoxProps & {}
+export type HeaderMenuContentDetailsProps = BoxProps & {
+  hideLine?: boolean
+}
 
-export function HeaderMenuContentDetails({ children, ...props }: HeaderMenuContentDetailsProps) {
+export function HeaderMenuContentDetails({
+  children,
+  hideLine = false,
+  ...props
+}: HeaderMenuContentDetailsProps) {
   return (
     <>
       <Box backgroundColor="black" px={3} py={2} {...props}>
         {children}
       </Box>
-      <Box height="1px" backgroundColor="secondary.600" />
+      {!hideLine && <Box height="1px" backgroundColor="secondary.800" />}
     </>
   )
 }
