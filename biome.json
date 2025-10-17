@@ -1,15 +1,24 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["**/__generated__/*"]
+    "includes": [
+      "**",
+      "!**/__generated__/**/*",
+      "!**/theme/dist"
+    ]
   },
   "linter": {
     "enabled": true,
     "rules": {
       "style": {
         "useBlockStatements": "error",
-        "useShorthandArrayType": "error",
-        "noShoutyConstants": "warn"
+        "noShoutyConstants": "warn",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": {
+            "syntax": "shorthand"
+          }
+        }
       }
     }
   },

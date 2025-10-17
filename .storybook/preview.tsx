@@ -1,5 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/react-vite'
 import './styles.css'
 import type { PropsWithChildren } from 'react'
 import { system as theme } from './theme'

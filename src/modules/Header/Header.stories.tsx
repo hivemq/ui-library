@@ -14,14 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import type { Meta, StoryObj } from '@storybook/react'
-
-// @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from '~/assets/hivemq-neg.svg?component'
+import { Box } from '@chakra-ui/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { InfoIcon, UserIcon } from 'lucide-react'
-
-import { Box } from '@chakra-ui/react'
+// @ts-expect-error - Typescript doesn't how to import svgs yet
+import Logo from '~/assets/hivemq-neg.svg?component'
 import { Content } from '../Content'
 import { Header } from '../Header'
 import { Shell } from '../Shell'

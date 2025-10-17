@@ -1,20 +1,19 @@
-// @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from '~/assets/hivemq-neg.svg?component'
-
 import {
   Box,
   Button,
   Card,
   CardHeader,
   Code,
-  HStack,
   Heading,
+  HStack,
   Table,
   Text,
   VStack,
 } from '@chakra-ui/react'
 import { InfoIcon, UserIcon } from 'lucide-react'
 import { useState } from 'react'
+// @ts-expect-error - Typescript doesn't how to import svgs yet
+import Logo from '~/assets/hivemq-neg.svg?component'
 import { useShellContext } from '~/context/ShellContext'
 import { Content } from '~/modules/Content'
 import { Header } from '~/modules/Header'

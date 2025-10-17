@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 // @ts-expect-error - Typescript doesn't how to import svgs yet
 import Logo from '~/assets/hivemq-neg.svg?component'
