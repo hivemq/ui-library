@@ -24,7 +24,7 @@ export function SidebarSeparator() {
       width="auto"
       height="1px"
       // textTransform="uppercase"
-      bg="shell.subtile"
+      bg="shell.subtle"
     />
   )
 }

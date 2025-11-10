@@ -8,7 +8,6 @@
     ]
   },
   "linter": {
-    "enabled": true,
     "rules": {
       "style": {
         "useBlockStatements": "error",
@@ -23,7 +22,6 @@
     }
   },
   "formatter": {
-    "indentWidth": 2,
     "indentStyle": "space",
     "lineWidth": 100
   },
