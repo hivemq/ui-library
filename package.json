@@ -17,6 +17,7 @@
     "pnpm": "10"
   },
   "scripts": {
+    "dev": "pnpm storybook",
     "build": "pnpm build:types && pnpm build:lib",
     "build:lib": "vite build",
     "build:types": "tsc --emitDeclarationOnly",
@@ -34,7 +35,6 @@
     "test:unit:ci": "pnpm test:unit --coverage --silent",
     "generate:theme": "chakra typegen ./.storybook/theme.ts",
     "generate": "pnpm generate:theme",
-    "preview": "vite preview",
     "storybook": "BUILD_ENV='storybook' storybook dev -p 6006",
     "storybook:build": "BUILD_ENV='storybook' storybook build"
   },
@@ -45,7 +45,7 @@
     "@emotion/react": "^11.14.0",
     "@fontsource/raleway": "^5.2.8",
     "@fontsource/roboto": "^5.2.8",
-    "@hivemq/ui-theme": "1.0.0-rc.6",
+    "@hivemq/ui-theme": "1.1.1",
     "@radix-ui/react-slot": "^1.2.4",
     "@storybook/addon-a11y": "^10.0.7",
     "@storybook/addon-docs": "^10.0.7",
@@ -53,6 +53,7 @@
     "@storybook/addon-onboarding": "^10.0.7",
     "@storybook/addon-themes": "^10.0.7",
     "@storybook/react-vite": "^10.0.7",
+    "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.4",
     "@types/react-dom": "^19.2.3",
