@@ -41,6 +41,7 @@ export const HeaderNavigationItem = forwardRef<HTMLDivElement, HeaderNavigationI
         }}
         fontSize="1.1rem"
         fontWeight={500}
+        cursor="pointer"
         ref={ref}
         {...props}
       />

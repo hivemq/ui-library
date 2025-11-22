@@ -33,7 +33,7 @@ export type HeaderMenuProps = {
   overlayId: string
 }
 
-export function HeaderMenu({ children }: React.PropsWithChildren<HeaderMenuProps>) {
+export function HeaderMenu({ children, overlayId }: React.PropsWithChildren<HeaderMenuProps>) {
   const { setOpenedOverlayId } = useShellContext()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -49,6 +49,7 @@ export function HeaderMenu({ children }: React.PropsWithChildren<HeaderMenuProps
           setIsOpen(details.open)
           setOpenedOverlayId(details.open ? 'toolbar' : '')
         }}
+        aria-label={overlayId}
       >
         {children}
       </Menu.Root>

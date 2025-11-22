@@ -1,6 +1,8 @@
 # UI Library
 
-The HiveMQ UI Library provides components on top of Chakra UI for various applications.
+The HiveMQ UI Library is a **React component library** that provides reusable UI components on top of Chakra UI for HiveMQ applications.
+
+> **Note:** This is a component library meant to be imported and used in other applications, not a standalone web application.
 
 Resources:
 * Web Site: [hivemq-website](http://www.hivemq.com)
@@ -47,13 +49,15 @@ After that you need to install the `node_modules` of the project by running the 
 pnpm install --frozen-lockfile
 ```
 
-### Start Demo
+### Start Development Server
 
-Then start the application by running
+Then start the development server by running
 
 ```bash
-pnpm storybook
+pnpm dev
 ```
+
+This starts Storybook at http://localhost:6006 with **hot reload** enabled - any changes you make to components will automatically refresh in the browser.
 
 **That's it happy development** 🎉
 
@@ -61,11 +65,41 @@ pnpm storybook
 
 Since all dependencies are installed on your machine you can now execute the following commands.
 
-| Command          | Description                                        | Example |
-| ---------------- | -------------------------------------------------- | ------- |
-| `pnpm storybook` | Boot up the development environment to view the UI |         |
-| `pnpm test:unit` | Run all project unit tests                         |         |
+### Development
 
+| Command          | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| `pnpm dev`       | Start development server with hot reload (Storybook at http://localhost:6006) |
+| `pnpm storybook` | Same as `pnpm dev` - starts Storybook development server |
+| `pnpm test:unit` | Run all project unit tests                               |
+
+### Building
+
+| Command               | Description                                          |
+| --------------------- | ---------------------------------------------------- |
+| `pnpm build`          | Build the library for distribution (outputs to `dist/`) |
+| `pnpm storybook:build`| Build Storybook for static hosting (outputs to `storybook-static/`) |
+
+### Other Commands
+
+| Command                | Description                                    |
+| ---------------------- | ---------------------------------------------- |
+| `pnpm lint:check:all`  | Check code formatting and linting              |
+| `pnpm lint:check:write`| Fix code formatting and linting issues         |
+| `pnpm generate:theme`  | Generate TypeScript types for Chakra UI theme  |
+
+## Troubleshooting
+
+### "I built the project but can't preview it in a browser"
+
+This is a **component library**, not a standalone web application. After building with `pnpm build`, the output is JavaScript modules in the `dist/` folder that other applications can import.
+
+To preview and interact with the components, use:
+```bash
+pnpm storybook
+```
+
+This starts Storybook at http://localhost:6006, where you can view and test all components interactively.
 
 ## Contributing
 

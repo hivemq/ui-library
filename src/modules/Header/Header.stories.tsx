@@ -59,16 +59,16 @@ export const WithSidebarNavigationToggle: Story = {
                   <br />
                   Welcome back!
                 </Header.MenuContentDetails>
-                <Header.MenuContentItem>Account</Header.MenuContentItem>
-                <Header.MenuContentItem>Billing</Header.MenuContentItem>
-                <Header.MenuContentItem>Logout</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Account">Account</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Billing">Billing</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Logout">Logout</Header.MenuContentItem>
               </Header.MenuContent>
             </Header.Menu>
             <Header.Menu overlayId="other">
               <Header.MenuButton icon={InfoIcon} aria-label="Support" />
               <Header.MenuContent>
                 <Header.MenuContentDetails>Hi, How can we help you? 💁‍♀️</Header.MenuContentDetails>
-                <Header.MenuContentItem>Test</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Test">Test</Header.MenuContentItem>
               </Header.MenuContent>
             </Header.Menu>
           </Box>

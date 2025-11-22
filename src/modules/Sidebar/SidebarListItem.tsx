@@ -34,7 +34,7 @@ export const SidebarListItem = forwardRef<HTMLLIElement, SidebarListItemProps>(
           display="block"
           width="100%"
           textAlign="left"
-          color="shell.item"
+          color="content.primary"
           fontWeight={isActive ? 700 : undefined}
           borderLeft="6px solid"
           borderColor={isActive ? 'brand.solid' : 'transparent'}
@@ -43,6 +43,7 @@ export const SidebarListItem = forwardRef<HTMLLIElement, SidebarListItemProps>(
             _hover: 'shell.muted',
             _focusVisible: 'shell.muted',
           }}
+          cursor="pointer"
           ref={ref}
           {...props}
         >
