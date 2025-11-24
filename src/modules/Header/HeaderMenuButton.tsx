@@ -24,7 +24,6 @@ type Props = {
   'aria-label': string
 }
 
-const OPEN_MARGIN_IN_PIXEL = 4
 const BORDER_WIDTH_IN_PIXEL = 2
 const MAX_CONTAINER_SIZE_IN_PIXEL = 48
 
@@ -32,9 +31,7 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
   const { 'aria-label': ariaLabel, icon, closeIcon = XIcon } = props
   const { isOpen } = useContext(HeaderMenuContext)
 
-  const containerSize = isOpen
-    ? MAX_CONTAINER_SIZE_IN_PIXEL - OPEN_MARGIN_IN_PIXEL * 2 - BORDER_WIDTH_IN_PIXEL
-    : MAX_CONTAINER_SIZE_IN_PIXEL - BORDER_WIDTH_IN_PIXEL
+  const containerSize = MAX_CONTAINER_SIZE_IN_PIXEL - BORDER_WIDTH_IN_PIXEL
 
   return (
     <Menu.Trigger asChild>
@@ -52,7 +49,7 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
         style={{
           width: containerSize,
           height: containerSize,
-          margin: isOpen ? `${OPEN_MARGIN_IN_PIXEL}px` : '0px',
+          margin: '0px',
           borderRadius: '2px',
         }}
         aria-label={ariaLabel}
