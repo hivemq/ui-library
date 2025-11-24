@@ -41,12 +41,14 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
       <Button
         bg={{
           base: 'blackAlpha.950',
-          _hover: 'secondary.800',
-          _focusVisible: 'secondary.800',
+          _focusVisible: 'gray.800',
+        }}
+        _hover={ {
+          bg: 'gray.900'
         }}
         lineHeight={1}
         justifyContent="center"
-        border={`${BORDER_WIDTH_IN_PIXEL}px solid ${isOpen ? '{colors.secondary.400}' : 'transparent'}`}
+        border={`${BORDER_WIDTH_IN_PIXEL}px solid ${isOpen ? '{colors.gray.400}' : 'transparent'}`}
         style={{
           width: containerSize,
           height: containerSize,
