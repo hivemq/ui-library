@@ -40,7 +40,7 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
     <Menu.Trigger asChild>
       <Button
         bg={{
-          base: 'blackAlpha.950',
+          base: 'transparent',
           _focusVisible: 'gray.800',
         }}
         _hover={ {
