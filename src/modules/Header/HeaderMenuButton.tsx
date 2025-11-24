@@ -26,7 +26,7 @@ type Props = {
 
 const OPEN_MARGIN_IN_PIXEL = 4
 const BORDER_WIDTH_IN_PIXEL = 2
-const MAX_CONTAINER_SIZE_IN_PIXEL = 56
+const MAX_CONTAINER_SIZE_IN_PIXEL = 48
 
 export const HeaderMenuButton: React.FC<Props> = (props) => {
   const { 'aria-label': ariaLabel, icon, closeIcon = XIcon } = props
@@ -40,7 +40,7 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
     <Menu.Trigger asChild>
       <Button
         bg={{
-          base: 'black',
+          base: 'blackAlpha.950',
           _hover: 'secondary.800',
           _focusVisible: 'secondary.800',
         }}
