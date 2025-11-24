@@ -44,7 +44,7 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
           _focusVisible: 'gray.800',
         }}
         _hover={{
-          bg: 'gray.900'
+          bg: 'gray.900',
         }}
         lineHeight={1}
         justifyContent="center"
@@ -57,7 +57,7 @@ export const HeaderMenuButton: React.FC<Props> = (props) => {
         }}
         aria-label={ariaLabel}
       >
-        <Icon w={6} height={6} as={isOpen ? closeIcon : icon} color="white"/>
+        <Icon w={6} height={6} as={isOpen ? closeIcon : icon} color="white" />
       </Button>
     </Menu.Trigger>
   )
