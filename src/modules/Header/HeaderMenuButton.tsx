@@ -24,33 +24,32 @@ type Props = {
   'aria-label': string
 }
 
-const OPEN_MARGIN_IN_PIXEL = 4
 const BORDER_WIDTH_IN_PIXEL = 2
-const MAX_CONTAINER_SIZE_IN_PIXEL = 56
+const MAX_CONTAINER_SIZE_IN_PIXEL = 48
 
 export const HeaderMenuButton: React.FC<Props> = (props) => {
   const { 'aria-label': ariaLabel, icon, closeIcon = XIcon } = props
   const { isOpen } = useContext(HeaderMenuContext)
 
-  const containerSize = isOpen
-    ? MAX_CONTAINER_SIZE_IN_PIXEL - OPEN_MARGIN_IN_PIXEL * 2 - BORDER_WIDTH_IN_PIXEL
-    : MAX_CONTAINER_SIZE_IN_PIXEL - BORDER_WIDTH_IN_PIXEL
+  const containerSize = MAX_CONTAINER_SIZE_IN_PIXEL - BORDER_WIDTH_IN_PIXEL
 
   return (
     <Menu.Trigger asChild>
       <Button
         bg={{
-          base: 'black',
-          _hover: 'secondary.800',
-          _focusVisible: 'secondary.800',
+          base: 'transparent',
+          _focusVisible: 'gray.800',
+        }}
+        _hover={{
+          bg: 'gray.900',
         }}
         lineHeight={1}
         justifyContent="center"
-        border={`${BORDER_WIDTH_IN_PIXEL}px solid ${isOpen ? '{colors.secondary.400}' : 'transparent'}`}
+        border={`${BORDER_WIDTH_IN_PIXEL}px solid ${isOpen ? '{colors.gray.400}' : 'transparent'}`}
         style={{
           width: containerSize,
           height: containerSize,
-          margin: isOpen ? `${OPEN_MARGIN_IN_PIXEL}px` : '0px',
+          margin: '0px',
           borderRadius: '2px',
         }}
         aria-label={ariaLabel}

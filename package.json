@@ -1,6 +1,6 @@
 {
   "name": "@hivemq/ui-library",
-  "version": "2.0.0-rc.9",
+  "version": "2.0.0-rc.10",
   "type": "module",
   "main": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
