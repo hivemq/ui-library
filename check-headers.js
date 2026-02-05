@@ -25,7 +25,7 @@ const __dirname = path.dirname(__filename)
 const regexToIgnore = [
   /^\./, // ignore all files and directories starting with '.'
   /__image_snapshots__/,
-  /^(node_modules|public|docs|dist)/, // ignore common directories
+  /^(node_modules|public|docs|dist|storybook-static|test-results)/, // ignore common directories
   /^(LICENSE|HEADER)$/,
   /^vite\./,
   /^tsconfig\./,
