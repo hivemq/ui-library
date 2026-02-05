@@ -7,6 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 .history
+.DS_Store
 
 # Tasks with Claude
 .tasks
