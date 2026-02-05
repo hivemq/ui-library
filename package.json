@@ -13,7 +13,8 @@
     "dist"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=20",
+    "pnpm": ">=9"
   },
   "scripts": {
     "dev": "pnpm storybook",
