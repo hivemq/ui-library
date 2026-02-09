@@ -2,7 +2,7 @@
   "name": "@hivemq/ui-library",
   "version": "2.0.0-rc.11",
   "type": "module",
-  "main": "./dist/index.es.js",
+  "main": "./index.ts",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "types": "./dist/index.d.ts",
