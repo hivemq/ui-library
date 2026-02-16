@@ -90,6 +90,7 @@ export function ShellRoot({
         gridTemplateRows="55px 1fr"
         gridTemplateAreas={gridTemplateAreas}
         position="relative"
+        h="100vh"
       >
         {children}
 
