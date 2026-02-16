@@ -95,7 +95,6 @@ export function ShellRoot({
         templateColumns={gridTemplateColumns}
         gridTemplateRows="55px 1fr"
         gridTemplateAreas={gridTemplateAreas}
-        h="100vh"
         position="relative"
         background="shell.bg"
       >
