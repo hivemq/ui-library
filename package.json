@@ -8,10 +8,7 @@
     "types": "./dist/index.d.ts",
     "module": "./dist/index.es.js"
   },
-  "license": "Apache-2.0",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"
