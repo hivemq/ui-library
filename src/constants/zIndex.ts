@@ -17,5 +17,5 @@ limitations under the License.
 export const Z_INDEX = {
   HEADER: 1000,
   BACKDROP: 900,
-  SIDEBAR: 800,
+  SIDEBAR: 950,
 } as const

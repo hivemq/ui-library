@@ -14,26 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { MenuItem, type MenuItemProps, forwardRef } from '@chakra-ui/react'
+import { Box, type BoxProps, Menu } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
-export type HeaderMenuContentItemProps = MenuItemProps & {}
+export type HeaderMenuContentItemProps = BoxProps & {
+  ariaLabel: string
+}
 
-export const HeaderMenuContentItem = forwardRef<HeaderMenuContentItemProps, 'button'>(
-  ({ children, ...props }, ref) => {
+export const HeaderMenuContentItem = forwardRef<HTMLDivElement, HeaderMenuContentItemProps>(
+  ({ ariaLabel, ...props }, ref) => {
     return (
-      <MenuItem
-        backgroundColor="black"
-        _hover={{
-          backgroundColor: 'neutrals.800',
-        }}
-        _focusVisible={{
-          backgroundColor: 'neutrals.800',
-        }}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </MenuItem>
+      <Menu.Item asChild value="missing">
+        <Box
+          backgroundColor="black"
+          _hover={{
+            backgroundColor: 'secondary.emphasized',
+          }}
+          _focusVisible={{
+            backgroundColor: 'secondary.emphasized',
+          }}
+          color="white"
+          cursor="pointer"
+          aria-label={ariaLabel}
+          ref={ref}
+          {...props}
+        />
+      </Menu.Item>
     )
   },
 )

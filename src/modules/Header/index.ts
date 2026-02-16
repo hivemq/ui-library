@@ -27,15 +27,11 @@ import { HeaderSidebarToggle } from './HeaderSidebarToggle'
 
 // ?TODO: Remove deprecated items in the next version
 
-export type { HeaderRootProps } from './HeaderRoot'
-export type { HeaderDividerProps } from './HeaderDivider'
 export type { HeaderLogoProps } from './HeaderLogo'
 export type { HeaderMenuProps } from './HeaderMenu'
-export type { HeaderMenuButtonProps } from './HeaderMenuButton'
-export type { HeaderMenuContentProps } from './HeaderMenuContent'
 export type { HeaderMenuContentDetailsProps } from './HeaderMenuContentDetails'
-export type { HeaderMenuContentItemProps } from './HeaderMenuContentItem'
 export type { HeaderNavigationItemProps } from './HeaderNavigationItem'
+export type { HeaderRootProps } from './HeaderRoot'
 export type { HeaderSidebarToggleProps } from './HeaderSidebarToggle'
 
 export const Header = {

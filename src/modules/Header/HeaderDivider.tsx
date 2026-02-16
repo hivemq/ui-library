@@ -14,19 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Divider, type DividerProps } from '@chakra-ui/react'
+import { Box, type BoxProps } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
-export type HeaderDividerProps = DividerProps & {}
-
-export function HeaderDivider({ ...props }: HeaderDividerProps) {
-  return (
-    <Divider
-      orientation="vertical"
-      height="auto"
-      borderLeft="2px solid"
-      borderColor="neutrals.700"
-      margin={4}
-      {...props}
-    />
-  )
-}
+export const HeaderDivider = forwardRef<HTMLDivElement, BoxProps>(
+  function HeaderDivider(props, ref) {
+    return (
+      <Box
+        height="30px"
+        borderLeft="2px solid"
+        borderColor="secondary.700"
+        margin={4}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)

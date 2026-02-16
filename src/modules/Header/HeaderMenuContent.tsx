@@ -14,29 +14,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { MenuList, type MenuListProps, useMenuContext } from '@chakra-ui/react'
+import { Menu, type MenuContentProps } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
-export type HeaderMenuContentProps = MenuListProps & {
-  children?: React.ReactNode
-}
-
-export function HeaderMenuContent({ children, ...props }: HeaderMenuContentProps) {
-  const context = useMenuContext()
-
-  return (
-    context.isOpen && (
-      <MenuList
-        backgroundColor="black"
-        color="white"
-        border="none"
-        boxShadow="lg"
-        borderRadius="4px"
-        minW="320px"
-        textAlign="left"
-        {...props}
-      >
-        {children}
-      </MenuList>
+export const HeaderMenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
+  function MenuContent(props, ref) {
+    return (
+      <Menu.Positioner>
+        <Menu.Content
+          backgroundColor="black"
+          color="white"
+          border="none"
+          boxShadow="lg"
+          borderRadius="4px"
+          minW="320px"
+          textAlign="left"
+          ref={ref}
+          {...props}
+        />
+      </Menu.Positioner>
     )
-  )
-}
+  },
+)

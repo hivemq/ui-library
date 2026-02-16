@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 import { GridItem, type GridItemProps } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
 export type ContentRootProps = GridItemProps & {
   children: React.ReactNode
@@ -22,14 +23,20 @@ export type ContentRootProps = GridItemProps & {
 }
 
 // TODO: apply responsive styles
-export function ContentRoot({
-  children,
-  canOverflowXScroll: overflowX,
-  ...props
-}: ContentRootProps) {
-  return (
-    <GridItem overflowX={overflowX ? 'scroll' : 'hidden'} gridArea="content" p={8} {...props}>
-      {children}
-    </GridItem>
-  )
-}
+export const ContentRoot = forwardRef<HTMLDivElement, ContentRootProps>(
+  ({ children, canOverflowXScroll: overflowX, ...props }, ref) => {
+    return (
+      <GridItem
+        ref={ref}
+        overflowX={overflowX ? 'scroll' : 'hidden'}
+        gridArea="content"
+        p={8}
+        {...props}
+      >
+        {children}
+      </GridItem>
+    )
+  },
+)
+
+ContentRoot.displayName = 'ContentRoot'

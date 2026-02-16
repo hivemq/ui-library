@@ -14,12 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 // @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from '@/assets/hivemq-neg.svg?component'
+import Logo from '~/assets/hivemq-neg.svg?component'
 
-import { Content, Header, Shell, Sidebar } from '@/lib'
+import { Content } from '../Content'
+import { Header } from '../Header'
+import { Shell } from '../Shell'
+import { Sidebar } from '../Sidebar'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {

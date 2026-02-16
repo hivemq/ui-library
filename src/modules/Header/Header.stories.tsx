@@ -14,16 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import type { Meta, StoryObj } from '@storybook/react'
-
-// @ts-expect-error - Typescript doesn't how to import svgs yet
-import Logo from '@/assets/hivemq-neg.svg?component'
+import { Box } from '@chakra-ui/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { InfoIcon, UserIcon } from 'lucide-react'
-
-import { Box } from '@chakra-ui/react'
-
-import { Content, Header, Shell, Sidebar } from '@/lib'
+// @ts-expect-error - Typescript doesn't how to import svgs yet
+import Logo from '~/assets/hivemq-neg.svg?component'
+import { Content } from '../Content'
+import { Header } from '../Header'
+import { Shell } from '../Shell'
+import { Sidebar } from '../Sidebar'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -59,16 +59,16 @@ export const WithSidebarNavigationToggle: Story = {
                   <br />
                   Welcome back!
                 </Header.MenuContentDetails>
-                <Header.MenuContentItem>Account</Header.MenuContentItem>
-                <Header.MenuContentItem>Billing</Header.MenuContentItem>
-                <Header.MenuContentItem>Logout</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Account">Account</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Billing">Billing</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Logout">Logout</Header.MenuContentItem>
               </Header.MenuContent>
             </Header.Menu>
             <Header.Menu overlayId="other">
               <Header.MenuButton icon={InfoIcon} aria-label="Support" />
               <Header.MenuContent>
                 <Header.MenuContentDetails>Hi, How can we help you? 💁‍♀️</Header.MenuContentDetails>
-                <Header.MenuContentItem>Test</Header.MenuContentItem>
+                <Header.MenuContentItem ariaLabel="Test">Test</Header.MenuContentItem>
               </Header.MenuContent>
             </Header.Menu>
           </Box>

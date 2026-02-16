@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Shell } from '@/lib'
+import { Shell } from '~/modules/Shell'
 import { FullDemo } from './cookbook/FullDemo'
 
 function Empty({ children }: { children: React.ReactNode }) {
@@ -22,7 +22,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-// @ts-ignore
+// @ts-expect-error
 export const Primary: Story = {
   name: 'Full Interactive',
   decorators: [

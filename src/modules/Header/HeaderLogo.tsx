@@ -14,7 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Box, type BoxProps, Image, Text, forwardRef } from '@chakra-ui/react'
+import { Box, type BoxProps, Image, Text } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
 export type HeaderLogoProps = BoxProps & {
   /**
@@ -33,13 +34,11 @@ export type HeaderLogoProps = BoxProps & {
 
 /**
  * HeaderLogo component
- * Second parameter of the forwardRef generic has to be of the component bound to `as` prop
  */
-export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
-  ({ children, src, alt, title, showHiveMQText = true, as = 'button', ...props }, ref) => {
+export const HeaderLogo = forwardRef<HTMLDivElement, HeaderLogoProps>(
+  ({ children, src, alt, title, showHiveMQText = true, ...props }, ref) => {
     return (
       <Box
-        type="button"
         title={title}
         display="flex"
         alignItems="center"
@@ -48,20 +47,20 @@ export const HeaderLogo = forwardRef<HeaderLogoProps, 'button'>(
         pl={2}
         pr={4}
         _hover={{
-          backgroundColor: 'neutrals.800',
+          backgroundColor: 'secondary.800',
         }}
-        as={as}
-        ref={ref}
         {...props}
+        ref={ref}
       >
         <Image src={src} alt={alt} />
         {showHiveMQText && (
-          <Text as="span" color="white" fontWeight={700} fontSize="1.2rem">
+          <Text as="span" color="white" fontSize="1.2rem">
             HiveMQ
           </Text>
         )}
         <Text as="span" color="white" fontWeight={700} fontSize="1.2rem">
           {title}
+          {children}
         </Text>
       </Box>
     )

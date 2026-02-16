@@ -13,49 +13,49 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-import { Icon, MenuButton, forwardRef, useMenuContext } from '@chakra-ui/react'
+import { Button, Icon, Menu } from '@chakra-ui/react'
 import { type LucideIcon, XIcon } from 'lucide-react'
+import { useContext } from 'react'
+import { HeaderMenuContext } from './HeaderMenu'
 
-export type HeaderMenuButtonProps = {
+type Props = {
   icon: LucideIcon
   closeIcon?: LucideIcon
   'aria-label': string
 }
 
-const OPEN_MARGIN_IN_PIXEL = 4
 const BORDER_WIDTH_IN_PIXEL = 2
-const MAX_CONTAINER_SIZE_IN_PIXEL = 56
+const MAX_CONTAINER_SIZE_IN_PIXEL = 48
 
-export const HeaderMenuButton = forwardRef<HeaderMenuButtonProps, 'button'>((props, ref) => {
-  const { 'aria-label': _ariaLabel, as, icon, closeIcon = XIcon } = props
-  const { isOpen } = useMenuContext()
+export const HeaderMenuButton: React.FC<Props> = (props) => {
+  const { 'aria-label': ariaLabel, icon, closeIcon = XIcon } = props
+  const { isOpen } = useContext(HeaderMenuContext)
 
-  const containerSize = isOpen
-    ? MAX_CONTAINER_SIZE_IN_PIXEL - OPEN_MARGIN_IN_PIXEL * 2 - BORDER_WIDTH_IN_PIXEL
-    : MAX_CONTAINER_SIZE_IN_PIXEL - BORDER_WIDTH_IN_PIXEL
+  const containerSize = MAX_CONTAINER_SIZE_IN_PIXEL - BORDER_WIDTH_IN_PIXEL
 
   return (
-    <MenuButton
-      _hover={{
-        backgroundColor: 'neutrals.800',
-      }}
-      _focusVisible={{
-        backgroundColor: 'neutrals.800',
-      }}
-      lineHeight={1}
-      sx={{
-        width: containerSize,
-        height: containerSize,
-        border: `${BORDER_WIDTH_IN_PIXEL}px solid`,
-        borderColor: isOpen ? 'neutrals.400' : 'transparent',
-        margin: isOpen ? `${OPEN_MARGIN_IN_PIXEL}px` : '0px',
-        borderRadius: '2px',
-      }}
-      as={as}
-      ref={ref}
-      {...props}
-    >
-      <Icon w={6} height={6} as={isOpen ? closeIcon : icon} color="white" />
-    </MenuButton>
+    <Menu.Trigger asChild>
+      <Button
+        bg={{
+          base: 'transparent',
+          _focusVisible: 'gray.800',
+        }}
+        _hover={{
+          bg: 'gray.900',
+        }}
+        lineHeight={1}
+        justifyContent="center"
+        border={`${BORDER_WIDTH_IN_PIXEL}px solid ${isOpen ? '{colors.gray.400}' : 'transparent'}`}
+        style={{
+          width: containerSize,
+          height: containerSize,
+          margin: '0px',
+          borderRadius: '2px',
+        }}
+        aria-label={ariaLabel}
+      >
+        <Icon w={6} height={6} as={isOpen ? closeIcon : icon} color="white" />
+      </Button>
+    </Menu.Trigger>
   )
-})
+}

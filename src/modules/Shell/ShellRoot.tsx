@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { Box, Grid } from '@chakra-ui/react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Z_INDEX } from '../../constants/zIndex'
 import { ShellContext } from '../../context/ShellContext'
 
@@ -49,6 +49,17 @@ export function ShellRoot({
 }: ShellRootProps) {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(isSidebarOpenDefault)
   const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(undefined)
+  const [showBackdrop, setShowBackdrop] = useState<string | undefined>(undefined)
+  useEffect(() => {
+    if (openedOverlayId) {
+      setShowBackdrop(openedOverlayId)
+    } else {
+      const timer = setTimeout(() => {
+        setShowBackdrop(undefined)
+      }, 250)
+      return () => clearTimeout(timer)
+    }
+  }, [openedOverlayId])
 
   const gridTemplateAreas = useMemo(() => {
     if (isSidebarOpen) {
@@ -64,10 +75,6 @@ export function ShellRoot({
     `
   }, [isSidebarOpen])
 
-  const showBackdrop = useMemo(() => {
-    return !!openedOverlayId
-  }, [openedOverlayId])
-
   const gridTemplateColumns = useMemo(() => {
     if (isSidebarOpen) {
       return `${sidebarWidth} 1fr`
@@ -81,7 +88,6 @@ export function ShellRoot({
       value={{
         isSidebarOpen,
         setSidebarOpen,
-        openedOverlayId,
         setOpenedOverlayId,
       }}
     >
@@ -90,7 +96,7 @@ export function ShellRoot({
         gridTemplateRows="55px 1fr"
         gridTemplateAreas={gridTemplateAreas}
         position="relative"
-        h="100vh"
+        background="shell.bg"
       >
         {children}
 
@@ -101,7 +107,7 @@ export function ShellRoot({
             left="0"
             width="100%"
             height="100%"
-            backgroundColor="#745d02"
+            backgroundColor="secondary.700"
             opacity={0.6}
             zIndex={Z_INDEX.BACKDROP}
           />

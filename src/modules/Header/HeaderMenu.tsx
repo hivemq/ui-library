@@ -15,9 +15,16 @@ limitations under the License.
 */
 
 import { Menu } from '@chakra-ui/react'
+import { createContext, useState } from 'react'
+import { useShellContext } from '../../context/ShellContext'
 
-import { useContext, useMemo } from 'react'
-import { ShellContext } from '../../context/ShellContext'
+type ProviderValue = {
+  isOpen: boolean
+}
+
+export const HeaderMenuContext = createContext<ProviderValue>({
+  isOpen: false,
+})
 
 export type HeaderMenuProps = {
   /**
@@ -27,22 +34,25 @@ export type HeaderMenuProps = {
 }
 
 export function HeaderMenu({ children, overlayId }: React.PropsWithChildren<HeaderMenuProps>) {
-  const context = useContext(ShellContext)
-
-  const isOpen = useMemo(() => {
-    return context.openedOverlayId === overlayId
-  }, [context.openedOverlayId, overlayId])
+  const { setOpenedOverlayId } = useShellContext()
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Menu
-      isLazy
-      isOpen={isOpen}
-      onOpen={() => context.setOpenedOverlayId?.(overlayId)}
-      onClose={() => context.setOpenedOverlayId?.(undefined)}
-      offset={[0, 6]}
-      placement="bottom-end"
+    <HeaderMenuContext.Provider
+      value={{
+        isOpen,
+      }}
     >
-      {children}
-    </Menu>
+      <Menu.Root
+        positioning={{ placement: 'bottom-end' }}
+        onOpenChange={(details) => {
+          setIsOpen(details.open)
+          setOpenedOverlayId(details.open ? 'toolbar' : '')
+        }}
+        aria-label={overlayId}
+      >
+        {children}
+      </Menu.Root>
+    </HeaderMenuContext.Provider>
   )
 }

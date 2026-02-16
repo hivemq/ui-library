@@ -14,14 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { List, type ListProps } from '@chakra-ui/react'
+import { List } from '@chakra-ui/react'
+import { forwardRef } from 'react'
 
-export type SidebarListProps = ListProps & {}
-
-export function SidebarList({ children, ...props }: SidebarListProps) {
-  return (
-    <List width="100%" {...props}>
-      {children}
-    </List>
-  )
-}
+export const SidebarList = forwardRef<HTMLUListElement, List.RootProps>(
+  function SidebarList(props, ref) {
+    return <List.Root width="100%" {...props} ref={ref} />
+  },
+)

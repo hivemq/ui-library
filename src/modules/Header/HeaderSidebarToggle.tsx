@@ -29,14 +29,14 @@ export function HeaderSidebarToggle({ onClick, ...props }: HeaderSidebarTogglePr
   return (
     <Box
       _hover={{
-        backgroundColor: 'neutrals.800',
+        backgroundColor: 'secondary.800',
       }}
       _focusVisible={{
-        backgroundColor: 'neutrals.800',
+        backgroundColor: 'secondary.800',
       }}
-      type="button"
+      cursor="pointer"
       as="button"
-      sx={{
+      style={{
         width: '55px',
         height: '55px',
       }}
