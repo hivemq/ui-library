@@ -24,15 +24,9 @@ export type ContentRootProps = GridItemProps & {
 
 // TODO: apply responsive styles
 export const ContentRoot = forwardRef<HTMLDivElement, ContentRootProps>(
-  ({ children, canOverflowXScroll: overflowX, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <GridItem
-        ref={ref}
-        overflowX={overflowX ? 'scroll' : 'hidden'}
-        gridArea="content"
-        p={8}
-        {...props}
-      >
+      <GridItem ref={ref} gridArea="content" p={8} {...props}>
         {children}
       </GridItem>
     )
