@@ -97,6 +97,8 @@ export function ShellRoot({
         gridTemplateAreas={gridTemplateAreas}
         position="relative"
         background="shell.bg"
+        h={'100vh'}
+        overflow={'auto'}
       >
         {children}
 

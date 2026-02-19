@@ -1,6 +1,6 @@
 {
   "name": "@hivemq/ui-library",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
   "main": "./index.ts",
   "types": "./dist/index.d.ts",
@@ -8,7 +8,9 @@
     "types": "./dist/index.d.ts",
     "module": "./dist/index.es.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"
