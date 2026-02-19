@@ -19,7 +19,6 @@ import { forwardRef } from 'react'
 
 export type ContentRootProps = GridItemProps & {
   children: React.ReactNode
-  canOverflowXScroll?: boolean
 }
 
 // TODO: apply responsive styles
