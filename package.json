@@ -1,6 +1,6 @@
 {
   "name": "@hivemq/ui-library",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "type": "module",
   "main": "./index.ts",
   "types": "./dist/index.d.ts",
@@ -61,7 +61,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "@vitest/coverage-v8": "^4.0.8",
     "autoprefixer": "^10.4.22",
-    "lucide-react": "^0.553.0",
+    "lucide-react": "^0.577.0",
     "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
