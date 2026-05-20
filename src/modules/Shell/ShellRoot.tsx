@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Box, Grid } from '@chakra-ui/react'
+import { Box, Grid, type GridProps } from '@chakra-ui/react'
 import { useEffect, useMemo, useState } from 'react'
 import { Z_INDEX } from '../../constants/zIndex'
 import { ShellContext } from '../../context/ShellContext'
@@ -28,7 +28,7 @@ export type ShellContainerProps = {
   isSidebarOpen?: boolean
 }
 
-export type ShellRootProps = {
+export type ShellRootProps = Omit<GridProps, 'children'> & {
   children: React.ReactNode
   /**
    * Define whenever the sidebar should be open by default
@@ -46,6 +46,7 @@ export function ShellRoot({
   children,
   isSidebarOpen: isSidebarOpenDefault = true,
   sidebarWidth = '290px',
+  ...rest
 }: ShellRootProps) {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(isSidebarOpenDefault)
   const [openedOverlayId, setOpenedOverlayId] = useState<string | undefined>(undefined)
@@ -99,6 +100,7 @@ export function ShellRoot({
         background="shell.bg"
         h={'100vh'}
         overflow={'auto'}
+        {...rest}
       >
         {children}
 
