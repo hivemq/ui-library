@@ -23,7 +23,11 @@ export function SidebarSeparator() {
       mb={2}
       width="auto"
       height="1px"
-      // textTransform="uppercase"
+      // Defend the 1px line against flex-shrink — when the sidebar is the
+      // scroll container (`overflow-y: auto` on a flex column), default
+      // `flex-shrink: 1` collapses a 1px child to 0px and the divider
+      // visually disappears.
+      flexShrink={0}
       bg="shell.subtle"
     />
   )
