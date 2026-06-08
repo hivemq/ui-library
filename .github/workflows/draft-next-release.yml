@@ -1,7 +1,5 @@
 # Setup release drafter to automatically generate drafts for release candidates
 # with the right labels and version
-# Release drafter version: v5.24.0 - https://github.com/release-drafter/release-drafter/commits/v5.24.0
-# Pinned action to the top commit - https://github.com/release-drafter/release-drafter/commit/65c5fb495d1e69aa8c08a3317bc44ff8aabe9772
 
 name: ✍️ Release Drafter
 
@@ -25,7 +23,7 @@ jobs:
         with:
           GH_NPM_TOKEN: ${{ secrets.GH_NPM_TOKEN }}
 
-      - uses: release-drafter/release-drafter@65c5fb495d1e69aa8c08a3317bc44ff8aabe9772
+      - uses: release-drafter/release-drafter@693d20e7c1ce1a81d3a41962f85914253b518449 # v7
         id: releaseDrafter
         with:
           config-name: configs/draft-release.yml
