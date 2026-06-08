@@ -20,6 +20,8 @@ jobs:
         with:
           GH_NPM_TOKEN: ${{ secrets.GH_NPM_TOKEN }}
 
+      - run: pnpm version ${{ github.event.release.tag_name }} --git-tag-version=false --allow-same-version
+
       - run: pnpm build
 
       - run: pnpm publish --no-git-checks
