@@ -17,7 +17,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - uses: ./.github/actions/setup
         with:
@@ -32,7 +32,7 @@ jobs:
 
       - run: pnpm version ${{ steps.releaseDrafter.outputs.resolved_version }} --git-tag-version=false --allow-same-version
 
-      - uses: EndBug/add-and-commit@v9
+      - uses: EndBug/add-and-commit@290ea2c423ad77ca9c62ae0f5b224379612c0321 # v10
         with:
           message: "chore: bump version ${{ steps.releaseDrafter.outputs.resolved_version }}"
           new_branch: chore/version-bump
