@@ -31,7 +31,7 @@ export function SidebarGroup({ Title, children, ...props }: SidebarGroupProps) {
         mb={1}
         fontWeight={500}
         textTransform="uppercase"
-        color="shell.group"
+        color="content.tertiary"
         fontSize="sm"
       >
         {Title}

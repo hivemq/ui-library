@@ -39,9 +39,14 @@ export const SidebarListItem = forwardRef<HTMLLIElement, SidebarListItemProps>(
           borderLeft="6px solid"
           borderColor={isActive ? 'brand.solid' : 'transparent'}
           backgroundColor={{
-            base: isActive ? 'shell.subtle' : undefined,
-            _hover: 'shell.muted',
-            _focusVisible: 'shell.muted',
+            base: isActive ? 'secondary.muted' : undefined,
+            _hover: 'secondary.subtle',
+            _focusVisible: 'secondary.subtle',
+            _dark: {
+              base: isActive ? 'secondary.emphasized' : undefined,
+              _hover: 'secondary.muted',
+              _focusVisible: 'secondary.muted',
+            },
           }}
           cursor="pointer"
           ref={ref}
