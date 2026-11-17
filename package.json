@@ -46,7 +46,7 @@
     "@emotion/react": "^11.14.0",
     "@fontsource/raleway": "^5.2.8",
     "@fontsource/roboto": "^5.2.8",
-    "@hivemq/ui-theme": "1.4.0",
+    "@hivemq/ui-theme": "1.4.5",
     "@radix-ui/react-slot": "^1.2.4",
     "@storybook/addon-a11y": "^10.0.7",
     "@storybook/addon-docs": "^10.0.7",
