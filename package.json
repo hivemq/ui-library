@@ -76,7 +76,6 @@
   "peerDependencies": {
     "@chakra-ui/react": "^3.31.0",
     "@emotion/react": "^11.14.0",
-    "@hivemq/ui-theme": ">=1.4.5",
     "react": ">=19.2.0",
     "react-dom": ">=19.2.0"
   },
