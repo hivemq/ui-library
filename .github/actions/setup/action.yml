@@ -30,3 +30,7 @@ runs:
       run: pnpm install --frozen-lockfile
       env:
         GH_NPM_TOKEN: ${{ inputs.GH_NPM_TOKEN }}
+        # pnpm no longer expands env variables in registry credentials from the
+        # project .npmrc, so auth comes from the user-level .npmrc written by
+        # actions/setup-node, which reads NODE_AUTH_TOKEN.
+        NODE_AUTH_TOKEN: ${{ inputs.GH_NPM_TOKEN }}

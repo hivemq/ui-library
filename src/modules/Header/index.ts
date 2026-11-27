@@ -19,6 +19,7 @@ import { HeaderLogo } from './HeaderLogo'
 import { HeaderMenu } from './HeaderMenu'
 import { HeaderMenuButton } from './HeaderMenuButton'
 import { HeaderMenuContent } from './HeaderMenuContent'
+import { HeaderMenuContentColorMode } from './HeaderMenuContentColorMode'
 import { HeaderMenuContentDetails } from './HeaderMenuContentDetails'
 import { HeaderMenuContentItem } from './HeaderMenuContentItem'
 import { HeaderNavigationItem } from './HeaderNavigationItem'
@@ -29,6 +30,10 @@ import { HeaderSidebarToggle } from './HeaderSidebarToggle'
 
 export type { HeaderLogoProps } from './HeaderLogo'
 export type { HeaderMenuProps } from './HeaderMenu'
+export type {
+  HeaderColorMode,
+  HeaderMenuContentColorModeProps,
+} from './HeaderMenuContentColorMode'
 export type { HeaderMenuContentDetailsProps } from './HeaderMenuContentDetails'
 export type { HeaderNavigationItemProps } from './HeaderNavigationItem'
 export type { HeaderRootProps } from './HeaderRoot'
@@ -97,6 +102,16 @@ export const Header = {
    * @requires `Header.MenuContent` - As the parent element that provides the layout / context for the `Header.MenuContentDetails`
    */
   MenuContentItem: HeaderMenuContentItem,
+
+  /**
+   * Render the colour mode setting in the menu: a light and a dark button. Pressing one selects
+   * that mode; pressing the active one again releases it, which means "follow the system".
+   * The application owns the colour mode: pass the current value and apply the new one in
+   * `onColorModeChange`. To switch the feature off, do not render it.
+   *
+   * @requires `Header.MenuContent` - As the parent element that provides the layout / context for the `Header.MenuContentColorMode`
+   */
+  MenuContentColorMode: HeaderMenuContentColorMode,
 
   /**
    * Render a sidebar toggle that handle showing and hiding of the sidebar menu

@@ -24,6 +24,8 @@ export type SidebarListItemProps = BoxProps & {
   isActive?: boolean
 }
 
+const activeBg = { base: 'secondary.muted', _dark: 'secondary.emphasized' }
+
 export const SidebarListItem = forwardRef<HTMLLIElement, SidebarListItemProps>(
   ({ children, isActive, ...props }, ref) => {
     return (
@@ -35,14 +37,25 @@ export const SidebarListItem = forwardRef<HTMLLIElement, SidebarListItemProps>(
           width="100%"
           textAlign="left"
           color="content.primary"
-          fontWeight={isActive ? 700 : undefined}
           borderLeft="6px solid"
-          borderColor={isActive ? 'brand.solid' : 'transparent'}
-          backgroundColor={{
-            base: isActive ? 'shell.subtle' : undefined,
-            _hover: 'shell.muted',
-            _focusVisible: 'shell.muted',
+          borderColor="transparent"
+          // `bg.muted` is an alpha overlay, so it reads as a hover in both modes
+          // on top of the `bg.panel` sidebar without per-mode tokens.
+          _hover={{ bg: 'bg.muted' }}
+          _focusVisible={{ bg: 'bg.muted' }}
+          // The active item is marked via `aria-current` for assistive tech and
+          // `data-current` for styling (Chakra's `_current` only matches
+          // `[data-current]`). Nesting `_hover` inside `_current` keeps the
+          // active background on hover instead of swapping to the hover overlay.
+          _current={{
+            fontWeight: 700,
+            borderColor: 'brand.solid',
+            bg: activeBg,
+            _hover: { bg: activeBg },
+            _focusVisible: { bg: activeBg },
           }}
+          aria-current={isActive ? 'page' : undefined}
+          data-current={isActive ? '' : undefined}
           cursor="pointer"
           ref={ref}
           {...props}

@@ -28,7 +28,7 @@ export function SidebarSeparator() {
       // `flex-shrink: 1` collapses a 1px child to 0px and the divider
       // visually disappears.
       flexShrink={0}
-      bg="shell.subtle"
+      bg="secondary.emphasized"
     />
   )
 }
