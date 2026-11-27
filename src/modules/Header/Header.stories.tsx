@@ -17,11 +17,12 @@ limitations under the License.
 import { Box } from '@chakra-ui/react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { InfoIcon, UserIcon } from 'lucide-react'
+import { InfoIcon, SettingsIcon, UserIcon } from 'lucide-react'
+import { useState } from 'react'
 // @ts-expect-error - Typescript doesn't how to import svgs yet
 import Logo from '~/assets/hivemq-neg.svg?component'
 import { Content } from '../Content'
-import { Header } from '../Header'
+import { Header, type HeaderColorMode } from '../Header'
 import { Shell } from '../Shell'
 import { Sidebar } from '../Sidebar'
 
@@ -79,6 +80,61 @@ export const WithSidebarNavigationToggle: Story = {
         </Sidebar.Root>
 
         <Content.Root>Hello World 🌍</Content.Root>
+      </Shell.Root>
+    )
+  },
+}
+
+function ColorModeMenu() {
+  // The application owns the colour mode. Here it is applied the way Chakra expects it:
+  // as a `dark` class on the root element. `system` follows the operating system.
+  const [colorMode, setColorMode] = useState<HeaderColorMode>('system')
+
+  return (
+    <Header.Menu overlayId="settings">
+      <Header.MenuButton icon={SettingsIcon} aria-label="Settings" />
+      <Header.MenuContent>
+        <Header.MenuContentDetails textAlign="center">Settings</Header.MenuContentDetails>
+        <Header.MenuContentColorMode
+          colorMode={colorMode}
+          onColorModeChange={(next) => {
+            const isOsDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+            const isDark = next === 'system' ? isOsDark : next === 'dark'
+            document.documentElement.classList.toggle('dark', isDark)
+            setColorMode(next)
+          }}
+          lightLabel="Light theme"
+          darkLabel="Dark theme"
+        >
+          Theme
+        </Header.MenuContentColorMode>
+        <Header.MenuContentItem ariaLabel="Version">Version 1.0.0</Header.MenuContentItem>
+      </Header.MenuContent>
+    </Header.Menu>
+  )
+}
+
+export const WithColorModeToggle: Story = {
+  render() {
+    return (
+      <Shell.Root>
+        <Header.Root>
+          <Header.SidebarToggle />
+          <Header.Logo src={Logo} alt="HiveMQ Logo" title="Control Center" />
+          <Header.Divider />
+          <Box alignSelf="end">
+            <ColorModeMenu />
+          </Box>
+        </Header.Root>
+
+        <Sidebar.Root>
+          <Box>Sidebar content can be place here</Box>
+        </Sidebar.Root>
+
+        <Content.Root>
+          Open the settings menu to pick light or dark. Press the active one again to follow the
+          system.
+        </Content.Root>
       </Shell.Root>
     )
   },
